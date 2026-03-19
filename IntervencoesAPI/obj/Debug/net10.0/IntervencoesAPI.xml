@@ -1,0 +1,327 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IntervencoesAPI</name>
+    </assembly>
+    <members>
+        <member name="M:IntervencoesAPI.Controllers.ClienteController.GetAll(PageParameters)">
+            <summary>
+            Gets a paginated list of clientes.
+            </summary>
+            <param name="pageParameters">Pagination parameters (page number and page size).</param>
+            <remarks>
+            Returns a paged result containing the requested page of clientes.
+            </remarks>
+            <response code="200">Clientes returned successfully.</response>
+            <response code="400">The query parameters are invalid.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.ClienteController.GetById(System.Int32)">
+            <summary>
+            Gets a cliente by identifier.
+            </summary>
+            <param name="id">The cliente identifier.</param>
+            <remarks>
+            Returns the cliente resource if found.
+            </remarks>
+            <response code="200">Cliente returned successfully.</response>
+            <response code="404">Cliente not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.ClienteController.Create(IntervencoesAPI.Dtos.CreateCliente)">
+            <summary>
+            Creates a new cliente.
+            </summary>
+            <param name="dto">The data used to create a new cliente.</param>
+            <remarks>
+            Creates a new cliente and returns the created resource with its generated identifier.
+            </remarks>
+            <response code="201">Cliente created successfully.</response>
+            <response code="400">The request data is invalid.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.ClienteController.Update(System.Int32,IntervencoesAPI.Dtos.UpdateCliente)">
+            <summary>
+            Updates an existing cliente.
+            </summary>
+            <param name="id">The cliente identifier.</param>
+            <param name="updatecliente">The data used to update the cliente.</param>
+            <remarks>
+            Updates the cliente identified by <paramref name="id"/> and returns the updated resource.
+            </remarks>
+            <response code="200">Cliente updated successfully.</response>
+            <response code="400">The request data is invalid.</response>
+            <response code="404">Cliente not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.ClienteController.Delete(System.Int32)">
+            <summary>
+            Deletes an existing cliente.
+            </summary>
+            <param name="id">The cliente identifier.</param>
+            <remarks>
+            Deletes the cliente identified by <paramref name="id"/>.
+            </remarks>
+            <response code="204">Cliente deleted successfully.</response>
+            <response code="404">Cliente not found.</response>
+        </member>
+        <member name="T:IntervencoesAPI.Controllers.EntidadeController">
+            <summary>
+            Provides endpoints to manage entidades.
+            </summary>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.EntidadeController.GetAll(PageParameters)">
+            <summary>
+            Gets a paginated list of entidades.
+            </summary>
+            <param name="pageParameters">Pagination parameters (page number and page size).</param>
+            <remarks>
+            Returns a paged result containing the requested page of entidades.
+            </remarks>
+            <response code="200">Entidades returned successfully.</response>
+            <response code="400">The query parameters are invalid.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.EntidadeController.GetById(System.Int32)">
+            <summary>
+            Gets an entidade by identifier.
+            </summary>
+            <param name="id">The entidade identifier.</param>
+            <remarks>
+            Returns the entidade resource if found.
+            </remarks>
+            <response code="200">Entidade returned successfully.</response>
+            <response code="404">Entidade not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.EntidadeController.Create(IntervencoesAPI.Dtos.CreateEntidade)">
+            <summary>
+            Creates a new entidade.
+            </summary>
+            <param name="dto">The data used to create a new entidade.</param>
+            <remarks>
+            Creates a new entidade and returns the created resource with its generated identifier.
+            </remarks>
+            <response code="201">Entidade created successfully.</response>
+            <response code="400">The request data is invalid.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.EntidadeController.Update(System.Int32,IntervencoesAPI.Dtos.EntidadeDtos.UpdateEntidade)">
+            <summary>
+            Updates an existing entidade.
+            </summary>
+            <param name="id">The entidade identifier.</param>
+            <param name="updateEntidade">The data used to update the entidade.</param>
+            <remarks>
+            Updates the entidade identified by <paramref name="id"/> and returns the updated resource.
+            </remarks>
+            <response code="200">Entidade updated successfully.</response>
+            <response code="400">The request data is invalid.</response>
+            <response code="404">Entidade not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.EntidadeController.Delete(System.Int32)">
+            <summary>
+            Deletes an existing entidade.
+            </summary>
+            <param name="id">The entidade identifier.</param>
+            <remarks>
+            Deletes the entidade identified by <paramref name="id"/>.
+            </remarks>
+            <response code="204">Entidade deleted successfully.</response>
+            <response code="404">Entidade not found.</response>
+        </member>
+        <member name="T:IntervencoesAPI.Controllers.IntervencaoController">
+            <summary>
+            Provides endpoints to manage intervencoes.
+            </summary>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.IntervencaoController.GetAll(PageParameters)">
+            <summary>
+            Gets a paginated list of intervencoes.
+            </summary>
+            <param name="pageParameters">Pagination parameters (page number and page size).</param>
+            <remarks>
+            Returns a paged result containing the requested page of intervencoes.
+            </remarks>
+            <response code="200">Intervencoes returned successfully.</response>
+            <response code="400">The query parameters are invalid.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.IntervencaoController.GetById(System.Int32)">
+            <summary>
+            Gets an intervencao by identifier.
+            </summary>
+            <param name="id">The intervencao identifier.</param>
+            <remarks>
+            Returns the intervencao resource if found.
+            </remarks>
+            <response code="200">Intervencao returned successfully.</response>
+            <response code="404">Intervencao not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.IntervencaoController.Create(IntervencoesAPI.Dtos.CreateIntervencao)">
+            <summary>
+            Creates a new intervencao.
+            </summary>
+            <param name="dto">The data used to create a new intervencao.</param>
+            <remarks>
+            Creates a new intervencao and returns the created resource with its generated identifier.
+            </remarks>
+            <response code="201">Intervencao created successfully.</response>
+            <response code="400">The request data is invalid.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.IntervencaoController.Update(System.Int32,IntervencoesAPI.Dtos.UpdateIntervencao)">
+            <summary>
+            Updates an existing intervencao.
+            </summary>
+            <param name="id">The intervencao identifier.</param>
+            <param name="updateIntervencao">The data used to update the intervencao.</param>
+            <remarks>
+            Updates the intervencao identified by <paramref name="id"/> and returns the updated resource.
+            </remarks>
+            <response code="200">Intervencao updated successfully.</response>
+            <response code="400">The request data is invalid.</response>
+            <response code="404">Intervencao not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.IntervencaoController.Delete(System.Int32)">
+            <summary>
+            Deletes an existing intervencao.
+            </summary>
+            <param name="id">The intervencao identifier.</param>
+            <remarks>
+            Deletes the intervencao identified by <paramref name="id"/>.
+            </remarks>
+            <response code="204">Intervencao deleted successfully.</response>
+            <response code="404">Intervencao not found.</response>
+        </member>
+        <member name="T:IntervencoesAPI.Controllers.ProcessoProjectoController">
+            <summary>
+            Provides endpoints to manage processos/projectos.
+            </summary>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.ProcessoProjectoController.GetAll(PageParameters)">
+            <summary>
+            Gets a paginated list of processos/projectos.
+            </summary>
+            <param name="pageParameters">Pagination parameters (page number and page size).</param>
+            <remarks>
+            Returns a paged result containing the requested page of processos/projectos.
+            </remarks>
+            <response code="200">Processos/Projectos returned successfully.</response>
+            <response code="400">The query parameters are invalid.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.ProcessoProjectoController.GetById(System.Int32)">
+            <summary>
+            Gets a processo/projecto by identifier.
+            </summary>
+            <param name="id">The processo/projecto identifier.</param>
+            <remarks>
+            Returns the processo/projecto resource if found.
+            </remarks>
+            <response code="200">Processo/Projecto returned successfully.</response>
+            <response code="404">Processo/Projecto not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.ProcessoProjectoController.Create(IntervencoesAPI.Dtos.CreateProcessoProjecto)">
+            <summary>
+            Creates a new processo/projecto.
+            </summary>
+            <param name="dto">The data used to create a new processo/projecto.</param>
+            <remarks>
+            Creates a new processo/projecto and returns the created resource with its generated identifier.
+            </remarks>
+            <response code="201">Processo/Projecto created successfully.</response>
+            <response code="400">The request data is invalid.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.ProcessoProjectoController.Update(System.Int32,IntervencoesAPI.Dtos.UpdateProcessoProjecto)">
+            <summary>
+            Updates an existing processo/projecto.
+            </summary>
+            <param name="id">The processo/projecto identifier.</param>
+            <param name="updateProcessoProjecto">The data used to update the processo/projecto.</param>
+            <remarks>
+            Updates the processo/projecto identified by <paramref name="id"/> and returns the updated resource.
+            </remarks>
+            <response code="200">Processo/Projecto updated successfully.</response>
+            <response code="400">The request data is invalid.</response>
+            <response code="404">Processo/Projecto not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.ProcessoProjectoController.Delete(System.Int32)">
+            <summary>
+            Deletes an existing processo/projecto.
+            </summary>
+            <param name="id">The processo/projecto identifier.</param>
+            <remarks>
+            Deletes the processo/projecto identified by <paramref name="id"/>.
+            </remarks>
+            <response code="204">Processo/Projecto deleted successfully.</response>
+            <response code="404">Processo/Projecto not found.</response>
+        </member>
+        <member name="T:IntervencoesAPI.Data.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:IntervencoesAPI.Data.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:IntervencoesAPI.Data.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:IntervencoesAPI.Data.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:PageParameters">
+            <summary>
+            Represents page parameters
+            </summary>
+        </member>
+        <member name="P:PageParameters.PageNumber">
+            <summary>
+            Use for page number that is passed from frontend.
+            </summary>
+        </member>
+        <member name="P:PageParameters.PageSize">
+            <summary>
+            Use for page size that is passed from frontend.
+            </summary>
+        </member>
+        <member name="T:Program">
+            <summary>
+            Auto-generated public partial Program class for top-level statement apps.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.CreateDocumentationId(System.Type)">
+            <summary>
+            Generates a documentation comment ID for a type.
+            Example: T:Namespace.Outer+Inner`1 becomes T:Namespace.Outer.Inner`1
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.CreateDocumentationId(System.Reflection.PropertyInfo)">
+            <summary>
+            Generates a documentation comment ID for a property.
+            Example: P:Namespace.ContainingType.PropertyName or for an indexer P:Namespace.ContainingType.Item(System.Int32)
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.CreateDocumentationId(System.Type,System.String)">
+            <summary>
+            Generates a documentation comment ID for a property given its container type and property name.
+            Example: P:Namespace.ContainingType.PropertyName
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.CreateDocumentationId(System.Reflection.MethodInfo)">
+            <summary>
+            Generates a documentation comment ID for a method (or constructor).
+            For example:
+              M:Namespace.ContainingType.MethodName(ParamType1,ParamType2)~ReturnType
+              M:Namespace.ContainingType.#ctor(ParamType)
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.GetTypeDocId(System.Type,System.Boolean,System.Boolean)">
+            <summary>
+            Generates a documentation ID string for a type.
+            This method handles nested types (replacing '+' with '.'),
+            generic types, arrays, pointers, by-ref types, and generic parameters.
+            The <paramref name="includeGenericArguments"/> flag controls whether
+            constructed generic type arguments are emitted, while <paramref name="omitGenericArity"/>
+            controls whether the generic arity marker (e.g. "`1") is appended.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.OpenApi.Generated.DocumentationCommentIdHelper.NormalizeDocId(System.String)">
+            <summary>
+            Normalizes a documentation comment ID to match the compiler-style format.
+            Strips the return type suffix for ordinary methods but retains it for conversion operators.
+            </summary>
+            <param name="docId">The documentation comment ID to normalize.</param>
+            <returns>The normalized documentation comment ID.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,64 @@
+2026-03-17 15:02:16.307 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-17 15:02:16.360 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-17 15:02:16.362 +00:00 [INF] Hosting environment: Development
+2026-03-17 15:02:16.363 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-17 15:02:21.425 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/ - null null
+2026-03-17 15:02:21.465 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-03-17 15:02:21.525 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/ - 500 null text/html; charset=utf-8 102.4521ms
+2026-03-17 15:02:21.736 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/favicon.ico - null null
+2026-03-17 15:02:21.739 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-03-17 15:02:21.746 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/favicon.ico - 500 null text/plain; charset=utf-8 10.7278ms
+2026-03-17 15:02:48.289 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger - null null
+2026-03-17 15:02:48.291 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-03-17 15:02:48.293 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger - 500 null text/html; charset=utf-8 4.5861ms
+2026-03-17 15:02:48.330 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/favicon.ico - null null
+2026-03-17 15:02:48.334 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-03-17 15:02:48.336 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/favicon.ico - 500 null text/plain; charset=utf-8 6.6652ms
+2026-03-17 15:02:51.552 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger - null null
+2026-03-17 15:02:51.554 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-03-17 15:02:51.555 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger - 500 null text/html; charset=utf-8 3.7508ms
+2026-03-17 15:02:51.584 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/favicon.ico - null null
+2026-03-17 15:02:51.587 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'Swashbuckle.AspNetCore.Swagger.ISwaggerProvider' while attempting to Invoke middleware 'Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware'.
+   at lambda_method1(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-03-17 15:02:51.590 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/favicon.ico - 500 null text/plain; charset=utf-8 5.7051ms
+2026-03-17 15:04:29.306 +00:00 [INF] Application is shutting down...
+2026-03-17 15:04:34.793 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-17 15:04:34.838 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-17 15:04:34.840 +00:00 [INF] Hosting environment: Development
+2026-03-17 15:04:34.841 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-17 15:04:40.580 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger - null null
+2026-03-17 15:04:40.614 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger - 301 0 null 35.3895ms
+2026-03-17 15:04:40.620 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-17 15:04:40.677 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 200 null text/html;charset=utf-8 57.2574ms
+2026-03-17 15:04:40.692 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-17 15:04:40.694 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-17 15:04:40.697 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-17 15:04:40.701 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-17 15:04:40.701 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-17 15:04:40.705 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 200 null application/javascript;charset=utf-8 3.7536ms
+2026-03-17 15:04:40.719 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 200 152 text/css 25.0346ms
+2026-03-17 15:04:40.719 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 200 26248 text/css 26.9972ms
+2026-03-17 15:04:40.731 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 200 76581 text/javascript 29.8183ms
+2026-03-17 15:04:40.731 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 200 416963 text/javascript 34.1608ms
+2026-03-17 15:04:40.958 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-17 15:04:40.967 +00:00 [INF] No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2026-03-17 15:04:40.970 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-17 15:04:40.974 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 200 628 image/png 3.6601ms
+2026-03-17 15:04:40.989 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 31.2512ms

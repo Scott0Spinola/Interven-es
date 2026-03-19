@@ -1,0 +1,31 @@
+2026-03-19 10:12:59.963 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-19 10:13:00.008 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 10:13:00.010 +00:00 [INF] Hosting environment: Development
+2026-03-19 10:13:00.011 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-19 10:13:24.287 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-19 10:13:24.511 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 227.464ms
+2026-03-19 10:13:24.520 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-19 10:13:24.520 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-19 10:13:24.520 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-19 10:13:24.520 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-19 10:13:24.520 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-19 10:13:24.535 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 14.7935ms
+2026-03-19 10:13:24.544 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 23.6946ms
+2026-03-19 10:13:24.544 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 24.9176ms
+2026-03-19 10:13:24.544 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 24.9188ms
+2026-03-19 10:13:24.549 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 28.2167ms
+2026-03-19 10:13:24.740 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-19 10:13:24.927 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 187.1239ms
+2026-03-19 10:20:29.379 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5297/api/Intervencao - application/json 1121
+2026-03-19 10:20:29.391 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-19 10:20:29.398 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.IntervencaoController.Create (IntervencoesAPI)'
+2026-03-19 10:20:29.435 +00:00 [INF] Route matched with {action = "Create", controller = "Intervencao"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Intervencao]] Create(IntervencoesAPI.Dtos.CreateIntervencao) on controller IntervencoesAPI.Controllers.IntervencaoController (IntervencoesAPI).
+2026-03-19 10:20:30.458 +00:00 [INF] Executed DbCommand (14ms) [Parameters=[@p0='?' (Size = 6), @p1='?' (DbType = Int16), @p2='?' (Size = 6), @p3='?' (Size = 6), @p4='?' (Size = 6), @p5='?' (Size = 6), @p6='?' (DbType = DateTime), @p7='?' (DbType = DateTime), @p8='?' (DbType = DateTime), @p9='?' (DbType = DateTime), @p10='?' (DbType = DateTime), @p11='?' (DbType = DateTime), @p12='?' (DbType = DateTime), @p13='?' (DbType = DateTime), @p14='?' (DbType = DateTime), @p15='?' (DbType = DateTime), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (DbType = Decimal), @p19='?' (DbType = Decimal), @p20='?' (DbType = Int32), @p21='?' (Size = 6), @p22='?' (DbType = Int32), @p23='?' (Size = 6), @p24='?' (Size = 6), @p25='?' (DbType = Decimal), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Size = 6), @p29='?' (Size = 6), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (Size = 6), @p33='?' (DbType = Int32), @p34='?' (DbType = DateTime), @p35='?' (Size = 6), @p36='?' (DbType = Decimal), @p37='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Intervencaos" ("AccaoRealizada", "Alerta", "Autor", "Codigo", "Comentarios", "Coresponsavel", "DataConclusao", "DataConfirmacao", "DataCriacao", "DataFimPrevista", "DataInicio", "DataInicioPrevista", "DataInstalacao", "DataLimite", "DataQualidade", "DataRegisto", "Descricao", "Email", "EsforcoACobrar", "EsforcoReal", "Estado", "HistoricoEstados", "IntervencaoPaiId", "MotivoAlerta", "Notas", "PrevisaoEsforco", "Prioridade", "ProcessoId", "Referencia", "Responsavel", "TarefaAgendadaId", "TarefaId", "Tema", "Tipo", "UpdateDate", "UpdateUser", "Valor", "Visibilidade")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37)
+RETURNING "Id";
+2026-03-19 10:20:30.497 +00:00 [INF] Executing CreatedAtActionResult, writing value of type 'IntervencoesAPI.Models.Intervencao'.
+2026-03-19 10:20:30.526 +00:00 [INF] Executed action IntervencoesAPI.Controllers.IntervencaoController.Create (IntervencoesAPI) in 1085.5053ms
+2026-03-19 10:20:30.529 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.IntervencaoController.Create (IntervencoesAPI)'
+2026-03-19 10:20:30.535 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/Intervencao - 201 null application/json; charset=utf-8 1155.7216ms
+2026-03-19 10:24:03.097 +00:00 [INF] Application is shutting down...
