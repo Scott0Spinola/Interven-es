@@ -79,5 +79,7 @@ namespace IntervencoesAPI.Models
         public short Alerta { get; set; }
 
         public string MotivoAlerta { get; set; } = string.Empty;
+
+        public ProcessoProjecto? ProcessoProjecto{get; set; }
     }
 }

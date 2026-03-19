@@ -18,8 +18,7 @@ public record CreateProcessoProjecto(
     [Required]
     DateTime DataPrevistaConclusao,
 
-    [Required]
-    DateTime DataConclusao,
+
 
     [Required]
     decimal EsforcoPrevisto,

@@ -3,6 +3,7 @@ using IntervencoesAPI.Models;
 using IntervencoesAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace IntervencoesAPI.Controllers;
 
@@ -14,10 +15,12 @@ namespace IntervencoesAPI.Controllers;
 public class ProcessoProjectoController : ControllerBase
 {
 	private readonly ProcessoProjectoService _processoProjectoService;
+	private readonly ILogger<ProcessoProjectoController> _logger;
 
-	public ProcessoProjectoController(ProcessoProjectoService processoProjectoService)
+	public ProcessoProjectoController(ProcessoProjectoService processoProjectoService, ILogger<ProcessoProjectoController> logger)
 	{
 		_processoProjectoService = processoProjectoService;
+		_logger = logger;
 	}
 
 	/// <summary>
@@ -36,6 +39,13 @@ public class ProcessoProjectoController : ControllerBase
 	{
 		try
 		{
+			_logger.LogInformation(
+				"CRUD {CrudOperation} {Resource} pageNumber={PageNumber} pageSize={PageSize}",
+				"Read",
+				"ProcessoProjecto",
+				pageParameters.PageNumber,
+				pageParameters.PageSize);
+
 			var paged = await _processoProjectoService.GetAllPagedAsync(pageParameters);
 			return Ok(paged);
 		}
@@ -61,6 +71,8 @@ public class ProcessoProjectoController : ControllerBase
 	{
 		try
 		{
+			_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Read", "ProcessoProjecto", id);
+
 			var processoProjecto = _processoProjectoService.GetByIdProcessoProjecto(id);
 			if (processoProjecto is null)
 			{
@@ -91,6 +103,8 @@ public class ProcessoProjectoController : ControllerBase
 	{
 		try
 		{
+			_logger.LogInformation("CRUD {CrudOperation} {Resource}", "Create", "ProcessoProjecto");
+
 			var created = await _processoProjectoService.CreateAsync(dto);
 			return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
 		}
@@ -117,6 +131,8 @@ public class ProcessoProjectoController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public async Task<ActionResult<ProcessoProjecto>> Update(int id, [FromBody] UpdateProcessoProjecto updateProcessoProjecto)
 	{
+		_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Update", "ProcessoProjecto", id);
+
 		var updated = await _processoProjectoService.UpdateAsync(id, updateProcessoProjecto);
 
 		if (updated is null)
@@ -144,6 +160,8 @@ public class ProcessoProjectoController : ControllerBase
 	{
 		try
 		{
+			_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Delete", "ProcessoProjecto", id);
+
 			var deleted = _processoProjectoService.Delete(id);
 			if (!deleted)
 			{

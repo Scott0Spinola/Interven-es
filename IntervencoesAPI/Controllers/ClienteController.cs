@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using IntervencoesAPI.Dtos;
 using IntervencoesAPI.Models;
 using IntervencoesAPI.Services;
+using Microsoft.Extensions.Logging;
 
 namespace IntervencoesAPI.Controllers;
 
@@ -11,10 +12,12 @@ namespace IntervencoesAPI.Controllers;
 public class ClienteController : ControllerBase
 {
     private readonly ClienteService _clienteService;
+    private readonly ILogger<ClienteController> _logger;
 
-    public ClienteController(ClienteService clienteService)
+    public ClienteController(ClienteService clienteService, ILogger<ClienteController> logger)
     {
         _clienteService = clienteService;
+        _logger = logger;
     }
 
     /// <summary>
@@ -33,6 +36,13 @@ public class ClienteController : ControllerBase
     {
         try
         {
+            _logger.LogInformation(
+                "CRUD {CrudOperation} {Resource} pageNumber={PageNumber} pageSize={PageSize}",
+                "Read",
+                "Cliente",
+                pageParameters.PageNumber,
+                pageParameters.PageSize);
+
             var pagedIdeas = await _clienteService.GetAllPagedAsync(pageParameters);
             return Ok(pagedIdeas);
         }
@@ -60,6 +70,8 @@ public class ClienteController : ControllerBase
     {
         try
         {
+            _logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Read", "Cliente", id);
+
             var cliente = _clienteService.GetByIdCliente(id);
             if (cliente is null)
             {
@@ -92,6 +104,8 @@ public class ClienteController : ControllerBase
     {
         try
         {
+            _logger.LogInformation("CRUD {CrudOperation} {Resource}", "Create", "Cliente");
+
             var created = await _clienteService.CreateAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
 
@@ -120,6 +134,8 @@ public class ClienteController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<Cliente>> Update(int id, [FromBody] UpdateCliente updatecliente)
     {
+        _logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Update", "Cliente", id);
+
         var updatedCliente = await _clienteService.UpdateAsync(id, updatecliente);
 
         if (updatedCliente is null)
@@ -148,6 +164,8 @@ public class ClienteController : ControllerBase
    {
         try
         {
+                        _logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Delete", "Cliente", id);
+
             var DeleteCliente = _clienteService.Delete(id);
               if (!DeleteCliente)
                 {

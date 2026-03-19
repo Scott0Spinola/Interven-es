@@ -25,5 +25,7 @@ namespace IntervencoesAPI.Models
         public string? DesignacaoComercial { get; set; }
 
         public DateTime DataActualizacao { get; set; }
+
+        public ICollection<Cliente> Clientes { get; set; } = new List<Cliente>();
     }
 }

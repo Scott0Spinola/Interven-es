@@ -4,6 +4,7 @@ using IntervencoesAPI.Models;
 using IntervencoesAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace IntervencoesAPI.Controllers;
 
@@ -15,10 +16,12 @@ namespace IntervencoesAPI.Controllers;
 public class EntidadeController : ControllerBase
 {
 	private readonly EntidadeService _entidadeService;
+	private readonly ILogger<EntidadeController> _logger;
 
-	public EntidadeController(EntidadeService entidadeService)
+	public EntidadeController(EntidadeService entidadeService, ILogger<EntidadeController> logger)
 	{
 		_entidadeService = entidadeService;
+		_logger = logger;
 	}
 
 	/// <summary>
@@ -37,6 +40,13 @@ public class EntidadeController : ControllerBase
 	{
 		try
 		{
+			_logger.LogInformation(
+				"CRUD {CrudOperation} {Resource} pageNumber={PageNumber} pageSize={PageSize}",
+				"Read",
+				"Entidade",
+				pageParameters.PageNumber,
+				pageParameters.PageSize);
+
 			var pagedEntidades = await _entidadeService.GetAllPagedAsync(pageParameters);
 			return Ok(pagedEntidades);
 		}
@@ -62,6 +72,8 @@ public class EntidadeController : ControllerBase
 	{
 		try
 		{
+			_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Read", "Entidade", id);
+
 			var entidade = _entidadeService.GetByIdEntidade(id);
 			if (entidade is null)
 			{
@@ -92,6 +104,8 @@ public class EntidadeController : ControllerBase
 	{
 		try
 		{
+			_logger.LogInformation("CRUD {CrudOperation} {Resource}", "Create", "Entidade");
+
 			var created = await _entidadeService.CreateAsync(dto);
 			return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
 		}
@@ -118,6 +132,8 @@ public class EntidadeController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public async Task<ActionResult<Entidade>> Update(int id, [FromBody] UpdateEntidade updateEntidade)
 	{
+		_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Update", "Entidade", id);
+
 		var updatedEntidade = await _entidadeService.UpdateAsync(id, updateEntidade);
 
 		if (updatedEntidade is null)
@@ -145,6 +161,8 @@ public class EntidadeController : ControllerBase
 	{
 		try
 		{
+			_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Delete", "Entidade", id);
+
 			var deleted = _entidadeService.Delete(id);
 			if (!deleted)
 			{
@@ -158,4 +176,12 @@ public class EntidadeController : ControllerBase
 			throw;
 		}
 	}
+
+
+[HttpGet("{id:int}/details")]
+public async Task<ActionResult<EntidadeDetailsDto>> GetDetails(int id)
+{
+    var dto = await _entidadeService.GetDetailsAsync(id);
+    return dto is null ? NotFound() : Ok(dto);
+}
 }

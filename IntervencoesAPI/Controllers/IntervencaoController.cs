@@ -3,6 +3,7 @@ using IntervencoesAPI.Dtos;
 using IntervencoesAPI.Models;
 using IntervencoesAPI.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 namespace IntervencoesAPI.Controllers;
 
@@ -14,10 +15,12 @@ namespace IntervencoesAPI.Controllers;
 public class IntervencaoController : ControllerBase
 {
 	private readonly IntervencaoService _intervencaoService;
+	private readonly ILogger<IntervencaoController> _logger;
 
-	public IntervencaoController(IntervencaoService intervencaoService)
+	public IntervencaoController(IntervencaoService intervencaoService, ILogger<IntervencaoController> logger)
 	{
 		_intervencaoService = intervencaoService;
+		_logger = logger;
 	}
 
 	/// <summary>
@@ -36,6 +39,13 @@ public class IntervencaoController : ControllerBase
 	{
 		try
 		{
+			_logger.LogInformation(
+				"CRUD {CrudOperation} {Resource} pageNumber={PageNumber} pageSize={PageSize}",
+				"Read",
+				"Intervencao",
+				pageParameters.PageNumber,
+				pageParameters.PageSize);
+
 			var paged = await _intervencaoService.GetAllPagedAsync(pageParameters);
 			return Ok(paged);
 		}
@@ -61,6 +71,8 @@ public class IntervencaoController : ControllerBase
 	{
 		try
 		{
+			_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Read", "Intervencao", id);
+
 			var intervencao = _intervencaoService.GetByIdIntervencao(id);
 			if (intervencao is null)
 			{
@@ -91,6 +103,8 @@ public class IntervencaoController : ControllerBase
 	{
 		try
 		{
+			_logger.LogInformation("CRUD {CrudOperation} {Resource}", "Create", "Intervencao");
+
 			var created = await _intervencaoService.CreateAsync(dto);
 			return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
 		}
@@ -117,6 +131,8 @@ public class IntervencaoController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public async Task<ActionResult<Intervencao>> Update(int id, [FromBody] UpdateIntervencao updateIntervencao)
 	{
+		_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Update", "Intervencao", id);
+
 		var updated = await _intervencaoService.UpdateAsync(id, updateIntervencao);
 
 		if (updated is null)
@@ -144,6 +160,8 @@ public class IntervencaoController : ControllerBase
 	{
 		try
 		{
+			_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Delete", "Intervencao", id);
+
 			var deleted = _intervencaoService.Delete(id);
 			if (!deleted)
 			{

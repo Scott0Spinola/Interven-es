@@ -161,3 +161,4 @@ C:\Users\spino\Desktop\Intervenções\IntervencoesAPI\obj\Debug\net10.0\Interven
 C:\Users\spino\Desktop\Intervenções\IntervencoesAPI\obj\Debug\net10.0\ref\IntervencoesAPI.dll
 C:\Users\spino\Desktop\Intervenções\IntervencoesAPI\bin\Debug\net10.0\IntervencoesAPI.xml
 C:\Users\spino\Desktop\Intervenções\IntervencoesAPI\obj\Debug\net10.0\IntervencoesAPI.xml
+C:\Users\spino\Desktop\Intervenções\IntervencoesAPI\obj\Debug\net10.0\IntervencoesAPI.sourcelink.json

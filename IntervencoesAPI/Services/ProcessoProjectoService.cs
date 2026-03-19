@@ -48,7 +48,6 @@ public class ProcessoProjectoService
 			Estado = dto.Estado,
 			DataInicio = dto.DataInicio,
 			DataPrevistaConclusao = dto.DataPrevistaConclusao,
-			DataConclusao = dto.DataConclusao,
 			EsforcoPrevisto = dto.EsforcoPrevisto,
 			EsforcoReal = dto.EsforcoReal,
 			ProcessoPaiId = dto.ProcessoPaiId,

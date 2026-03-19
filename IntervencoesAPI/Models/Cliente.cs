@@ -25,5 +25,10 @@ namespace IntervencoesAPI.Models
         public string CliCampo3 { get; set; } = string.Empty;
 
         public string CliCampo4 { get; set; } = string.Empty;
+
+
+        public Entidade? Entidade { get; set; }
+
+        public ICollection<ProcessoProjecto> ProcessoProjectos { get; set; } = new List<ProcessoProjecto>();
     }
 }

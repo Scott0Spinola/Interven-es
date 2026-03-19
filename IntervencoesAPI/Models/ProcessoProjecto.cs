@@ -37,5 +37,12 @@ namespace IntervencoesAPI.Models
         public int IdProposta { get; set; }
 
         public int IdContracto { get; set; }
+
+        public Cliente? Cliente { get; set; }
+
+
+        
+        public ICollection<Intervencao> Intervencaos { get; set; } = new List<Intervencao>();
+        
     }
 }

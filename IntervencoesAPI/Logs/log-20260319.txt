@@ -29,3 +29,1110 @@ RETURNING "Id";
 2026-03-19 10:20:30.529 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.IntervencaoController.Create (IntervencoesAPI)'
 2026-03-19 10:20:30.535 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/Intervencao - 201 null application/json; charset=utf-8 1155.7216ms
 2026-03-19 10:24:03.097 +00:00 [INF] Application is shutting down...
+2026-03-19 10:48:32.529 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-19 10:48:32.569 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 10:48:32.570 +00:00 [INF] Hosting environment: Development
+2026-03-19 10:48:32.571 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-19 10:48:39.858 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-19 10:48:39.963 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 106.7578ms
+2026-03-19 10:48:39.979 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-19 10:48:39.979 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-19 10:48:39.980 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-19 10:48:39.980 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-19 10:48:39.981 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-19 10:48:39.993 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 11.5967ms
+2026-03-19 10:48:40.000 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 20.0224ms
+2026-03-19 10:48:40.000 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 21.2604ms
+2026-03-19 10:48:40.000 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 21.2606ms
+2026-03-19 10:48:40.003 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 23.2455ms
+2026-03-19 10:48:40.201 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-19 10:48:40.211 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-19 10:48:40.214 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 3.4567ms
+2026-03-19 10:48:40.368 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 167.3003ms
+2026-03-19 10:48:47.632 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Cliente?PageNumber=1&PageSize=1 - null null
+2026-03-19 10:48:47.640 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-19 10:48:47.644 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.GetAll (IntervencoesAPI)'
+2026-03-19 10:48:47.678 +00:00 [INF] Route matched with {action = "GetAll", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Cliente]]] GetAll(PageParameters) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-19 10:48:47.816 +00:00 [INF] CRUD Read Cliente pageNumber=1 pageSize=1
+2026-03-19 10:48:48.442 +00:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Clientes" AS "c"
+2026-03-19 10:48:48.504 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[@p1='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia"
+FROM "Clientes" AS "c"
+ORDER BY "c"."Id"
+LIMIT @p1 OFFSET @p
+2026-03-19 10:48:48.513 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Cliente, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-19 10:48:48.543 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.GetAll (IntervencoesAPI) in 858.7531ms
+2026-03-19 10:48:48.545 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.GetAll (IntervencoesAPI)'
+2026-03-19 10:48:48.550 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Cliente?PageNumber=1&PageSize=1 - 200 null application/json; charset=utf-8 918.6485ms
+2026-03-19 10:52:44.518 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5297/api/Entidade - application/json 230
+2026-03-19 10:52:44.521 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.Create (IntervencoesAPI)'
+2026-03-19 10:52:44.529 +00:00 [INF] Route matched with {action = "Create", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade]] Create(IntervencoesAPI.Dtos.CreateEntidade) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 10:52:44.572 +00:00 [INF] CRUD Create Entidade
+2026-03-19 10:52:44.740 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 10), @p1='?' (DbType = DateTime), @p2='?' (Size = 3), @p3='?' (DbType = Int16), @p4='?' (DbType = Boolean), @p5='?' (DbType = Int32), @p6='?' (Size = 6), @p7='?' (Size = 11), @p8='?' (Size = 9), @p9='?' (Size = 3), @p10='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Entidades" ("Contribuinte", "DataActualizacao", "DesignacaoComercial", "Estado", "Item1", "Item2", "Item3", "NomeSocial", "Observacoes", "Referencia", "Tipo")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "Id";
+2026-03-19 10:52:44.763 +00:00 [INF] Executing CreatedAtActionResult, writing value of type 'IntervencoesAPI.Models.Entidade'.
+2026-03-19 10:52:44.782 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.Create (IntervencoesAPI) in 251.943ms
+2026-03-19 10:52:44.785 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.Create (IntervencoesAPI)'
+2026-03-19 10:52:44.786 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/Entidade - 201 null application/json; charset=utf-8 268.2623ms
+2026-03-19 10:52:56.637 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade?PageNumber=1&PageSize=5 - null null
+2026-03-19 10:52:56.640 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI)'
+2026-03-19 10:52:56.647 +00:00 [INF] Route matched with {action = "GetAll", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Entidade]]] GetAll(PageParameters) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 10:52:56.657 +00:00 [INF] CRUD Read Entidade pageNumber=1 pageSize=5
+2026-03-19 10:52:56.679 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Entidades" AS "e"
+2026-03-19 10:52:56.687 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+ORDER BY "e"."Id"
+LIMIT @p1 OFFSET @p
+2026-03-19 10:52:56.695 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Entidade, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-19 10:52:56.697 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI) in 48.1232ms
+2026-03-19 10:52:56.699 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI)'
+2026-03-19 10:52:56.701 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade?PageNumber=1&PageSize=5 - 200 null application/json; charset=utf-8 63.8929ms
+2026-03-19 10:54:06.349 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5297/api/Cliente - application/json 202
+2026-03-19 10:54:06.352 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-19 10:54:06.361 +00:00 [INF] Route matched with {action = "Create", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Cliente]] Create(IntervencoesAPI.Dtos.CreateCliente) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-19 10:54:06.381 +00:00 [INF] CRUD Create Cliente
+2026-03-19 10:54:06.405 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 6), @p3='?' (Size = 6), @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Size = 2), @p9='?' (Size = 15), @p10='?' (Size = 3)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Clientes" ("CliCampo1", "CliCampo2", "CliCampo3", "CliCampo4", "DataActualizacao", "DataDeInicio", "Estado", "IdEntidade", "NProcesso", "Observacoes", "Referencia")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "Id";
+2026-03-19 10:54:06.412 +00:00 [INF] Executing CreatedAtActionResult, writing value of type 'IntervencoesAPI.Models.Cliente'.
+2026-03-19 10:54:06.416 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI) in 50.7166ms
+2026-03-19 10:54:06.417 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-19 10:54:06.418 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/Cliente - 201 null application/json; charset=utf-8 68.8723ms
+2026-03-19 10:57:52.088 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade?PageNumber=1&PageSize=5 - null null
+2026-03-19 10:57:52.091 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI)'
+2026-03-19 10:57:52.092 +00:00 [INF] Route matched with {action = "GetAll", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Entidade]]] GetAll(PageParameters) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 10:57:52.096 +00:00 [INF] CRUD Read Entidade pageNumber=1 pageSize=5
+2026-03-19 10:57:52.105 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Entidades" AS "e"
+2026-03-19 10:57:52.110 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+ORDER BY "e"."Id"
+LIMIT @p1 OFFSET @p
+2026-03-19 10:57:52.114 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Entidade, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-19 10:57:52.116 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI) in 22.9053ms
+2026-03-19 10:57:52.118 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI)'
+2026-03-19 10:57:52.120 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade?PageNumber=1&PageSize=5 - 200 null application/json; charset=utf-8 31.759ms
+2026-03-19 10:58:41.648 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Cliente?PageNumber=1&PageSize=1 - null null
+2026-03-19 10:58:41.651 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.GetAll (IntervencoesAPI)'
+2026-03-19 10:58:41.652 +00:00 [INF] Route matched with {action = "GetAll", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Cliente]]] GetAll(PageParameters) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-19 10:58:41.656 +00:00 [INF] CRUD Read Cliente pageNumber=1 pageSize=1
+2026-03-19 10:58:41.658 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Clientes" AS "c"
+2026-03-19 10:58:41.661 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia"
+FROM "Clientes" AS "c"
+ORDER BY "c"."Id"
+LIMIT @p1 OFFSET @p
+2026-03-19 10:58:41.665 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Cliente, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-19 10:58:41.666 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.GetAll (IntervencoesAPI) in 12.2993ms
+2026-03-19 10:58:41.668 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.GetAll (IntervencoesAPI)'
+2026-03-19 10:58:41.670 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Cliente?PageNumber=1&PageSize=1 - 200 null application/json; charset=utf-8 22.072ms
+2026-03-19 11:00:17.778 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto?PageNumber=1&PageSize=2 - null null
+2026-03-19 11:00:17.781 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetAll (IntervencoesAPI)'
+2026-03-19 11:00:17.786 +00:00 [INF] Route matched with {action = "GetAll", controller = "ProcessoProjecto"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.ProcessoProjecto]]] GetAll(PageParameters) on controller IntervencoesAPI.Controllers.ProcessoProjectoController (IntervencoesAPI).
+2026-03-19 11:00:17.792 +00:00 [INF] CRUD Read ProcessoProjecto pageNumber=1 pageSize=2
+2026-03-19 11:00:17.801 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "ProcessoProjectos" AS "p"
+2026-03-19 11:00:17.813 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel"
+FROM "ProcessoProjectos" AS "p"
+ORDER BY "p"."Id"
+LIMIT @p1 OFFSET @p
+2026-03-19 11:00:17.817 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.ProcessoProjecto, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-19 11:00:17.826 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ProcessoProjectoController.GetAll (IntervencoesAPI) in 37.0787ms
+2026-03-19 11:00:17.828 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetAll (IntervencoesAPI)'
+2026-03-19 11:00:17.829 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto?PageNumber=1&PageSize=2 - 200 null application/json; charset=utf-8 51.35ms
+2026-03-19 11:01:24.083 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Cliente?PageNumber=1&PageSize=1 - null null
+2026-03-19 11:01:24.086 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.GetAll (IntervencoesAPI)'
+2026-03-19 11:01:24.088 +00:00 [INF] Route matched with {action = "GetAll", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Cliente]]] GetAll(PageParameters) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-19 11:01:24.090 +00:00 [INF] CRUD Read Cliente pageNumber=1 pageSize=1
+2026-03-19 11:01:24.094 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Clientes" AS "c"
+2026-03-19 11:01:24.100 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia"
+FROM "Clientes" AS "c"
+ORDER BY "c"."Id"
+LIMIT @p1 OFFSET @p
+2026-03-19 11:01:24.104 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Cliente, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-19 11:01:24.106 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.GetAll (IntervencoesAPI) in 16.9789ms
+2026-03-19 11:01:24.108 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.GetAll (IntervencoesAPI)'
+2026-03-19 11:01:24.111 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Cliente?PageNumber=1&PageSize=1 - 200 null application/json; charset=utf-8 28.0539ms
+2026-03-19 11:02:33.836 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5297/api/ProcessoProjecto - application/json 408
+2026-03-19 11:02:33.839 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.Create (IntervencoesAPI)'
+2026-03-19 11:02:33.850 +00:00 [INF] Route matched with {action = "Create", controller = "ProcessoProjecto"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.ProcessoProjecto]] Create(IntervencoesAPI.Dtos.CreateProcessoProjecto) on controller IntervencoesAPI.Controllers.ProcessoProjectoController (IntervencoesAPI).
+2026-03-19 11:02:33.872 +00:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-03-19 11:02:33.884 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ProcessoProjectoController.Create (IntervencoesAPI) in 28.9669ms
+2026-03-19 11:02:33.886 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.Create (IntervencoesAPI)'
+2026-03-19 11:02:33.887 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/ProcessoProjecto - 400 null application/problem+json; charset=utf-8 50.4225ms
+2026-03-19 11:03:57.174 +00:00 [INF] Application is shutting down...
+2026-03-19 11:04:05.122 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-19 11:04:05.161 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 11:04:05.163 +00:00 [INF] Hosting environment: Development
+2026-03-19 11:04:05.164 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-19 11:04:09.728 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-19 11:04:09.827 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 99.956ms
+2026-03-19 11:04:09.838 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-19 11:04:09.838 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-19 11:04:09.838 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-19 11:04:09.838 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-19 11:04:09.838 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-19 11:04:09.850 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 11.3996ms
+2026-03-19 11:04:09.855 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 18.3908ms
+2026-03-19 11:04:09.855 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 17.9937ms
+2026-03-19 11:04:09.855 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 18.3909ms
+2026-03-19 11:04:09.856 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 18.148ms
+2026-03-19 11:04:10.050 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-19 11:04:10.054 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-19 11:04:10.058 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 3.6105ms
+2026-03-19 11:04:10.213 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 163.0326ms
+2026-03-19 11:04:49.908 +00:00 [INF] Application is shutting down...
+2026-03-19 11:04:55.147 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-19 11:04:55.190 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 11:04:55.192 +00:00 [INF] Hosting environment: Development
+2026-03-19 11:04:55.192 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-19 11:05:01.482 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-19 11:05:01.582 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 101.2242ms
+2026-03-19 11:05:01.591 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-19 11:05:01.591 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-19 11:05:01.591 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-19 11:05:01.591 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-19 11:05:01.591 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-19 11:05:01.603 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 11.3936ms
+2026-03-19 11:05:01.607 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 17.208ms
+2026-03-19 11:05:01.607 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 16.939ms
+2026-03-19 11:05:01.607 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 17.2081ms
+2026-03-19 11:05:01.608 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 17.2996ms
+2026-03-19 11:05:01.674 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-19 11:05:01.677 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-19 11:05:01.680 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 3.6314ms
+2026-03-19 11:05:01.835 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 160.64ms
+2026-03-19 11:05:58.143 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5297/api/ProcessoProjecto - application/json 403
+2026-03-19 11:05:58.149 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-19 11:05:58.152 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.Create (IntervencoesAPI)'
+2026-03-19 11:05:58.178 +00:00 [INF] Route matched with {action = "Create", controller = "ProcessoProjecto"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.ProcessoProjecto]] Create(IntervencoesAPI.Dtos.CreateProcessoProjecto) on controller IntervencoesAPI.Controllers.ProcessoProjectoController (IntervencoesAPI).
+2026-03-19 11:05:58.296 +00:00 [INF] CRUD Create ProcessoProjecto
+2026-03-19 11:05:58.818 +00:00 [INF] Executed DbCommand (12ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime), @p3='?' (DbType = DateTime), @p4='?' (DbType = DateTime), @p5='?' (Size = 6), @p6='?' (DbType = Decimal), @p7='?' (DbType = Decimal), @p8='?' (DbType = Int32), @p9='?' (DbType = Int32), @p10='?' (Size = 6), @p11='?' (DbType = Int32), @p12='?' (DbType = Int32), @p13='?' (Size = 3), @p14='?' (DbType = Int32), @p15='?' (Size = 3), @p16='?' (Size = 6)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "ProcessoProjectos" ("AvencaId", "ClienteId", "DataConclusao", "DataInicio", "DataPrevistaConclusao", "Descricao", "EsforcoPrevisto", "EsforcoReal", "Estado", "FornecedorId", "Fornecedores", "IdContracto", "IdProposta", "NumArquivo", "ProcessoPaiId", "Referencia", "Responsavel")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16)
+RETURNING "Id";
+2026-03-19 11:05:58.872 +00:00 [INF] Executing CreatedAtActionResult, writing value of type 'IntervencoesAPI.Models.ProcessoProjecto'.
+2026-03-19 11:05:58.896 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ProcessoProjectoController.Create (IntervencoesAPI) in 713.1236ms
+2026-03-19 11:05:58.898 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.Create (IntervencoesAPI)'
+2026-03-19 11:05:58.904 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/ProcessoProjecto - 201 null application/json; charset=utf-8 761.2807ms
+2026-03-19 14:32:35.091 +00:00 [INF] Application is shutting down...
+2026-03-19 14:32:47.174 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-19 14:32:47.215 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 14:32:47.217 +00:00 [INF] Hosting environment: Development
+2026-03-19 14:32:47.218 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-19 14:32:47.336 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-19 14:32:47.447 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 112.6582ms
+2026-03-19 14:32:47.456 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-19 14:32:47.456 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-19 14:32:47.456 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-19 14:32:47.457 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-19 14:32:47.457 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-19 14:32:47.472 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 14.3069ms
+2026-03-19 14:32:47.482 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 25.8583ms
+2026-03-19 14:32:47.482 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 24.6574ms
+2026-03-19 14:32:47.482 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 25.8675ms
+2026-03-19 14:32:47.482 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 25.8675ms
+2026-03-19 14:32:47.713 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-19 14:32:47.730 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-19 14:32:47.733 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 3.3174ms
+2026-03-19 14:32:47.883 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 170.1974ms
+2026-03-19 14:32:59.202 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - null null
+2026-03-19 14:32:59.214 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-19 14:32:59.218 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 14:32:59.251 +00:00 [INF] Route matched with {action = "GetDetails", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade]] GetDetails(Int32) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 14:33:00.317 +00:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-03-19 14:33:00.432 +00:00 [INF] Executed DbCommand (16ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e0"."Id", "e0"."Contribuinte", "e0"."DataActualizacao", "e0"."DesignacaoComercial", "e0"."Estado", "e0"."Item1", "e0"."Item2", "e0"."Item3", "e0"."NomeSocial", "e0"."Observacoes", "e0"."Referencia", "e0"."Tipo", "s"."Id", "s"."CliCampo1", "s"."CliCampo2", "s"."CliCampo3", "s"."CliCampo4", "s"."DataActualizacao", "s"."DataDeInicio", "s"."Estado", "s"."IdEntidade", "s"."NProcesso", "s"."Observacoes", "s"."Referencia", "s"."Id0", "s"."AvencaId", "s"."ClienteId", "s"."DataConclusao", "s"."DataInicio", "s"."DataPrevistaConclusao", "s"."Descricao", "s"."EsforcoPrevisto", "s"."EsforcoReal", "s"."Estado0", "s"."FornecedorId", "s"."Fornecedores", "s"."IdContracto", "s"."IdProposta", "s"."NumArquivo", "s"."ProcessoPaiId", "s"."Referencia0", "s"."Responsavel"
+FROM (
+    SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    LIMIT 2
+) AS "e0"
+LEFT JOIN (
+    SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia", "p"."Id" AS "Id0", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado" AS "Estado0", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia" AS "Referencia0", "p"."Responsavel"
+    FROM "Clientes" AS "c"
+    LEFT JOIN "ProcessoProjectos" AS "p" ON "c"."Id" = "p"."ClienteId"
+) AS "s" ON "e0"."Id" = "s"."IdEntidade"
+ORDER BY "e0"."Id", "s"."Id"
+2026-03-19 14:33:00.461 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Models.Entidade'.
+2026-03-19 14:33:00.501 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI) in 1244.916ms
+2026-03-19 14:33:00.503 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 14:33:00.504 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-03-19 14:33:00.554 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - 500 null text/plain; charset=utf-8 1351.2255ms
+2026-03-19 14:39:53.055 +00:00 [INF] Application is shutting down...
+2026-03-19 14:39:58.230 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-19 14:39:58.280 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 14:39:58.282 +00:00 [INF] Hosting environment: Development
+2026-03-19 14:39:58.283 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-19 14:40:07.775 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-19 14:40:07.877 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 103.6847ms
+2026-03-19 14:40:07.889 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-19 14:40:07.889 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-19 14:40:07.890 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-19 14:40:07.890 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-19 14:40:07.890 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-19 14:40:07.901 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 11.0881ms
+2026-03-19 14:40:07.906 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 16.0258ms
+2026-03-19 14:40:07.906 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 16.1073ms
+2026-03-19 14:40:07.906 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 17.8877ms
+2026-03-19 14:40:07.906 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 18.1588ms
+2026-03-19 14:40:08.068 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-19 14:40:08.071 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-19 14:40:08.075 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 3.5164ms
+2026-03-19 14:40:08.229 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 160.9302ms
+2026-03-19 14:40:18.087 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - null null
+2026-03-19 14:40:18.096 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-19 14:40:18.100 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 14:40:18.130 +00:00 [INF] Route matched with {action = "GetDetails", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade]] GetDetails(Int32) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 14:40:18.934 +00:00 [INF] Executed DbCommand (9ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."Id" = @entidadeId
+ORDER BY "e"."Id"
+LIMIT 2
+2026-03-19 14:40:19.003 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia", "e0"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 14:40:19.038 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel", "e0"."Id", "c"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+INNER JOIN "ProcessoProjectos" AS "p" ON "c"."Id" = "p"."ClienteId"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 14:40:19.076 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Models.Entidade'.
+2026-03-19 14:40:19.115 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI) in 976.7149ms
+2026-03-19 14:40:19.117 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 14:40:19.119 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-03-19 14:40:19.164 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - 500 null text/plain; charset=utf-8 1077.2489ms
+2026-03-19 14:40:32.557 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-19 14:40:32.559 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 2.4227ms
+2026-03-19 14:40:32.570 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-19 14:40:32.570 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-19 14:40:32.570 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-19 14:40:32.570 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-19 14:40:32.571 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-19 14:40:32.573 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 3.0707ms
+2026-03-19 14:40:32.575 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 5.5371ms
+2026-03-19 14:40:32.578 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 7.4237ms
+2026-03-19 14:40:32.580 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 9.5207ms
+2026-03-19 14:40:32.582 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 10.309ms
+2026-03-19 14:40:32.668 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-19 14:40:32.672 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-19 14:40:32.676 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 4.5369ms
+2026-03-19 14:40:32.732 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 63.751ms
+2026-03-19 14:40:38.451 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/1/details - null null
+2026-03-19 14:40:38.454 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 14:40:38.456 +00:00 [INF] Route matched with {action = "GetDetails", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade]] GetDetails(Int32) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 14:40:38.519 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."Id" = @entidadeId
+ORDER BY "e"."Id"
+LIMIT 2
+2026-03-19 14:40:38.522 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia", "e0"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 14:40:38.524 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Models.Entidade'.
+2026-03-19 14:40:38.526 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI) in 67.3793ms
+2026-03-19 14:40:38.527 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 14:40:38.528 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/1/details - 200 null application/json; charset=utf-8 77.3066ms
+2026-03-19 14:40:47.713 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/3/details - null null
+2026-03-19 14:40:47.717 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 14:40:47.718 +00:00 [INF] Route matched with {action = "GetDetails", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade]] GetDetails(Int32) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 14:40:47.753 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."Id" = @entidadeId
+ORDER BY "e"."Id"
+LIMIT 2
+2026-03-19 14:40:47.758 +00:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2026-03-19 14:40:47.773 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI) in 46.0175ms
+2026-03-19 14:40:47.775 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 14:40:47.776 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/3/details - 404 null application/problem+json; charset=utf-8 63.3145ms
+2026-03-19 14:40:52.063 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - null null
+2026-03-19 14:40:52.066 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 14:40:52.068 +00:00 [INF] Route matched with {action = "GetDetails", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade]] GetDetails(Int32) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 14:40:52.071 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."Id" = @entidadeId
+ORDER BY "e"."Id"
+LIMIT 2
+2026-03-19 14:40:52.074 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia", "e0"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 14:40:52.078 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel", "e0"."Id", "c"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+INNER JOIN "ProcessoProjectos" AS "p" ON "c"."Id" = "p"."ClienteId"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 14:40:52.085 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Models.Entidade'.
+2026-03-19 14:40:52.088 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI) in 18.4863ms
+2026-03-19 14:40:52.090 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 14:40:52.092 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.Text.Json.JsonException: A possible object cycle was detected. This can either be due to a cycle or if the object depth is larger than the maximum allowed depth of 32. Consider using ReferenceHandler.Preserve on JsonSerializerOptions to support cycles. Path: $.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.Entidade.Clientes.
+   at System.Text.Json.ThrowHelper.ThrowJsonException_SerializerCycleDetected(Int32 maxDepth)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Converters.IEnumerableDefaultConverter`2.OnWriteResume(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonCollectionConverter`2.OnTryWrite(Utf8JsonWriter writer, TCollection value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.GetMemberAndWriteJson(Object obj, WriteStack& state, Utf8JsonWriter writer)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryWrite(Utf8JsonWriter writer, T value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.TryWrite(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.WriteCore(Utf8JsonWriter writer, T& value, JsonSerializerOptions options, WriteStack& state)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at System.Text.Json.Serialization.Metadata.JsonTypeInfo`1.SerializeAsync(PipeWriter pipeWriter, T rootValue, Int32 flushThreshold, CancellationToken cancellationToken, Object rootValueBoxed)
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter.WriteResponseBodyAsync(OutputFormatterWriteContext context, Encoding selectedEncoding)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResultFilterAsync>g__Awaited|30_0[TFilter,TFilterAsync](ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResultExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.ResultNext[TFilter,TFilterAsync](State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeResultFilters()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-03-19 14:40:52.114 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - 500 null text/plain; charset=utf-8 50.7554ms
+2026-03-19 15:15:56.816 +00:00 [INF] Application is shutting down...
+2026-03-19 15:16:06.341 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-19 15:16:06.379 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 15:16:06.380 +00:00 [INF] Hosting environment: Development
+2026-03-19 15:16:06.381 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-19 15:16:30.844 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-19 15:16:30.882 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 15:16:30.883 +00:00 [INF] Hosting environment: Development
+2026-03-19 15:16:30.884 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-19 15:16:35.420 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-19 15:16:35.517 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 97.5382ms
+2026-03-19 15:16:35.553 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-19 15:16:35.553 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-19 15:16:35.554 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-19 15:16:35.555 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-19 15:16:35.555 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-19 15:16:35.565 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 9.1593ms
+2026-03-19 15:16:35.573 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 20.3611ms
+2026-03-19 15:16:35.573 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 20.3576ms
+2026-03-19 15:16:35.573 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 17.407ms
+2026-03-19 15:16:35.573 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 19.4566ms
+2026-03-19 15:16:35.810 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-19 15:16:35.826 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-19 15:16:35.831 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 4.7176ms
+2026-03-19 15:16:35.983 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 173.6496ms
+2026-03-19 15:16:45.284 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - null null
+2026-03-19 15:16:45.294 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-19 15:16:45.298 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 15:16:45.323 +00:00 [INF] Route matched with {action = "GetDetails", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto]] GetDetails(Int32) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 15:16:46.142 +00:00 [INF] Executed DbCommand (9ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."Id" = @entidadeId
+ORDER BY "e"."Id"
+LIMIT 2
+2026-03-19 15:16:46.210 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia", "e0"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 15:16:46.241 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel", "e0"."Id", "c"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+INNER JOIN "ProcessoProjectos" AS "p" ON "c"."Id" = "p"."ClienteId"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 15:16:46.279 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto'.
+2026-03-19 15:16:46.314 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI) in 983.784ms
+2026-03-19 15:16:46.315 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 15:16:46.320 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - 200 null application/json; charset=utf-8 1035.7767ms
+2026-03-19 16:20:45.412 +00:00 [INF] Application is shutting down...
+2026-03-19 16:20:55.591 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-19 16:20:55.635 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 16:20:55.637 +00:00 [INF] Hosting environment: Development
+2026-03-19 16:20:55.638 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-19 16:21:00.180 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-19 16:21:00.291 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 112.8754ms
+2026-03-19 16:21:00.342 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-19 16:21:00.342 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-19 16:21:00.344 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-19 16:21:00.346 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-19 16:21:00.346 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-19 16:21:00.355 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 8.0339ms
+2026-03-19 16:21:00.360 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 18.4423ms
+2026-03-19 16:21:00.360 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 18.4639ms
+2026-03-19 16:21:00.360 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 13.752ms
+2026-03-19 16:21:00.360 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 16.3924ms
+2026-03-19 16:21:00.585 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-19 16:21:00.604 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-19 16:21:00.608 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 4.0979ms
+2026-03-19 16:21:00.757 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 172.1455ms
+2026-03-19 16:21:08.711 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - null null
+2026-03-19 16:21:08.717 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-19 16:21:08.720 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 16:21:08.748 +00:00 [INF] Route matched with {action = "GetDetails", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto]] GetDetails(Int32) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 16:21:09.684 +00:00 [INF] Executed DbCommand (13ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."Id" = @entidadeId
+ORDER BY "e"."Id"
+LIMIT 2
+2026-03-19 16:21:09.746 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia", "e0"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 16:21:09.777 +00:00 [ERR] Failed executing DbCommand (2ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."IntervencaoId", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel", "e0"."Id", "c"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+INNER JOIN "ProcessoProjectos" AS "p" ON "c"."Id" = "p"."ClienteId"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 16:21:09.793 +00:00 [ERR] An exception occurred while iterating over the results of a query for context type 'IntervencoesAPI.Data.IntervencoesAPIContext'.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such column: p.IntervencaoId'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.<PopulateSplitIncludeCollectionAsync>g__InitializeReaderAsync|27_0[TIncludingEntity,TIncludedEntity](RelationalQueryContext queryContext, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateSplitIncludeCollectionAsync[TIncludingEntity,TIncludedEntity](Int32 collectionId, RelationalQueryContext queryContext, IExecutionStrategy executionStrategy, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, SplitQueryResultCoordinator resultCoordinator, Func`3 childIdentifier, IReadOnlyList`1 identifierValueComparers, Func`5 innerShaper, Func`4 relatedDataLoaders, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.TaskAwaiter(Func`1[] taskFactories)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateSplitIncludeCollectionAsync[TIncludingEntity,TIncludedEntity](Int32 collectionId, RelationalQueryContext queryContext, IExecutionStrategy executionStrategy, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, SplitQueryResultCoordinator resultCoordinator, Func`3 childIdentifier, IReadOnlyList`1 identifierValueComparers, Func`5 innerShaper, Func`4 relatedDataLoaders, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.TaskAwaiter(Func`1[] taskFactories)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such column: p.IntervencaoId'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.<PopulateSplitIncludeCollectionAsync>g__InitializeReaderAsync|27_0[TIncludingEntity,TIncludedEntity](RelationalQueryContext queryContext, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateSplitIncludeCollectionAsync[TIncludingEntity,TIncludedEntity](Int32 collectionId, RelationalQueryContext queryContext, IExecutionStrategy executionStrategy, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, SplitQueryResultCoordinator resultCoordinator, Func`3 childIdentifier, IReadOnlyList`1 identifierValueComparers, Func`5 innerShaper, Func`4 relatedDataLoaders, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.TaskAwaiter(Func`1[] taskFactories)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateSplitIncludeCollectionAsync[TIncludingEntity,TIncludedEntity](Int32 collectionId, RelationalQueryContext queryContext, IExecutionStrategy executionStrategy, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, SplitQueryResultCoordinator resultCoordinator, Func`3 childIdentifier, IReadOnlyList`1 identifierValueComparers, Func`5 innerShaper, Func`4 relatedDataLoaders, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.TaskAwaiter(Func`1[] taskFactories)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+2026-03-19 16:21:09.812 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI) in 1058.2511ms
+2026-03-19 16:21:09.813 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 16:21:09.815 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such column: p.IntervencaoId'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements()+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.<PopulateSplitIncludeCollectionAsync>g__InitializeReaderAsync|27_0[TIncludingEntity,TIncludedEntity](RelationalQueryContext queryContext, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateSplitIncludeCollectionAsync[TIncludingEntity,TIncludedEntity](Int32 collectionId, RelationalQueryContext queryContext, IExecutionStrategy executionStrategy, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, SplitQueryResultCoordinator resultCoordinator, Func`3 childIdentifier, IReadOnlyList`1 identifierValueComparers, Func`5 innerShaper, Func`4 relatedDataLoaders, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.TaskAwaiter(Func`1[] taskFactories)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.PopulateSplitIncludeCollectionAsync[TIncludingEntity,TIncludedEntity](Int32 collectionId, RelationalQueryContext queryContext, IExecutionStrategy executionStrategy, RelationalCommandResolver relationalCommandResolver, IReadOnlyList`1 readerColumns, Boolean detailedErrorsEnabled, SplitQueryResultCoordinator resultCoordinator, Func`3 childIdentifier, IReadOnlyList`1 identifierValueComparers, Func`5 innerShaper, Func`4 relatedDataLoaders, INavigationBase inverseNavigation, Action`2 fixup, Boolean trackingQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalShapedQueryCompilingExpressionVisitor.ShaperProcessingExpressionVisitor.TaskAwaiter(Func`1[] taskFactories)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SplitQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.ShapedQueryCompilingExpressionVisitor.SingleOrDefaultAsync[TSource](IAsyncEnumerable`1 asyncEnumerable, CancellationToken cancellationToken)
+   at IntervencoesAPI.Services.EntidadeService.GetDetailsAsync(Int32 entidadeId) in C:\Users\spino\Desktop\Intervenções\IntervencoesAPI\Services\EntidadeService.cs:line 109
+   at IntervencoesAPI.Controllers.EntidadeController.GetDetails(Int32 id) in C:\Users\spino\Desktop\Intervenções\IntervencoesAPI\Controllers\EntidadeController.cs:line 184
+   at lambda_method5(Closure, Object)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2026-03-19 16:21:09.856 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - 500 null text/plain; charset=utf-8 1145.4537ms
+2026-03-19 16:25:36.025 +00:00 [INF] Application is shutting down...
+2026-03-19 16:25:41.309 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-19 16:25:41.360 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 16:25:41.362 +00:00 [INF] Hosting environment: Development
+2026-03-19 16:25:41.363 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-19 16:27:24.952 +00:00 [INF] Application is shutting down...
+2026-03-19 16:27:29.091 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-19 16:27:29.130 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 16:27:29.131 +00:00 [INF] Hosting environment: Development
+2026-03-19 16:27:29.132 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-19 16:27:32.498 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-19 16:27:32.607 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 110.0399ms
+2026-03-19 16:27:32.622 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-19 16:27:32.622 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-19 16:27:32.623 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-19 16:27:32.623 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-19 16:27:32.624 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-19 16:27:32.649 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 24.6875ms
+2026-03-19 16:27:32.649 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 27.747ms
+2026-03-19 16:27:32.649 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 26.1211ms
+2026-03-19 16:27:32.649 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 27.7445ms
+2026-03-19 16:27:32.650 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 26.9967ms
+2026-03-19 16:27:32.830 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-19 16:27:32.835 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-19 16:27:32.839 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 3.3928ms
+2026-03-19 16:27:33.036 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 205.1743ms
+2026-03-19 16:27:38.495 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - null null
+2026-03-19 16:27:38.502 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-19 16:27:38.505 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 16:27:38.529 +00:00 [INF] Route matched with {action = "GetDetails", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto]] GetDetails(Int32) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 16:27:39.387 +00:00 [INF] Executed DbCommand (10ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."Id" = @entidadeId
+ORDER BY "e"."Id"
+LIMIT 2
+2026-03-19 16:27:39.457 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia", "e0"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 16:27:39.487 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel", "e0"."Id", "c"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+INNER JOIN "ProcessoProjectos" AS "p" ON "c"."Id" = "p"."ClienteId"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 16:27:39.525 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto'.
+2026-03-19 16:27:39.567 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI) in 1030.1624ms
+2026-03-19 16:27:39.569 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 16:27:39.575 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - 200 null application/json; charset=utf-8 1079.6826ms
+2026-03-19 16:28:08.118 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5297/api/Intervencao - application/json 1121
+2026-03-19 16:28:08.122 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.IntervencaoController.Create (IntervencoesAPI)'
+2026-03-19 16:28:08.143 +00:00 [INF] Route matched with {action = "Create", controller = "Intervencao"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Intervencao]] Create(IntervencoesAPI.Dtos.CreateIntervencao) on controller IntervencoesAPI.Controllers.IntervencaoController (IntervencoesAPI).
+2026-03-19 16:28:08.195 +00:00 [INF] CRUD Create Intervencao
+2026-03-19 16:28:08.376 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 6), @p1='?' (DbType = Int16), @p2='?' (Size = 6), @p3='?' (Size = 6), @p4='?' (Size = 6), @p5='?' (Size = 6), @p6='?' (DbType = DateTime), @p7='?' (DbType = DateTime), @p8='?' (DbType = DateTime), @p9='?' (DbType = DateTime), @p10='?' (DbType = DateTime), @p11='?' (DbType = DateTime), @p12='?' (DbType = DateTime), @p13='?' (DbType = DateTime), @p14='?' (DbType = DateTime), @p15='?' (DbType = DateTime), @p16='?' (Size = 6), @p17='?' (Size = 6), @p18='?' (DbType = Decimal), @p19='?' (DbType = Decimal), @p20='?' (DbType = Int32), @p21='?' (Size = 6), @p22='?' (DbType = Int32), @p23='?' (Size = 6), @p24='?' (Size = 6), @p25='?' (DbType = Decimal), @p26='?' (DbType = Int32), @p27='?' (DbType = Int32), @p28='?' (Size = 6), @p29='?' (Size = 6), @p30='?' (DbType = Int32), @p31='?' (DbType = Int32), @p32='?' (Size = 6), @p33='?' (DbType = Int32), @p34='?' (DbType = DateTime), @p35='?' (Size = 6), @p36='?' (DbType = Decimal), @p37='?' (DbType = Byte)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Intervencaos" ("AccaoRealizada", "Alerta", "Autor", "Codigo", "Comentarios", "Coresponsavel", "DataConclusao", "DataConfirmacao", "DataCriacao", "DataFimPrevista", "DataInicio", "DataInicioPrevista", "DataInstalacao", "DataLimite", "DataQualidade", "DataRegisto", "Descricao", "Email", "EsforcoACobrar", "EsforcoReal", "Estado", "HistoricoEstados", "IntervencaoPaiId", "MotivoAlerta", "Notas", "PrevisaoEsforco", "Prioridade", "ProcessoId", "Referencia", "Responsavel", "TarefaAgendadaId", "TarefaId", "Tema", "Tipo", "UpdateDate", "UpdateUser", "Valor", "Visibilidade")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33, @p34, @p35, @p36, @p37)
+RETURNING "Id";
+2026-03-19 16:28:08.402 +00:00 [INF] Executing CreatedAtActionResult, writing value of type 'IntervencoesAPI.Models.Intervencao'.
+2026-03-19 16:28:08.428 +00:00 [INF] Executed action IntervencoesAPI.Controllers.IntervencaoController.Create (IntervencoesAPI) in 281.5106ms
+2026-03-19 16:28:08.430 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.IntervencaoController.Create (IntervencoesAPI)'
+2026-03-19 16:28:08.431 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/Intervencao - 201 null application/json; charset=utf-8 313.0047ms
+2026-03-19 16:28:21.226 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - null null
+2026-03-19 16:28:21.228 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 16:28:21.229 +00:00 [INF] Route matched with {action = "GetDetails", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto]] GetDetails(Int32) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 16:28:21.264 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."Id" = @entidadeId
+ORDER BY "e"."Id"
+LIMIT 2
+2026-03-19 16:28:21.267 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia", "e0"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 16:28:21.269 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel", "e0"."Id", "c"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+INNER JOIN "ProcessoProjectos" AS "p" ON "c"."Id" = "p"."ClienteId"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 16:28:21.273 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto'.
+2026-03-19 16:28:21.274 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI) in 43.1814ms
+2026-03-19 16:28:21.275 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 16:28:21.276 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - 200 null application/json; charset=utf-8 49.9254ms
+2026-03-19 16:34:32.223 +00:00 [INF] Application is shutting down...
+2026-03-19 16:34:37.917 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-19 16:34:37.967 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-19 16:34:37.969 +00:00 [INF] Hosting environment: Development
+2026-03-19 16:34:37.970 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-19 16:34:46.562 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - null null
+2026-03-19 16:34:46.621 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-19 16:34:46.624 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 16:34:46.640 +00:00 [INF] Route matched with {action = "GetDetails", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto]] GetDetails(Int32) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-19 16:34:47.533 +00:00 [INF] Executed DbCommand (10ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."Id" = @entidadeId
+ORDER BY "e"."Id"
+LIMIT 2
+2026-03-19 16:34:47.597 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia", "e0"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-19 16:34:47.625 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel", "e0"."Id", "c"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+INNER JOIN "ProcessoProjectos" AS "p" ON "c"."Id" = "p"."ClienteId"
+ORDER BY "e0"."Id", "c"."Id", "p"."Id"
+2026-03-19 16:34:47.652 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "i"."Id", "i"."AccaoRealizada", "i"."Alerta", "i"."Autor", "i"."Codigo", "i"."Comentarios", "i"."Coresponsavel", "i"."DataConclusao", "i"."DataConfirmacao", "i"."DataCriacao", "i"."DataFimPrevista", "i"."DataInicio", "i"."DataInicioPrevista", "i"."DataInstalacao", "i"."DataLimite", "i"."DataQualidade", "i"."DataRegisto", "i"."Descricao", "i"."Email", "i"."EsforcoACobrar", "i"."EsforcoReal", "i"."Estado", "i"."HistoricoEstados", "i"."IntervencaoPaiId", "i"."MotivoAlerta", "i"."Notas", "i"."PrevisaoEsforco", "i"."Prioridade", "i"."ProcessoId", "i"."Referencia", "i"."Responsavel", "i"."TarefaAgendadaId", "i"."TarefaId", "i"."Tema", "i"."Tipo", "i"."UpdateDate", "i"."UpdateUser", "i"."Valor", "i"."Visibilidade", "e0"."Id", "c"."Id", "p"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+INNER JOIN "ProcessoProjectos" AS "p" ON "c"."Id" = "p"."ClienteId"
+INNER JOIN "Intervencaos" AS "i" ON "p"."Id" = "i"."ProcessoId"
+ORDER BY "e0"."Id", "c"."Id", "p"."Id"
+2026-03-19 16:34:47.712 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto'.
+2026-03-19 16:34:47.751 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI) in 1105.907ms
+2026-03-19 16:34:47.753 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-19 16:34:47.759 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - 200 null application/json; charset=utf-8 1198.6748ms
