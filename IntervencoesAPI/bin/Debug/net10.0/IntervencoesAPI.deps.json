@@ -13,6 +13,7 @@
           "Microsoft.EntityFrameworkCore.Design": "10.0.5",
           "Microsoft.EntityFrameworkCore.InMemory": "10.0.3",
           "Microsoft.EntityFrameworkCore.Sqlite": "10.0.5",
+          "Microsoft.OpenApi": "2.4.1",
           "Serilog.AspNetCore": "10.0.0",
           "Swashbuckle.AspNetCore": "10.1.4"
         },

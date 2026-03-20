@@ -2,9 +2,13 @@
 
 using IntervencoesAPI.Data;
 using IntervencoesAPI.Services;
+using IntervencoesAPI.Auth;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+
 using Serilog;
 using System.Reflection;
+using Microsoft.OpenApi;
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Information()
@@ -31,6 +35,21 @@ builder.Services.AddScoped<IntervencaoService>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services
+    .AddAuthentication(ApiKeyAuthenticationHandler.SchemeName)
+    .AddScheme<Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions, ApiKeyAuthenticationHandler>(
+        ApiKeyAuthenticationHandler.SchemeName,
+        _ => { });
+
+builder.Services.AddAuthorization(options =>
+{
+    options.DefaultPolicy = new AuthorizationPolicyBuilder()
+        .AddAuthenticationSchemes(ApiKeyAuthenticationHandler.SchemeName)
+        .RequireAuthenticatedUser()
+        .Build();
+});
+
 builder.Services.AddSwaggerGen(options =>
 {
     var xmlFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
@@ -40,6 +59,25 @@ builder.Services.AddSwaggerGen(options =>
     {
         options.IncludeXmlComments(xmlPath);
     }
+
+    options.AddSecurityDefinition(ApiKeyAuthenticationHandler.SchemeName, new OpenApiSecurityScheme
+    {
+        Description = $"API Key via header {ApiKeyAuthenticationHandler.HeaderName}",
+        Type = SecuritySchemeType.ApiKey,
+        Name = ApiKeyAuthenticationHandler.HeaderName,
+        In = ParameterLocation.Header
+    });
+
+    options.AddSecurityRequirement(hostDocument => new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecuritySchemeReference(
+                ApiKeyAuthenticationHandler.SchemeName,
+                hostDocument,
+                externalResource: null),
+            new List<string>()
+        }
+    });
 });
 
 
@@ -52,12 +90,15 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c => c.EnablePersistAuthorization());
 }
 
 app.UseHttpsRedirection();
 
-app.MapControllers();
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllers().RequireAuthorization();
 
 
 app.Run();
