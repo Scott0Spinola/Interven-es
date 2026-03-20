@@ -38,7 +38,6 @@ public class EntidadeController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public async Task<ActionResult<PagedList<Entidade>>> GetAll([FromQuery] PageParameters pageParameters)
 	{
-		try
 		{
 			_logger.LogInformation(
 				"CRUD {CrudOperation} {Resource} pageNumber={PageNumber} pageSize={PageSize}",
@@ -49,10 +48,6 @@ public class EntidadeController : ControllerBase
 
 			var pagedEntidades = await _entidadeService.GetAllPagedAsync(pageParameters);
 			return Ok(pagedEntidades);
-		}
-		catch (System.Exception)
-		{
-			throw;
 		}
 	}
 
@@ -70,7 +65,6 @@ public class EntidadeController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status404NotFound)]
 	public ActionResult<Entidade> GetById(int id)
 	{
-		try
 		{
 			_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Read", "Entidade", id);
 
@@ -81,10 +75,6 @@ public class EntidadeController : ControllerBase
 			}
 
 			return entidade;
-		}
-		catch (System.Exception)
-		{
-			throw;
 		}
 	}
 
@@ -163,16 +153,11 @@ public class EntidadeController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public async Task<ActionResult<Entidade>> Create([FromBody] CreateEntidade dto)
 	{
-		try
 		{
 			_logger.LogInformation("CRUD {CrudOperation} {Resource}", "Create", "Entidade");
 
 			var created = await _entidadeService.CreateAsync(dto);
 			return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
-		}
-		catch (System.Exception)
-		{
-			throw;
 		}
 	}
 
@@ -220,7 +205,6 @@ public class EntidadeController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public ActionResult Delete(int id)
 	{
-		try
 		{
 			_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Delete", "Entidade", id);
 
@@ -231,10 +215,6 @@ public class EntidadeController : ControllerBase
 			}
 
 			return NoContent();
-		}
-		catch (System.Exception)
-		{
-			throw;
 		}
 	}
 

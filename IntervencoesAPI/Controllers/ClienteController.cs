@@ -34,7 +34,6 @@ public class ClienteController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<PagedList<Cliente>>> GetAll([FromQuery] PageParameters pageParameters)
     {
-        try
         {
             _logger.LogInformation(
                 "CRUD {CrudOperation} {Resource} pageNumber={PageNumber} pageSize={PageSize}",
@@ -46,12 +45,6 @@ public class ClienteController : ControllerBase
             var pagedIdeas = await _clienteService.GetAllPagedAsync(pageParameters);
             return Ok(pagedIdeas);
         }
-        catch (System.Exception)
-        {
-
-            throw;
-        }
-
     }
 
     /// <summary>
@@ -68,7 +61,6 @@ public class ClienteController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public ActionResult<Cliente> GetById(int id)
     {
-        try
         {
             _logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Read", "Cliente", id);
 
@@ -80,12 +72,6 @@ public class ClienteController : ControllerBase
 
             return cliente;
         }
-        catch (System.Exception)
-        {
-
-            throw;
-        }
-
     }
 
     /// <summary>
@@ -170,18 +156,12 @@ public class ClienteController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<Cliente>> Create([FromBody] CreateCliente dto)
     {
-        try
         {
             _logger.LogInformation("CRUD {CrudOperation} {Resource}", "Create", "Cliente");
 
             var created = await _clienteService.CreateAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
 
-        }
-        catch (System.Exception)
-        {
-
-            throw;
         }
     }
 
@@ -230,9 +210,8 @@ public class ClienteController : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
    public ActionResult Delete(int id)
    {
-        try
         {
-                        _logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Delete", "Cliente", id);
+            _logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Delete", "Cliente", id);
 
             var DeleteCliente = _clienteService.Delete(id);
               if (!DeleteCliente)
@@ -240,11 +219,6 @@ public class ClienteController : ControllerBase
                     return NotFound($"No Cliente exists with the provided ID: {id}.");
                 }
                 return NoContent();
-        }
-        catch (System.Exception)
-        {
-            
-            throw;
         }
    }
 

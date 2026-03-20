@@ -40,7 +40,6 @@ public class IntervencaoController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public async Task<ActionResult<PagedList<Intervencao>>> GetAll([FromQuery] PageParameters pageParameters)
 	{
-		try
 		{
 			_logger.LogInformation(
 				"CRUD {CrudOperation} {Resource} pageNumber={PageNumber} pageSize={PageSize}",
@@ -51,10 +50,6 @@ public class IntervencaoController : ControllerBase
 
 			var paged = await _intervencaoService.GetAllPagedAsync(pageParameters);
 			return Ok(paged);
-		}
-		catch (System.Exception)
-		{
-			throw;
 		}
 	}
 
@@ -72,7 +67,6 @@ public class IntervencaoController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status404NotFound)]
 	public ActionResult<Intervencao> GetById(int id)
 	{
-		try
 		{
 			_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Read", "Intervencao", id);
 
@@ -83,10 +77,6 @@ public class IntervencaoController : ControllerBase
 			}
 
 			return intervencao;
-		}
-		catch (System.Exception)
-		{
-			throw;
 		}
 	}
 
@@ -273,6 +263,7 @@ public class IntervencaoController : ControllerBase
 
 		var intervencoes = await _intervencaoService.GetByIntervaloDataCriacaoAsync(start, end);
 		return Ok(intervencoes);
+		
 	}
 
 	/// <summary>
@@ -289,16 +280,11 @@ public class IntervencaoController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public async Task<ActionResult<Intervencao>> Create([FromBody] CreateIntervencao dto)
 	{
-		try
 		{
 			_logger.LogInformation("CRUD {CrudOperation} {Resource}", "Create", "Intervencao");
 
 			var created = await _intervencaoService.CreateAsync(dto);
 			return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
-		}
-		catch (System.Exception)
-		{
-			throw;
 		}
 	}
 
@@ -346,7 +332,6 @@ public class IntervencaoController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public ActionResult Delete(int id)
 	{
-		try
 		{
 			_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Delete", "Intervencao", id);
 
@@ -356,10 +341,6 @@ public class IntervencaoController : ControllerBase
 				return NotFound($"No Intervencao exists with the provided ID: {id}.");
 			}
 			return NoContent();
-		}
-		catch (System.Exception)
-		{
-			throw;
 		}
 	}
 }

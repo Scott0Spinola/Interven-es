@@ -40,7 +40,6 @@ public class ProcessoProjectoController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public async Task<ActionResult<PagedList<ProcessoProjecto>>> GetAll([FromQuery] PageParameters pageParameters)
 	{
-		try
 		{
 			_logger.LogInformation(
 				"CRUD {CrudOperation} {Resource} pageNumber={PageNumber} pageSize={PageSize}",
@@ -51,10 +50,6 @@ public class ProcessoProjectoController : ControllerBase
 
 			var paged = await _processoProjectoService.GetAllPagedAsync(pageParameters);
 			return Ok(paged);
-		}
-		catch (System.Exception)
-		{
-			throw;
 		}
 	}
 
@@ -72,7 +67,6 @@ public class ProcessoProjectoController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status404NotFound)]
 	public ActionResult<ProcessoProjecto> GetById(int id)
 	{
-		try
 		{
 			_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Read", "ProcessoProjecto", id);
 
@@ -83,10 +77,6 @@ public class ProcessoProjectoController : ControllerBase
 			}
 
 			return processoProjecto;
-		}
-		catch (System.Exception)
-		{
-			throw;
 		}
 	}
 
@@ -166,16 +156,11 @@ public class ProcessoProjectoController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public async Task<ActionResult<ProcessoProjecto>> Create([FromBody] CreateProcessoProjecto dto)
 	{
-		try
 		{
 			_logger.LogInformation("CRUD {CrudOperation} {Resource}", "Create", "ProcessoProjecto");
 
 			var created = await _processoProjectoService.CreateAsync(dto);
 			return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
-		}
-		catch (System.Exception)
-		{
-			throw;
 		}
 	}
 
@@ -223,7 +208,6 @@ public class ProcessoProjectoController : ControllerBase
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
 	public ActionResult Delete(int id)
 	{
-		try
 		{
 			_logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Delete", "ProcessoProjecto", id);
 
@@ -234,10 +218,6 @@ public class ProcessoProjectoController : ControllerBase
 			}
 
 			return NoContent();
-		}
-		catch (System.Exception)
-		{
-			throw;
 		}
 	}
 }
