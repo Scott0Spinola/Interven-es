@@ -1,0 +1,17 @@
+services:
+  intervencoesapi:
+    build:
+      context: .
+      dockerfile: .dockerfile
+    image: intervencoesapi:dev
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      # Persist SQLite in a mounted volume
+      - ConnectionStrings__DefaultConnection=Data Source=/data/intervencoes.db
+    volumes:
+      - intervencoes_data:/data
+
+volumes:
+  intervencoes_data:

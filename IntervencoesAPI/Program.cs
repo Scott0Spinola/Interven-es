@@ -86,6 +86,14 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
+// Ensure SQLite schema exists (esp. in Docker volumes) during development
+if (app.Environment.IsDevelopment())
+{
+    using var scope = app.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<IntervencoesAPIContext>();
+    db.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

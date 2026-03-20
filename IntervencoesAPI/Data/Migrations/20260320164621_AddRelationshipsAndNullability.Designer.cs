@@ -3,6 +3,7 @@ using System;
 using IntervencoesAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IntervencoesAPI.Data.Migrations
 {
     [DbContext(typeof(IntervencoesAPIContext))]
-    partial class IntervencoesAPIContextModelSnapshot : ModelSnapshot
+    [Migration("20260320164621_AddRelationshipsAndNullability")]
+    partial class AddRelationshipsAndNullability
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.5");
