@@ -1,0 +1,533 @@
+2026-03-20 09:31:59.403 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-20 09:31:59.446 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-20 09:31:59.448 +00:00 [INF] Hosting environment: Development
+2026-03-20 09:31:59.449 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-20 09:32:36.704 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-20 09:32:36.942 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 241.5572ms
+2026-03-20 09:32:36.953 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-20 09:32:36.953 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-20 09:32:36.953 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-20 09:32:36.953 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-20 09:32:36.953 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-20 09:32:36.961 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 8.191ms
+2026-03-20 09:32:36.981 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 28.0361ms
+2026-03-20 09:32:36.981 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 28.6196ms
+2026-03-20 09:32:36.981 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 27.778ms
+2026-03-20 09:32:36.982 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 29.2928ms
+2026-03-20 09:32:37.207 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-20 09:32:37.411 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 204.2179ms
+2026-03-20 09:32:44.188 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade?PageNumber=1&PageSize=2 - null null
+2026-03-20 09:32:44.194 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-20 09:32:44.197 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI)'
+2026-03-20 09:32:44.233 +00:00 [INF] Route matched with {action = "GetAll", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Entidade]]] GetAll(PageParameters) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-20 09:32:44.397 +00:00 [INF] CRUD Read Entidade pageNumber=1 pageSize=2
+2026-03-20 09:32:45.396 +00:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Entidades" AS "e"
+2026-03-20 09:32:45.458 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@p1='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+ORDER BY "e"."Id"
+LIMIT @p1 OFFSET @p
+2026-03-20 09:32:45.469 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Entidade, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-20 09:32:45.513 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI) in 1274.8539ms
+2026-03-20 09:32:45.515 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI)'
+2026-03-20 09:32:45.520 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade?PageNumber=1&PageSize=2 - 200 null application/json; charset=utf-8 1331.9942ms
+2026-03-20 09:33:20.065 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/nomeSocial?name=Cult%20of%20Ben - null null
+2026-03-20 09:33:20.069 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetNomeSocial (IntervencoesAPI)'
+2026-03-20 09:33:20.073 +00:00 [INF] Route matched with {action = "GetNomeSocial", controller = "Entidade"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade] GetNomeSocial(System.String) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-20 09:33:20.172 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@name='?' (Size = 11)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."NomeSocial" = @name
+LIMIT 1
+2026-03-20 09:33:20.226 +00:00 [INF] Executing ObjectResult, writing value of type 'IntervencoesAPI.Models.Entidade'.
+2026-03-20 09:33:20.228 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetNomeSocial (IntervencoesAPI) in 152.4588ms
+2026-03-20 09:33:20.230 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetNomeSocial (IntervencoesAPI)'
+2026-03-20 09:33:20.230 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/nomeSocial?name=Cult%20of%20Ben - 200 null application/json; charset=utf-8 165.3465ms
+2026-03-20 09:35:16.892 +00:00 [INF] Application is shutting down...
+2026-03-20 09:36:15.189 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-20 09:36:15.228 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-20 09:36:15.228 +00:00 [INF] Hosting environment: Development
+2026-03-20 09:36:15.229 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-20 09:36:18.883 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-20 09:36:18.983 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 100.5586ms
+2026-03-20 09:36:18.994 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-20 09:36:18.994 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-20 09:36:18.995 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-20 09:36:18.995 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-20 09:36:18.995 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-20 09:36:19.008 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 12.9525ms
+2026-03-20 09:36:19.014 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 18.9076ms
+2026-03-20 09:36:19.014 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 20.8768ms
+2026-03-20 09:36:19.014 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 19.1572ms
+2026-03-20 09:36:19.014 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 21.3077ms
+2026-03-20 09:36:19.181 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-20 09:36:19.185 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-20 09:36:19.189 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 3.4667ms
+2026-03-20 09:36:19.363 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 181.7925ms
+2026-03-20 09:36:35.423 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/nomeSocial?name=Cult%20of%20Ben - null null
+2026-03-20 09:36:35.432 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-20 09:36:35.437 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetNomeSocial (IntervencoesAPI)'
+2026-03-20 09:36:35.457 +00:00 [INF] Route matched with {action = "GetNomeSocial", controller = "Entidade"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade] GetNomeSocial(System.String) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-20 09:36:36.271 +00:00 [INF] Executed DbCommand (9ms) [Parameters=[@name='?' (Size = 11)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."NomeSocial" = @name
+LIMIT 1
+2026-03-20 09:36:36.351 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Models.Entidade'.
+2026-03-20 09:36:36.393 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetNomeSocial (IntervencoesAPI) in 931.0691ms
+2026-03-20 09:36:36.396 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetNomeSocial (IntervencoesAPI)'
+2026-03-20 09:36:36.404 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/nomeSocial?name=Cult%20of%20Ben - 200 null application/json; charset=utf-8 980.8212ms
+2026-03-20 09:37:10.268 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade?PageNumber=1&PageSize=2 - null null
+2026-03-20 09:37:10.271 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI)'
+2026-03-20 09:37:10.285 +00:00 [INF] Route matched with {action = "GetAll", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Entidade]]] GetAll(PageParameters) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-20 09:37:10.301 +00:00 [INF] CRUD Read Entidade pageNumber=1 pageSize=2
+2026-03-20 09:37:10.384 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Entidades" AS "e"
+2026-03-20 09:37:10.401 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@p1='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+ORDER BY "e"."Id"
+LIMIT @p1 OFFSET @p
+2026-03-20 09:37:10.405 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Entidade, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-20 09:37:10.412 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI) in 121.145ms
+2026-03-20 09:37:10.413 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI)'
+2026-03-20 09:37:10.414 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade?PageNumber=1&PageSize=2 - 200 null application/json; charset=utf-8 146.6554ms
+2026-03-20 09:44:19.536 +00:00 [INF] Application is shutting down...
+2026-03-20 09:44:58.418 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-20 09:44:58.457 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-20 09:44:58.458 +00:00 [INF] Hosting environment: Development
+2026-03-20 09:44:58.459 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-20 09:45:02.857 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-20 09:45:02.963 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 106.325ms
+2026-03-20 09:45:02.973 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-20 09:45:02.973 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-20 09:45:02.974 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-20 09:45:02.973 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-20 09:45:02.974 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-20 09:45:02.987 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 12.4776ms
+2026-03-20 09:45:02.991 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 17.3708ms
+2026-03-20 09:45:02.991 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 18.0078ms
+2026-03-20 09:45:02.991 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 17.8342ms
+2026-03-20 09:45:02.991 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 18.008ms
+2026-03-20 09:45:03.176 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-20 09:45:03.180 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-20 09:45:03.183 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 2.7746ms
+2026-03-20 09:45:03.374 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 197.6738ms
+2026-03-20 09:45:13.862 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade?PageNumber=1&PageSize=2 - null null
+2026-03-20 09:45:13.868 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-20 09:45:13.871 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI)'
+2026-03-20 09:45:13.894 +00:00 [INF] Route matched with {action = "GetAll", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Entidade]]] GetAll(PageParameters) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-20 09:45:13.983 +00:00 [INF] CRUD Read Entidade pageNumber=1 pageSize=2
+2026-03-20 09:45:14.700 +00:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Entidades" AS "e"
+2026-03-20 09:45:14.764 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@p1='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+ORDER BY "e"."Id"
+LIMIT @p1 OFFSET @p
+2026-03-20 09:45:14.773 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Entidade, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-20 09:45:14.815 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI) in 915.3201ms
+2026-03-20 09:45:14.818 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetAll (IntervencoesAPI)'
+2026-03-20 09:45:14.823 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade?PageNumber=1&PageSize=2 - 200 null application/json; charset=utf-8 961.3441ms
+2026-03-20 09:45:46.012 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/Referencia?referncia=beN - null null
+2026-03-20 09:45:46.016 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetByRefencia (IntervencoesAPI)'
+2026-03-20 09:45:46.019 +00:00 [INF] Route matched with {action = "GetByRefencia", controller = "Entidade"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade] GetByRefencia(System.String) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-20 09:45:46.109 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@referncia='?' (Size = 3)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."Referencia" = @referncia
+LIMIT 1
+2026-03-20 09:45:46.163 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Models.Entidade'.
+2026-03-20 09:45:46.166 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetByRefencia (IntervencoesAPI) in 145.161ms
+2026-03-20 09:45:46.167 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetByRefencia (IntervencoesAPI)'
+2026-03-20 09:45:46.169 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/Referencia?referncia=beN - 200 null application/json; charset=utf-8 156.363ms
+2026-03-20 09:45:59.938 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/Referencia?referncia=ben - null null
+2026-03-20 09:45:59.942 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetByRefencia (IntervencoesAPI)'
+2026-03-20 09:45:59.942 +00:00 [INF] Route matched with {action = "GetByRefencia", controller = "Entidade"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade] GetByRefencia(System.String) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-20 09:45:59.967 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@referncia='?' (Size = 3)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."Referencia" = @referncia
+LIMIT 1
+2026-03-20 09:45:59.972 +00:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-03-20 09:45:59.974 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetByRefencia (IntervencoesAPI) in 30.3196ms
+2026-03-20 09:45:59.976 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetByRefencia (IntervencoesAPI)'
+2026-03-20 09:45:59.979 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/Referencia?referncia=ben - 404 null text/plain; charset=utf-8 40.8011ms
+2026-03-20 10:05:35.533 +00:00 [INF] Application is shutting down...
+2026-03-20 10:05:52.004 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-20 10:05:52.044 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-20 10:05:52.045 +00:00 [INF] Hosting environment: Development
+2026-03-20 10:05:52.046 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-20 10:05:57.329 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-20 10:05:57.426 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 98.6059ms
+2026-03-20 10:05:57.441 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-20 10:05:57.442 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-20 10:05:57.443 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-20 10:05:57.443 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-20 10:05:57.443 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-20 10:05:57.453 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 10.4316ms
+2026-03-20 10:05:57.458 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 15.704ms
+2026-03-20 10:05:57.458 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 16.0769ms
+2026-03-20 10:05:57.458 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 17.4396ms
+2026-03-20 10:05:57.460 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 16.7292ms
+2026-03-20 10:05:57.748 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-20 10:05:57.767 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-20 10:05:57.773 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 5.2409ms
+2026-03-20 10:05:57.939 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 190.7689ms
+2026-03-20 10:06:06.511 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Cliente/IdEntidade?idReferencia=2 - null null
+2026-03-20 10:06:06.518 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-20 10:06:06.520 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI)'
+2026-03-20 10:06:06.538 +00:00 [INF] Route matched with {action = "GetByIdEntidae", controller = "Cliente"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Cliente] GetByIdEntidae(Int32) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:06:07.323 +00:00 [INF] Executed DbCommand (9ms) [Parameters=[@idEntidade='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia"
+FROM "Clientes" AS "c"
+WHERE "c"."IdEntidade" = @idEntidade
+LIMIT 1
+2026-03-20 10:06:07.384 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Models.Cliente'.
+2026-03-20 10:06:07.420 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI) in 878.5096ms
+2026-03-20 10:06:07.422 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI)'
+2026-03-20 10:06:07.429 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Cliente/IdEntidade?idReferencia=2 - 200 null application/json; charset=utf-8 917.533ms
+2026-03-20 10:08:53.395 +00:00 [INF] Application is shutting down...
+2026-03-20 10:10:17.366 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-20 10:10:17.404 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-20 10:10:17.405 +00:00 [INF] Hosting environment: Development
+2026-03-20 10:10:17.406 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-20 10:10:26.661 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-20 10:10:26.760 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 100.1693ms
+2026-03-20 10:10:26.773 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-20 10:10:26.773 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-20 10:10:26.773 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-20 10:10:26.773 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-20 10:10:26.773 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-20 10:10:26.785 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 11.9721ms
+2026-03-20 10:10:26.799 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 25.6856ms
+2026-03-20 10:10:26.799 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 26.4327ms
+2026-03-20 10:10:26.799 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 26.4324ms
+2026-03-20 10:10:26.799 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 25.775ms
+2026-03-20 10:10:26.969 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-20 10:10:26.974 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-20 10:10:26.979 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 4.0591ms
+2026-03-20 10:10:27.148 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 178.5241ms
+2026-03-20 10:10:38.126 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Cliente/IdEntidade?idEntidade=2&PageNumber=1&PageSize=5 - null null
+2026-03-20 10:10:38.133 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-20 10:10:38.136 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI)'
+2026-03-20 10:10:38.160 +00:00 [INF] Route matched with {action = "GetByIdEntidae", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Cliente]]] GetByIdEntidae(Int32, PageParameters) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:10:38.249 +00:00 [INF] CRUD Read Cliente idEntidade=2 pageNumber=1 pageSize=5
+2026-03-20 10:10:38.936 +00:00 [INF] Executed DbCommand (21ms) [Parameters=[@idEntidade='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Clientes" AS "c"
+WHERE "c"."IdEntidade" = @idEntidade
+2026-03-20 10:10:38.992 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@idEntidade='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia"
+FROM "Clientes" AS "c"
+WHERE "c"."IdEntidade" = @idEntidade
+ORDER BY "c"."Id"
+LIMIT @p2 OFFSET @p
+2026-03-20 10:10:39.003 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Cliente, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-20 10:10:39.046 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI) in 881.5031ms
+2026-03-20 10:10:39.048 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI)'
+2026-03-20 10:10:39.054 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Cliente/IdEntidade?idEntidade=2&PageNumber=1&PageSize=5 - 200 null application/json; charset=utf-8 927.7928ms
+2026-03-20 10:13:55.987 +00:00 [INF] Application is shutting down...
+2026-03-20 10:33:20.642 +00:00 [INF] Now listening on: http://localhost:5297
+2026-03-20 10:33:20.686 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-03-20 10:33:20.687 +00:00 [INF] Hosting environment: Development
+2026-03-20 10:33:20.688 +00:00 [INF] Content root path: C:\Users\spino\Desktop\Intervenções\IntervencoesAPI
+2026-03-20 10:33:23.421 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.html - null null
+2026-03-20 10:33:23.541 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.html - 304 null null 122.6781ms
+2026-03-20 10:33:23.554 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - null null
+2026-03-20 10:33:23.554 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.css - null null
+2026-03-20 10:33:23.554 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/index.js - null null
+2026-03-20 10:33:23.554 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - null null
+2026-03-20 10:33:23.554 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - null null
+2026-03-20 10:33:23.562 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.js - 304 null null 8.3292ms
+2026-03-20 10:33:23.575 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui.css - 304 null null 22.1845ms
+2026-03-20 10:33:23.575 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-standalone-preset.js - 304 null null 21.4459ms
+2026-03-20 10:33:23.575 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/index.css - 304 null null 21.7696ms
+2026-03-20 10:33:23.582 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/swagger-ui-bundle.js - 304 null null 28.3811ms
+2026-03-20 10:33:23.745 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - null null
+2026-03-20 10:33:23.750 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - null null
+2026-03-20 10:33:23.753 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/favicon-32x32.png - 304 null null 3.3154ms
+2026-03-20 10:33:23.949 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 203.919ms
+2026-03-20 10:33:33.963 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5297/api/Cliente - application/json 325
+2026-03-20 10:33:33.971 +00:00 [WRN] Failed to determine the https port for redirect.
+2026-03-20 10:33:33.975 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-20 10:33:34.001 +00:00 [INF] Route matched with {action = "Create", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Cliente]] Create(IntervencoesAPI.Dtos.CreateCliente) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:33:34.179 +00:00 [INF] CRUD Create Cliente
+2026-03-20 10:33:34.955 +00:00 [INF] Executed DbCommand (18ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 4), @p3='?' (Size = 7), @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Size = 8), @p9='?' (Size = 19), @p10='?' (Size = 12)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Clientes" ("CliCampo1", "CliCampo2", "CliCampo3", "CliCampo4", "DataActualizacao", "DataDeInicio", "Estado", "IdEntidade", "NProcesso", "Observacoes", "Referencia")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "Id";
+2026-03-20 10:33:35.006 +00:00 [INF] Executing CreatedAtActionResult, writing value of type 'IntervencoesAPI.Models.Cliente'.
+2026-03-20 10:33:35.059 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI) in 1049.9818ms
+2026-03-20 10:33:35.061 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-20 10:33:35.067 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/Cliente - 201 null application/json; charset=utf-8 1103.1115ms
+2026-03-20 10:34:02.805 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5297/api/Cliente - application/json 333
+2026-03-20 10:34:02.808 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-20 10:34:02.810 +00:00 [INF] Route matched with {action = "Create", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Cliente]] Create(IntervencoesAPI.Dtos.CreateCliente) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:34:02.827 +00:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-03-20 10:34:02.851 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI) in 36.5441ms
+2026-03-20 10:34:02.853 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-20 10:34:02.854 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/Cliente - 400 null application/problem+json; charset=utf-8 49.7415ms
+2026-03-20 10:34:11.111 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5297/api/Cliente - application/json 332
+2026-03-20 10:34:11.114 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-20 10:34:11.115 +00:00 [INF] Route matched with {action = "Create", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Cliente]] Create(IntervencoesAPI.Dtos.CreateCliente) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:34:11.120 +00:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-03-20 10:34:11.122 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI) in 5.5395ms
+2026-03-20 10:34:11.124 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-20 10:34:11.125 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/Cliente - 400 null application/problem+json; charset=utf-8 13.5662ms
+2026-03-20 10:34:34.144 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5297/api/Cliente - application/json 328
+2026-03-20 10:34:34.146 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-20 10:34:34.147 +00:00 [INF] Route matched with {action = "Create", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Cliente]] Create(IntervencoesAPI.Dtos.CreateCliente) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:34:34.158 +00:00 [INF] CRUD Create Cliente
+2026-03-20 10:34:34.226 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 5), @p3='?' (Size = 7), @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Size = 10), @p9='?' (Size = 19), @p10='?' (Size = 14)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Clientes" ("CliCampo1", "CliCampo2", "CliCampo3", "CliCampo4", "DataActualizacao", "DataDeInicio", "Estado", "IdEntidade", "NProcesso", "Observacoes", "Referencia")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "Id";
+2026-03-20 10:34:34.231 +00:00 [INF] Executing CreatedAtActionResult, writing value of type 'IntervencoesAPI.Models.Cliente'.
+2026-03-20 10:34:34.234 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI) in 84.1831ms
+2026-03-20 10:34:34.235 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-20 10:34:34.236 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/Cliente - 201 null application/json; charset=utf-8 92.3366ms
+2026-03-20 10:35:03.310 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5297/api/Cliente - application/json 327
+2026-03-20 10:35:03.312 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-20 10:35:03.313 +00:00 [INF] Route matched with {action = "Create", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Cliente]] Create(IntervencoesAPI.Dtos.CreateCliente) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:35:03.315 +00:00 [INF] CRUD Create Cliente
+2026-03-20 10:35:03.352 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 7), @p3='?' (Size = 7), @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Size = 8), @p9='?' (Size = 19), @p10='?' (Size = 9)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Clientes" ("CliCampo1", "CliCampo2", "CliCampo3", "CliCampo4", "DataActualizacao", "DataDeInicio", "Estado", "IdEntidade", "NProcesso", "Observacoes", "Referencia")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "Id";
+2026-03-20 10:35:03.357 +00:00 [INF] Executing CreatedAtActionResult, writing value of type 'IntervencoesAPI.Models.Cliente'.
+2026-03-20 10:35:03.360 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI) in 45.0042ms
+2026-03-20 10:35:03.361 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-20 10:35:03.362 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/Cliente - 201 null application/json; charset=utf-8 52.2857ms
+2026-03-20 10:35:26.015 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5297/api/Cliente - application/json 349
+2026-03-20 10:35:26.018 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-20 10:35:26.019 +00:00 [INF] Route matched with {action = "Create", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Cliente]] Create(IntervencoesAPI.Dtos.CreateCliente) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:35:26.023 +00:00 [INF] CRUD Create Cliente
+2026-03-20 10:35:26.027 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (Size = 5), @p3='?' (Size = 7), @p4='?' (DbType = DateTime), @p5='?' (DbType = DateTime), @p6='?' (DbType = Int32), @p7='?' (DbType = Int32), @p8='?' (Size = 7), @p9='?' (Size = 44), @p10='?' (Size = 13)], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "Clientes" ("CliCampo1", "CliCampo2", "CliCampo3", "CliCampo4", "DataActualizacao", "DataDeInicio", "Estado", "IdEntidade", "NProcesso", "Observacoes", "Referencia")
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10)
+RETURNING "Id";
+2026-03-20 10:35:26.031 +00:00 [INF] Executing CreatedAtActionResult, writing value of type 'IntervencoesAPI.Models.Cliente'.
+2026-03-20 10:35:26.033 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI) in 11.3505ms
+2026-03-20 10:35:26.034 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.Create (IntervencoesAPI)'
+2026-03-20 10:35:26.036 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5297/api/Cliente - 201 null application/json; charset=utf-8 21.4956ms
+2026-03-20 10:35:46.602 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Cliente/IdEntidade?idEntidade=2&PageNumber=1&PageSize=3 - null null
+2026-03-20 10:35:46.605 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI)'
+2026-03-20 10:35:46.616 +00:00 [INF] Route matched with {action = "GetByIdEntidae", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Cliente]]] GetByIdEntidae(Int32, PageParameters) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:35:46.638 +00:00 [INF] CRUD Read Cliente idEntidade=2 pageNumber=1 pageSize=3
+2026-03-20 10:35:46.896 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@idEntidade='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Clientes" AS "c"
+WHERE "c"."IdEntidade" = @idEntidade
+2026-03-20 10:35:46.944 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@idEntidade='?' (DbType = Int32), @p2='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia"
+FROM "Clientes" AS "c"
+WHERE "c"."IdEntidade" = @idEntidade
+ORDER BY "c"."Id"
+LIMIT @p2 OFFSET @p
+2026-03-20 10:35:46.951 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Cliente, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-20 10:35:46.955 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI) in 336.2911ms
+2026-03-20 10:35:46.957 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI)'
+2026-03-20 10:35:46.959 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Cliente/IdEntidade?idEntidade=2&PageNumber=1&PageSize=3 - 200 null application/json; charset=utf-8 356.6707ms
+2026-03-20 10:35:56.543 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Cliente/IdEntidade?idEntidade=2&PageNumber=2&PageSize=3 - null null
+2026-03-20 10:35:56.547 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI)'
+2026-03-20 10:35:56.548 +00:00 [INF] Route matched with {action = "GetByIdEntidae", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Cliente]]] GetByIdEntidae(Int32, PageParameters) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:35:56.550 +00:00 [INF] CRUD Read Cliente idEntidade=2 pageNumber=2 pageSize=3
+2026-03-20 10:35:56.555 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@idEntidade='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Clientes" AS "c"
+WHERE "c"."IdEntidade" = @idEntidade
+2026-03-20 10:35:56.569 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@idEntidade='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia"
+FROM "Clientes" AS "c"
+WHERE "c"."IdEntidade" = @idEntidade
+ORDER BY "c"."Id"
+LIMIT @p OFFSET @p
+2026-03-20 10:35:56.572 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Cliente, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-20 10:35:56.573 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI) in 23.671ms
+2026-03-20 10:35:56.574 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI)'
+2026-03-20 10:35:56.576 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Cliente/IdEntidade?idEntidade=2&PageNumber=2&PageSize=3 - 200 null application/json; charset=utf-8 32.8494ms
+2026-03-20 10:37:49.441 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Cliente?PageNumber=1&PageSize=5 - null null
+2026-03-20 10:37:49.444 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.GetAll (IntervencoesAPI)'
+2026-03-20 10:37:49.452 +00:00 [INF] Route matched with {action = "GetAll", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Cliente]]] GetAll(PageParameters) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:37:49.459 +00:00 [INF] CRUD Read Cliente pageNumber=1 pageSize=5
+2026-03-20 10:37:49.472 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Clientes" AS "c"
+2026-03-20 10:37:49.482 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@p1='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia"
+FROM "Clientes" AS "c"
+ORDER BY "c"."Id"
+LIMIT @p1 OFFSET @p
+2026-03-20 10:37:49.484 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Cliente, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-20 10:37:49.485 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.GetAll (IntervencoesAPI) in 29.9121ms
+2026-03-20 10:37:49.487 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.GetAll (IntervencoesAPI)'
+2026-03-20 10:37:49.488 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Cliente?PageNumber=1&PageSize=5 - 200 null application/json; charset=utf-8 47.1969ms
+2026-03-20 10:45:34.010 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Cliente/IdEntidade?idEntidade=2&PageNumber=2&PageSize=3 - null null
+2026-03-20 10:45:34.013 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI)'
+2026-03-20 10:45:34.014 +00:00 [INF] Route matched with {action = "GetByIdEntidae", controller = "Cliente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Services.PagedList`1[IntervencoesAPI.Models.Cliente]]] GetByIdEntidae(Int32, PageParameters) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:45:34.016 +00:00 [INF] CRUD Read Cliente idEntidade=2 pageNumber=2 pageSize=3
+2026-03-20 10:45:34.023 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@idEntidade='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*)
+FROM "Clientes" AS "c"
+WHERE "c"."IdEntidade" = @idEntidade
+2026-03-20 10:45:34.029 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@idEntidade='?' (DbType = Int32), @p='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia"
+FROM "Clientes" AS "c"
+WHERE "c"."IdEntidade" = @idEntidade
+ORDER BY "c"."Id"
+LIMIT @p OFFSET @p
+2026-03-20 10:45:34.033 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Services.PagedList`1[[IntervencoesAPI.Models.Cliente, IntervencoesAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-03-20 10:45:34.036 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI) in 20.4445ms
+2026-03-20 10:45:34.039 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae (IntervencoesAPI)'
+2026-03-20 10:45:34.041 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Cliente/IdEntidade?idEntidade=2&PageNumber=2&PageSize=3 - 200 null application/json; charset=utf-8 30.3948ms
+2026-03-20 10:45:51.011 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Cliente/Refencia?referencia=BENCH-TEST-02 - null null
+2026-03-20 10:45:51.013 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ClienteController.GetByReferencia (IntervencoesAPI)'
+2026-03-20 10:45:51.016 +00:00 [INF] Route matched with {action = "GetByReferencia", controller = "Cliente"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Cliente] GetByReferencia(System.String) on controller IntervencoesAPI.Controllers.ClienteController (IntervencoesAPI).
+2026-03-20 10:45:51.054 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@referencia='?' (Size = 13)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia"
+FROM "Clientes" AS "c"
+WHERE "c"."Referencia" = @referencia
+LIMIT 1
+2026-03-20 10:45:51.062 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Models.Cliente'.
+2026-03-20 10:45:51.064 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ClienteController.GetByReferencia (IntervencoesAPI) in 46.6534ms
+2026-03-20 10:45:51.066 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ClienteController.GetByReferencia (IntervencoesAPI)'
+2026-03-20 10:45:51.067 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Cliente/Refencia?referencia=BENCH-TEST-02 - 200 null application/json; charset=utf-8 56.0629ms
+2026-03-20 10:46:34.718 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - null null
+2026-03-20 10:46:34.723 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-20 10:46:34.730 +00:00 [INF] Route matched with {action = "GetDetails", controller = "Entidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto]] GetDetails(Int32) on controller IntervencoesAPI.Controllers.EntidadeController (IntervencoesAPI).
+2026-03-20 10:46:34.803 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "e"."Id", "e"."Contribuinte", "e"."DataActualizacao", "e"."DesignacaoComercial", "e"."Estado", "e"."Item1", "e"."Item2", "e"."Item3", "e"."NomeSocial", "e"."Observacoes", "e"."Referencia", "e"."Tipo"
+FROM "Entidades" AS "e"
+WHERE "e"."Id" = @entidadeId
+ORDER BY "e"."Id"
+LIMIT 2
+2026-03-20 10:46:34.829 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."Id", "c"."CliCampo1", "c"."CliCampo2", "c"."CliCampo3", "c"."CliCampo4", "c"."DataActualizacao", "c"."DataDeInicio", "c"."Estado", "c"."IdEntidade", "c"."NProcesso", "c"."Observacoes", "c"."Referencia", "e0"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+ORDER BY "e0"."Id", "c"."Id"
+2026-03-20 10:46:34.840 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel", "e0"."Id", "c"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+INNER JOIN "ProcessoProjectos" AS "p" ON "c"."Id" = "p"."ClienteId"
+ORDER BY "e0"."Id", "c"."Id", "p"."Id"
+2026-03-20 10:46:34.864 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@entidadeId='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "i"."Id", "i"."AccaoRealizada", "i"."Alerta", "i"."Autor", "i"."Codigo", "i"."Comentarios", "i"."Coresponsavel", "i"."DataConclusao", "i"."DataConfirmacao", "i"."DataCriacao", "i"."DataFimPrevista", "i"."DataInicio", "i"."DataInicioPrevista", "i"."DataInstalacao", "i"."DataLimite", "i"."DataQualidade", "i"."DataRegisto", "i"."Descricao", "i"."Email", "i"."EsforcoACobrar", "i"."EsforcoReal", "i"."Estado", "i"."HistoricoEstados", "i"."IntervencaoPaiId", "i"."MotivoAlerta", "i"."Notas", "i"."PrevisaoEsforco", "i"."Prioridade", "i"."ProcessoId", "i"."Referencia", "i"."Responsavel", "i"."TarefaAgendadaId", "i"."TarefaId", "i"."Tema", "i"."Tipo", "i"."UpdateDate", "i"."UpdateUser", "i"."Valor", "i"."Visibilidade", "e0"."Id", "c"."Id", "p"."Id"
+FROM (
+    SELECT "e"."Id"
+    FROM "Entidades" AS "e"
+    WHERE "e"."Id" = @entidadeId
+    ORDER BY "e"."Id"
+    LIMIT 1
+) AS "e0"
+INNER JOIN "Clientes" AS "c" ON "e0"."Id" = "c"."IdEntidade"
+INNER JOIN "ProcessoProjectos" AS "p" ON "c"."Id" = "p"."ClienteId"
+INNER JOIN "Intervencaos" AS "i" ON "p"."Id" = "i"."ProcessoId"
+ORDER BY "e0"."Id", "c"."Id", "p"."Id"
+2026-03-20 10:46:34.909 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto'.
+2026-03-20 10:46:34.918 +00:00 [INF] Executed action IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI) in 186.5663ms
+2026-03-20 10:46:34.920 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.EntidadeController.GetDetails (IntervencoesAPI)'
+2026-03-20 10:46:34.921 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/Entidade/2/details - 200 null application/json; charset=utf-8 202.8089ms
+2026-03-20 10:56:58.453 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/IdCliente?idCliente=2 - null null
+2026-03-20 10:56:58.456 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI)'
+2026-03-20 10:56:58.458 +00:00 [INF] Route matched with {action = "GetidCliente", controller = "ProcessoProjecto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade] GetidCliente(Int32) on controller IntervencoesAPI.Controllers.ProcessoProjectoController (IntervencoesAPI).
+2026-03-20 10:56:58.473 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@IdCliente='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel"
+FROM "ProcessoProjectos" AS "p"
+WHERE "p"."ClienteId" = @IdCliente
+LIMIT 1
+2026-03-20 10:56:58.475 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Models.ProcessoProjecto'.
+2026-03-20 10:56:58.480 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI) in 20.0349ms
+2026-03-20 10:56:58.481 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI)'
+2026-03-20 10:56:58.482 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/IdCliente?idCliente=2 - 200 null application/json; charset=utf-8 28.5963ms
+2026-03-20 10:57:07.755 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/IdCliente?idCliente=1 - null null
+2026-03-20 10:57:07.758 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI)'
+2026-03-20 10:57:07.759 +00:00 [INF] Route matched with {action = "GetidCliente", controller = "ProcessoProjecto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade] GetidCliente(Int32) on controller IntervencoesAPI.Controllers.ProcessoProjectoController (IntervencoesAPI).
+2026-03-20 10:57:07.763 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@IdCliente='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel"
+FROM "ProcessoProjectos" AS "p"
+WHERE "p"."ClienteId" = @IdCliente
+LIMIT 1
+2026-03-20 10:57:07.777 +00:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-03-20 10:57:07.780 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI) in 19.3962ms
+2026-03-20 10:57:07.783 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI)'
+2026-03-20 10:57:07.784 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/IdCliente?idCliente=1 - 404 null text/plain; charset=utf-8 29.2279ms
+2026-03-20 10:57:11.601 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/IdCliente?idCliente=3 - null null
+2026-03-20 10:57:11.605 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI)'
+2026-03-20 10:57:11.606 +00:00 [INF] Route matched with {action = "GetidCliente", controller = "ProcessoProjecto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade] GetidCliente(Int32) on controller IntervencoesAPI.Controllers.ProcessoProjectoController (IntervencoesAPI).
+2026-03-20 10:57:11.613 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@IdCliente='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel"
+FROM "ProcessoProjectos" AS "p"
+WHERE "p"."ClienteId" = @IdCliente
+LIMIT 1
+2026-03-20 10:57:11.617 +00:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-03-20 10:57:11.619 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI) in 9.267ms
+2026-03-20 10:57:11.621 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI)'
+2026-03-20 10:57:11.624 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/IdCliente?idCliente=3 - 404 null text/plain; charset=utf-8 22.1388ms
+2026-03-20 10:57:19.919 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/IdCliente?idCliente=9 - null null
+2026-03-20 10:57:19.922 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI)'
+2026-03-20 10:57:19.924 +00:00 [INF] Route matched with {action = "GetidCliente", controller = "ProcessoProjecto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade] GetidCliente(Int32) on controller IntervencoesAPI.Controllers.ProcessoProjectoController (IntervencoesAPI).
+2026-03-20 10:57:19.931 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@IdCliente='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel"
+FROM "ProcessoProjectos" AS "p"
+WHERE "p"."ClienteId" = @IdCliente
+LIMIT 1
+2026-03-20 10:57:19.937 +00:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-03-20 10:57:19.942 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI) in 16.3663ms
+2026-03-20 10:57:19.942 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI)'
+2026-03-20 10:57:19.944 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/IdCliente?idCliente=9 - 404 null text/plain; charset=utf-8 24.6904ms
+2026-03-20 10:58:10.139 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/IdCliente?idCliente=2 - null null
+2026-03-20 10:58:10.142 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI)'
+2026-03-20 10:58:10.143 +00:00 [INF] Route matched with {action = "GetidCliente", controller = "ProcessoProjecto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.Entidade] GetidCliente(Int32) on controller IntervencoesAPI.Controllers.ProcessoProjectoController (IntervencoesAPI).
+2026-03-20 10:58:10.145 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@IdCliente='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel"
+FROM "ProcessoProjectos" AS "p"
+WHERE "p"."ClienteId" = @IdCliente
+LIMIT 1
+2026-03-20 10:58:10.147 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Models.ProcessoProjecto'.
+2026-03-20 10:58:10.149 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI) in 5.0127ms
+2026-03-20 10:58:10.152 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente (IntervencoesAPI)'
+2026-03-20 10:58:10.153 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/IdCliente?idCliente=2 - 200 null application/json; charset=utf-8 13.9347ms
+2026-03-20 10:58:24.651 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/Referencia?referncia=ben - null null
+2026-03-20 10:58:24.654 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetByRefencia (IntervencoesAPI)'
+2026-03-20 10:58:24.655 +00:00 [INF] Route matched with {action = "GetByRefencia", controller = "ProcessoProjecto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.ProcessoProjecto] GetByRefencia(System.String) on controller IntervencoesAPI.Controllers.ProcessoProjectoController (IntervencoesAPI).
+2026-03-20 10:58:24.663 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@referencia='?' (Size = 3)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel"
+FROM "ProcessoProjectos" AS "p"
+WHERE "p"."Referencia" = @referencia
+LIMIT 1
+2026-03-20 10:58:24.665 +00:00 [INF] Executing NotFoundObjectResult, writing value of type 'System.String'.
+2026-03-20 10:58:24.667 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ProcessoProjectoController.GetByRefencia (IntervencoesAPI) in 9.6458ms
+2026-03-20 10:58:24.668 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetByRefencia (IntervencoesAPI)'
+2026-03-20 10:58:24.669 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/Referencia?referncia=ben - 404 null text/plain; charset=utf-8 18.6669ms
+2026-03-20 11:00:04.975 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/Referencia?referncia=Ben - null null
+2026-03-20 11:00:04.978 +00:00 [INF] Executing endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetByRefencia (IntervencoesAPI)'
+2026-03-20 11:00:04.978 +00:00 [INF] Route matched with {action = "GetByRefencia", controller = "ProcessoProjecto"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[IntervencoesAPI.Models.ProcessoProjecto] GetByRefencia(System.String) on controller IntervencoesAPI.Controllers.ProcessoProjectoController (IntervencoesAPI).
+2026-03-20 11:00:04.981 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@referencia='?' (Size = 3)], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."Id", "p"."AvencaId", "p"."ClienteId", "p"."DataConclusao", "p"."DataInicio", "p"."DataPrevistaConclusao", "p"."Descricao", "p"."EsforcoPrevisto", "p"."EsforcoReal", "p"."Estado", "p"."FornecedorId", "p"."Fornecedores", "p"."IdContracto", "p"."IdProposta", "p"."NumArquivo", "p"."ProcessoPaiId", "p"."Referencia", "p"."Responsavel"
+FROM "ProcessoProjectos" AS "p"
+WHERE "p"."Referencia" = @referencia
+LIMIT 1
+2026-03-20 11:00:04.984 +00:00 [INF] Executing OkObjectResult, writing value of type 'IntervencoesAPI.Models.ProcessoProjecto'.
+2026-03-20 11:00:04.996 +00:00 [INF] Executed action IntervencoesAPI.Controllers.ProcessoProjectoController.GetByRefencia (IntervencoesAPI) in 16.5765ms
+2026-03-20 11:00:05.002 +00:00 [INF] Executed endpoint 'IntervencoesAPI.Controllers.ProcessoProjectoController.GetByRefencia (IntervencoesAPI)'
+2026-03-20 11:00:05.004 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5297/api/ProcessoProjecto/Referencia?referncia=Ben - 200 null application/json; charset=utf-8 28.9762ms
+2026-03-20 11:12:32.851 +00:00 [INF] Application is shutting down...

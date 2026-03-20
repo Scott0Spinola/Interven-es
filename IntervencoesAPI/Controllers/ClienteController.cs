@@ -89,6 +89,74 @@ public class ClienteController : ControllerBase
     }
 
     /// <summary>
+    /// Gets a cliente by its reference value.
+    /// </summary>
+    /// <param name="referencia">The reference value to search for.</param>
+    /// <remarks>
+    /// Returns the cliente resource that matches the provided <paramref name="referencia"/>.
+    /// </remarks>
+    /// <response code="200">Cliente returned successfully.</response>
+    /// <response code="400">The query parameter is missing or invalid.</response>
+    /// <response code="404">Cliente not found.</response>
+    [HttpGet("Refencia")]
+    [ProducesResponseType(typeof(Cliente), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public ActionResult<Cliente> GetByReferencia([FromQuery] string referencia  )
+    	{
+		if (string.IsNullOrWhiteSpace(referencia))
+		{
+			return BadRequest("Query parameter 'referencia' is required.");
+		}
+
+		var entidade = _clienteService.GetByReferencia(referencia);
+		if (entidade is null)
+		{
+			return NotFound($"No Entidade exists with the provided Referencia: {referencia}.");
+		}
+
+		return Ok(entidade);
+	}
+
+        /// <summary>
+        /// Gets clientes for a given entidade identifier (paged).
+        /// </summary>
+        /// <param name="idEntidade">The entidade identifier to filter clientes by.</param>
+        /// <param name="pageParameters">Pagination parameters (page number and page size).</param>
+        /// <remarks>
+        /// Returns a paged result containing clientes associated with the provided <paramref name="idEntidade"/>.
+        /// </remarks>
+        /// <response code="200">Clientes returned successfully.</response>
+        /// <response code="400">The query parameters are invalid.</response>
+        /// <response code="404">No clientes were found for the provided entidade identifier.</response>
+    [HttpGet("IdEntidade")]
+    [ProducesResponseType(typeof(PagedList<Cliente>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<PagedList<Cliente>>> GetByIdEntidae([FromQuery] int idEntidade, [FromQuery] PageParameters pageParameters)
+    {
+        if (idEntidade <= 0)
+        {
+            return BadRequest("Query parameter 'idEntidade' must be a positive integer.");
+        }
+
+        _logger.LogInformation(
+            "CRUD {CrudOperation} {Resource} idEntidade={IdEntidade} pageNumber={PageNumber} pageSize={PageSize}",
+            "Read",
+            "Cliente",
+            idEntidade,
+            pageParameters.PageNumber,
+            pageParameters.PageSize);
+
+        var pagedClientes = await _clienteService.GetByIdEntidadePagedAsync(idEntidade, pageParameters);
+        if (pagedClientes.TotalCount == 0)
+        {
+            return NotFound($"No Cliente exists with the provided IdEntidade: {idEntidade}.");
+        }
+
+        return Ok(pagedClientes);
+    }
+
+    /// <summary>
     /// Creates a new cliente.
     /// </summary>
     /// <param name="dto">The data used to create a new cliente.</param>

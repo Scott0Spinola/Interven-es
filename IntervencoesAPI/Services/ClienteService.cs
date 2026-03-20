@@ -25,6 +25,11 @@ public class ClienteService
         return _context.Clientes.OrderBy(i => i.Id).ToList();
     }
 
+    /// <summary>
+    /// Gets a paginated list of clientes.
+    /// </summary>
+    /// <param name="pageParameters">Pagination parameters (page number and page size).</param>
+    /// <returns>A paged list containing the requested page of clientes.</returns>
     public async Task<PagedList<Cliente>> GetAllPagedAsync(PageParameters pageParameters)
     {
         var query = _context.Clientes
@@ -41,6 +46,37 @@ public class ClienteService
     }
 
 
+    public Cliente? GetByReferencia(string referencia)
+    {
+        return _context.Clientes.FirstOrDefault(r => r.Referencia == referencia);
+    }
+
+    /// <summary>
+    /// Gets the first cliente that matches the given entidade identifier.
+    /// </summary>
+    /// <param name="idEntidade">The entidade identifier.</param>
+    /// <returns>The first matching cliente, or <see langword="null"/> if none exists.</returns>
+    public Cliente? GetByIdEntidade(int idEntidade)
+    {
+        return _context.Clientes.FirstOrDefault(r => r.IdEntidade == idEntidade);
+    }
+
+    /// <summary>
+    /// Gets clientes that match the given entidade identifier, returned as a paged result.
+    /// </summary>
+    /// <param name="idEntidade">The entidade identifier to filter clientes by.</param>
+    /// <param name="pageParameters">Pagination parameters (page number and page size).</param>
+    /// <returns>A paged list containing clientes associated with the provided entidade identifier.</returns>
+    public async Task<PagedList<Cliente>> GetByIdEntidadePagedAsync(int idEntidade, PageParameters pageParameters)
+    {
+        var query = _context.Clientes
+            .AsNoTracking()
+            .Where(c => c.IdEntidade == idEntidade)
+            .OrderBy(c => c.Id)
+            .AsQueryable();
+
+        return await PagedList<Cliente>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
+    }
     public async Task<Cliente> CreateAsync(CreateCliente dto)
     {
         var cliente = new Cliente

@@ -9,6 +9,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IntervencoesAPI.Services;
 
+/// <summary>
+/// Provides data access and business operations for <see cref="Entidade"/>.
+/// </summary>
 public class EntidadeService
 {
     private readonly IntervencoesAPIContext _context;
@@ -21,11 +24,20 @@ public class EntidadeService
         _logger = logger;
     }
 
+    /// <summary>
+    /// Gets all entidades ordered by identifier.
+    /// </summary>
+    /// <returns>A list of entidades.</returns>
     public List<Entidade> GetAll()
     {
         return _context.Entidades.OrderBy(i => i.Id).ToList();
     }
 
+    /// <summary>
+    /// Gets a paginated list of entidades.
+    /// </summary>
+    /// <param name="pageParameters">Pagination parameters (page number and page size).</param>
+    /// <returns>A paged list containing the requested page of entidades.</returns>
     public async Task<PagedList<Entidade>> GetAllPagedAsync(PageParameters pageParameters)
     {
         var query = _context.Entidades
@@ -36,11 +48,41 @@ public class EntidadeService
         return await PagedList<Entidade>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
     }
 
+    /// <summary>
+    /// Gets an entidade by nome social.
+    /// </summary>
+    /// <param name="name">The nome social to search for.</param>
+    /// <returns>The entidade if found; otherwise <see langword="null"/>.</returns>
+    public Entidade? GetByNomeSocial(string name)
+    {
+        return _context.Entidades.FirstOrDefault(n => n.NomeSocial == name);
+    }
+
+    /// <summary>
+    /// Gets an entidade by referencia.
+    /// </summary>
+    /// <param name="referncia">The referencia to search for.</param>
+    /// <returns>The entidade if found; otherwise <see langword="null"/>.</returns>
+     public Entidade? GetByReferencia(string referncia)
+    {
+        return _context.Entidades.FirstOrDefault(n => n.Referencia == referncia);
+    }
+
+    /// <summary>
+    /// Gets an entidade by identifier.
+    /// </summary>
+    /// <param name="id">The entidade identifier.</param>
+    /// <returns>The entidade if found; otherwise <see langword="null"/>.</returns>
     public Entidade? GetByIdEntidade(int id)
     {
         return _context.Entidades.FirstOrDefault(i => i.Id == id);
     }
 
+    /// <summary>
+    /// Creates a new entidade.
+    /// </summary>
+    /// <param name="dto">The data used to create the entidade.</param>
+    /// <returns>The created entidade with its generated identifier.</returns>
     public async Task<Entidade> CreateAsync(CreateEntidade dto)
     {
         var entidade = new Entidade
@@ -65,6 +107,12 @@ public class EntidadeService
     }
 
 
+    /// <summary>
+    /// Updates an existing entidade.
+    /// </summary>
+    /// <param name="id">The entidade identifier.</param>
+    /// <param name="dto">The data used to update the entidade.</param>
+    /// <returns>The updated entidade if found; otherwise <see langword="null"/>.</returns>
     public async Task<Entidade?> UpdateAsync(int id, UpdateEntidade dto)
     {
         var entidade = _context.Entidades.FirstOrDefault(i => i.Id == id);
@@ -91,6 +139,11 @@ public class EntidadeService
 
 
 
+    /// <summary>
+    /// Deletes an entidade.
+    /// </summary>
+    /// <param name="id">The entidade identifier.</param>
+    /// <returns><see langword="true"/> if deleted; <see langword="false"/> if not found.</returns>
     public bool Delete(int id)
     {
         var entidade = _context.Entidades.FirstOrDefault(i => i.Id == id);
@@ -104,6 +157,14 @@ public class EntidadeService
     }
 
 
+    /// <summary>
+    /// Gets an aggregated details DTO for an entidade.
+    /// </summary>
+    /// <param name="entidadeId">The entidade identifier.</param>
+    /// <remarks>
+    /// Loads related data (clientes, processos, and intervenções) and maps it into <see cref="EntidadeDetailsDto"/>.
+    /// </remarks>
+    /// <returns>The details DTO if found; otherwise <see langword="null"/>.</returns>
     public async Task<EntidadeDetailsDto?> GetDetailsAsync(int entidadeId)
     {
         try

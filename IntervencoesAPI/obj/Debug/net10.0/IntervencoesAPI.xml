@@ -26,6 +26,31 @@
             <response code="200">Cliente returned successfully.</response>
             <response code="404">Cliente not found.</response>
         </member>
+        <member name="M:IntervencoesAPI.Controllers.ClienteController.GetByReferencia(System.String)">
+            <summary>
+            Gets a cliente by its reference value.
+            </summary>
+            <param name="referencia">The reference value to search for.</param>
+            <remarks>
+            Returns the cliente resource that matches the provided <paramref name="referencia"/>.
+            </remarks>
+            <response code="200">Cliente returned successfully.</response>
+            <response code="400">The query parameter is missing or invalid.</response>
+            <response code="404">Cliente not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.ClienteController.GetByIdEntidae(System.Int32,PageParameters)">
+            <summary>
+            Gets clientes for a given entidade identifier (paged).
+            </summary>
+            <param name="idEntidade">The entidade identifier to filter clientes by.</param>
+            <param name="pageParameters">Pagination parameters (page number and page size).</param>
+            <remarks>
+            Returns a paged result containing clientes associated with the provided <paramref name="idEntidade"/>.
+            </remarks>
+            <response code="200">Clientes returned successfully.</response>
+            <response code="400">The query parameters are invalid.</response>
+            <response code="404">No clientes were found for the provided entidade identifier.</response>
+        </member>
         <member name="M:IntervencoesAPI.Controllers.ClienteController.Create(IntervencoesAPI.Dtos.CreateCliente)">
             <summary>
             Creates a new cliente.
@@ -88,6 +113,27 @@
             <response code="200">Entidade returned successfully.</response>
             <response code="404">Entidade not found.</response>
         </member>
+        <member name="M:IntervencoesAPI.Controllers.EntidadeController.GetNomeSocial(System.String)">
+            <summary>
+            Gets an entidade by nome social.
+            </summary>
+            <param name="name">The nome social to search for.</param>
+            <response code="200">Entidade returned successfully.</response>
+            <response code="400">The name query parameter is missing/invalid.</response>
+            <response code="404">Entidade not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.EntidadeController.GetByRefencia(System.String)">
+            <summary>
+            Gets an entidade by referencia.
+            </summary>
+            <param name="referncia">The referencia value to search for.</param>
+            <remarks>
+            The value is matched against the <c>Referencia</c> field.
+            </remarks>
+            <response code="200">Entidade returned successfully.</response>
+            <response code="400">The referncia query parameter is missing/invalid.</response>
+            <response code="404">Entidade not found.</response>
+        </member>
         <member name="M:IntervencoesAPI.Controllers.EntidadeController.Create(IntervencoesAPI.Dtos.CreateEntidade)">
             <summary>
             Creates a new entidade.
@@ -121,6 +167,17 @@
             Deletes the entidade identified by <paramref name="id"/>.
             </remarks>
             <response code="204">Entidade deleted successfully.</response>
+            <response code="404">Entidade not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.EntidadeController.GetDetails(System.Int32)">
+            <summary>
+            Gets an entidade with related data (details view).
+            </summary>
+            <param name="id">The entidade identifier.</param>
+            <remarks>
+            Returns an aggregated DTO that includes the entidade and its related clientes, processos, and intervenções.
+            </remarks>
+            <response code="200">Entidade details returned successfully.</response>
             <response code="404">Entidade not found.</response>
         </member>
         <member name="T:IntervencoesAPI.Controllers.IntervencaoController">
@@ -189,6 +246,9 @@
             <summary>
             Provides endpoints to manage processos/projectos.
             </summary>
+            <remarks>
+            Base route: <c>/api/ProcessoProjecto</c>.
+            </remarks>
         </member>
         <member name="M:IntervencoesAPI.Controllers.ProcessoProjectoController.GetAll(PageParameters)">
             <summary>
@@ -208,6 +268,35 @@
             <param name="id">The processo/projecto identifier.</param>
             <remarks>
             Returns the processo/projecto resource if found.
+            </remarks>
+            <response code="200">Processo/Projecto returned successfully.</response>
+            <response code="404">Processo/Projecto not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.ProcessoProjectoController.GetByRefencia(System.String)">
+            <summary>
+            Gets a processo/projecto by reference (referência).
+            </summary>
+            <param name="referncia">
+            The reference value to search for.
+            This value is read from the query string parameter named <c>referncia</c>.
+            </param>
+            <remarks>
+            The provided value is matched against the <c>Referencia</c> field.
+            </remarks>
+            <response code="200">Processo/Projecto returned successfully.</response>
+            <response code="400">The <c>referncia</c> query parameter is missing or invalid.</response>
+            <response code="404">Processo/Projecto not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.ProcessoProjectoController.GetidCliente(System.Int32)">
+            <summary>
+            Gets a processo/projecto by client identifier.
+            </summary>
+            <param name="idCliente">
+            The client identifier to search for.
+            This value is read from the query string parameter named <c>idCliente</c>.
+            </param>
+            <remarks>
+            Returns the first processo/projecto whose <c>ClienteId</c> matches the provided client identifier.
             </remarks>
             <response code="200">Processo/Projecto returned successfully.</response>
             <response code="404">Processo/Projecto not found.</response>
@@ -258,6 +347,175 @@
         </member>
         <member name="M:IntervencoesAPI.Data.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="M:IntervencoesAPI.Services.ClienteService.GetAllPagedAsync(PageParameters)">
+            <summary>
+            Gets a paginated list of clientes.
+            </summary>
+            <param name="pageParameters">Pagination parameters (page number and page size).</param>
+            <returns>A paged list containing the requested page of clientes.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ClienteService.GetByIdEntidade(System.Int32)">
+            <summary>
+            Gets the first cliente that matches the given entidade identifier.
+            </summary>
+            <param name="idEntidade">The entidade identifier.</param>
+            <returns>The first matching cliente, or <see langword="null"/> if none exists.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ClienteService.GetByIdEntidadePagedAsync(System.Int32,PageParameters)">
+            <summary>
+            Gets clientes that match the given entidade identifier, returned as a paged result.
+            </summary>
+            <param name="idEntidade">The entidade identifier to filter clientes by.</param>
+            <param name="pageParameters">Pagination parameters (page number and page size).</param>
+            <returns>A paged list containing clientes associated with the provided entidade identifier.</returns>
+        </member>
+        <member name="T:IntervencoesAPI.Services.EntidadeService">
+            <summary>
+            Provides data access and business operations for <see cref="T:IntervencoesAPI.Models.Entidade"/>.
+            </summary>
+        </member>
+        <member name="M:IntervencoesAPI.Services.EntidadeService.GetAll">
+            <summary>
+            Gets all entidades ordered by identifier.
+            </summary>
+            <returns>A list of entidades.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.EntidadeService.GetAllPagedAsync(PageParameters)">
+            <summary>
+            Gets a paginated list of entidades.
+            </summary>
+            <param name="pageParameters">Pagination parameters (page number and page size).</param>
+            <returns>A paged list containing the requested page of entidades.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.EntidadeService.GetByNomeSocial(System.String)">
+            <summary>
+            Gets an entidade by nome social.
+            </summary>
+            <param name="name">The nome social to search for.</param>
+            <returns>The entidade if found; otherwise <see langword="null"/>.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.EntidadeService.GetByReferencia(System.String)">
+            <summary>
+            Gets an entidade by referencia.
+            </summary>
+            <param name="referncia">The referencia to search for.</param>
+            <returns>The entidade if found; otherwise <see langword="null"/>.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.EntidadeService.GetByIdEntidade(System.Int32)">
+            <summary>
+            Gets an entidade by identifier.
+            </summary>
+            <param name="id">The entidade identifier.</param>
+            <returns>The entidade if found; otherwise <see langword="null"/>.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.EntidadeService.CreateAsync(IntervencoesAPI.Dtos.CreateEntidade)">
+            <summary>
+            Creates a new entidade.
+            </summary>
+            <param name="dto">The data used to create the entidade.</param>
+            <returns>The created entidade with its generated identifier.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.EntidadeService.UpdateAsync(System.Int32,IntervencoesAPI.Dtos.EntidadeDtos.UpdateEntidade)">
+            <summary>
+            Updates an existing entidade.
+            </summary>
+            <param name="id">The entidade identifier.</param>
+            <param name="dto">The data used to update the entidade.</param>
+            <returns>The updated entidade if found; otherwise <see langword="null"/>.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.EntidadeService.Delete(System.Int32)">
+            <summary>
+            Deletes an entidade.
+            </summary>
+            <param name="id">The entidade identifier.</param>
+            <returns><see langword="true"/> if deleted; <see langword="false"/> if not found.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.EntidadeService.GetDetailsAsync(System.Int32)">
+            <summary>
+            Gets an aggregated details DTO for an entidade.
+            </summary>
+            <param name="entidadeId">The entidade identifier.</param>
+            <remarks>
+            Loads related data (clientes, processos, and intervenções) and maps it into <see cref="T:IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto"/>.
+            </remarks>
+            <returns>The details DTO if found; otherwise <see langword="null"/>.</returns>
+        </member>
+        <member name="T:IntervencoesAPI.Services.ProcessoProjectoService">
+            <summary>
+            Service layer for CRUD operations over <see cref="T:IntervencoesAPI.Models.ProcessoProjecto"/>.
+            </summary>
+            <remarks>
+            This service encapsulates Entity Framework Core access to <see cref="T:IntervencoesAPI.Data.IntervencoesAPIContext"/>.
+            </remarks>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ProcessoProjectoService.#ctor(IntervencoesAPI.Data.IntervencoesAPIContext,Microsoft.Extensions.Logging.ILogger{IntervencoesAPI.Services.ProcessoProjectoService})">
+            <summary>
+            Initializes a new instance of the <see cref="T:IntervencoesAPI.Services.ProcessoProjectoService"/> class.
+            </summary>
+            <param name="context">The EF Core database context.</param>
+            <param name="logger">The logger instance.</param>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ProcessoProjectoService.GetAll">
+            <summary>
+            Gets all processos/projectos ordered by identifier.
+            </summary>
+            <returns>A list of all <see cref="T:IntervencoesAPI.Models.ProcessoProjecto"/> records.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ProcessoProjectoService.GetAllPagedAsync(PageParameters)">
+            <summary>
+            Gets a paginated list of processos/projectos ordered by identifier.
+            </summary>
+            <param name="pageParameters">The pagination parameters (page number and page size).</param>
+            <returns>A <see cref="T:IntervencoesAPI.Services.PagedList`1"/> containing the requested page.</returns>
+            <remarks>
+            The query uses <see cref="M:Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AsNoTracking``1(System.Linq.IQueryable{``0})"/> for read-only performance.
+            </remarks>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ProcessoProjectoService.GetByIdProcessoProjecto(System.Int32)">
+            <summary>
+            Gets a processo/projecto by identifier.
+            </summary>
+            <param name="id">The processo/projecto identifier.</param>
+            <returns>The matching <see cref="T:IntervencoesAPI.Models.ProcessoProjecto"/>, or <see langword="null"/> if not found.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ProcessoProjectoService.GetByRefencia(System.String)">
+            <summary>
+            Gets a processo/projecto by reference (referência).
+            </summary>
+            <param name="referencia">The reference value to search for.</param>
+            <returns>The matching <see cref="T:IntervencoesAPI.Models.ProcessoProjecto"/>, or <see langword="null"/> if not found.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ProcessoProjectoService.GetByIdClient(System.Int32)">
+            <summary>
+            Gets the first processo/projecto associated with a given client identifier.
+            </summary>
+            <param name="IdCliente">The client identifier to search for.</param>
+            <returns>The first matching <see cref="T:IntervencoesAPI.Models.ProcessoProjecto"/>, or <see langword="null"/> if none exist.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ProcessoProjectoService.CreateAsync(IntervencoesAPI.Dtos.CreateProcessoProjecto)">
+            <summary>
+            Creates a new processo/projecto.
+            </summary>
+            <param name="dto">The DTO containing creation data.</param>
+            <returns>The created <see cref="T:IntervencoesAPI.Models.ProcessoProjecto"/> (including its generated identifier).</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ProcessoProjectoService.UpdateAsync(System.Int32,IntervencoesAPI.Dtos.UpdateProcessoProjecto)">
+            <summary>
+            Updates an existing processo/projecto.
+            </summary>
+            <param name="id">The processo/projecto identifier.</param>
+            <param name="dto">The DTO containing update data.</param>
+            <returns>
+            The updated <see cref="T:IntervencoesAPI.Models.ProcessoProjecto"/>, or <see langword="null"/> if no record exists with the provided identifier.
+            </returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ProcessoProjectoService.Delete(System.Int32)">
+            <summary>
+            Deletes an existing processo/projecto.
+            </summary>
+            <param name="id">The processo/projecto identifier.</param>
+            <returns><see langword="true"/> if deleted; otherwise <see langword="false"/> if not found.</returns>
         </member>
         <member name="T:PageParameters">
             <summary>

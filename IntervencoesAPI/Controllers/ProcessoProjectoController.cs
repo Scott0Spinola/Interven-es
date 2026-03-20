@@ -10,6 +10,9 @@ namespace IntervencoesAPI.Controllers;
 /// <summary>
 /// Provides endpoints to manage processos/projectos.
 /// </summary>
+/// <remarks>
+/// Base route: <c>/api/ProcessoProjecto</c>.
+/// </remarks>
 [ApiController]
 [Route("api/[controller]")]
 public class ProcessoProjectoController : ControllerBase
@@ -86,6 +89,68 @@ public class ProcessoProjectoController : ControllerBase
 			throw;
 		}
 	}
+
+	/// <summary>
+	/// Gets a processo/projecto by reference (referência).
+	/// </summary>
+	/// <param name="referncia">
+	/// The reference value to search for.
+	/// This value is read from the query string parameter named <c>referncia</c>.
+	/// </param>
+	/// <remarks>
+	/// The provided value is matched against the <c>Referencia</c> field.
+	/// </remarks>
+	/// <response code="200">Processo/Projecto returned successfully.</response>
+	/// <response code="400">The <c>referncia</c> query parameter is missing or invalid.</response>
+	/// <response code="404">Processo/Projecto not found.</response>
+	[HttpGet("Referencia")]
+	[ProducesResponseType(typeof(ProcessoProjecto), StatusCodes.Status200OK)]
+	[ProducesResponseType(StatusCodes.Status400BadRequest)]
+	[ProducesResponseType(StatusCodes.Status404NotFound)]
+	public ActionResult<ProcessoProjecto> GetByRefencia([FromQuery] string referncia)
+	{
+		if (string.IsNullOrWhiteSpace(referncia))
+		{
+			return BadRequest("Query parameter 'referncia' is required.");
+		}
+
+		var processo = _processoProjectoService.GetByRefencia(referncia);
+		if (processo is null)
+		{
+			return NotFound($"No processo exists with the provided Referncia: {referncia}.");
+		}
+
+		return Ok(processo);
+	}
+
+
+	/// <summary>
+	/// Gets a processo/projecto by client identifier.
+	/// </summary>
+	/// <param name="idCliente">
+	/// The client identifier to search for.
+	/// This value is read from the query string parameter named <c>idCliente</c>.
+	/// </param>
+	/// <remarks>
+	/// Returns the first processo/projecto whose <c>ClienteId</c> matches the provided client identifier.
+	/// </remarks>
+	/// <response code="200">Processo/Projecto returned successfully.</response>
+	/// <response code="404">Processo/Projecto not found.</response>
+	[HttpGet("IdCliente")]
+	[ProducesResponseType(typeof(ProcessoProjecto), StatusCodes.Status200OK)]
+	[ProducesResponseType(StatusCodes.Status404NotFound)]
+	public ActionResult<ProcessoProjecto> GetidCliente([FromQuery] int idCliente)
+	{
+
+		var processo = _processoProjectoService.GetByIdClient(idCliente);
+		if (processo is null)
+		{
+			return NotFound($"No processo exists with the provided idCliente: {idCliente}.");
+		}
+
+		return Ok(processo);
+	}
+
 
 	/// <summary>
 	/// Creates a new processo/projecto.

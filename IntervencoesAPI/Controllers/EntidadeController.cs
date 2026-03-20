@@ -88,6 +88,67 @@ public class EntidadeController : ControllerBase
 		}
 	}
 
+
+	/// <summary>
+	/// Gets an entidade by nome social.
+	/// </summary>
+	/// <param name="name">The nome social to search for.</param>
+	/// <response code="200">Entidade returned successfully.</response>
+	/// <response code="400">The name query parameter is missing/invalid.</response>
+	/// <response code="404">Entidade not found.</response>
+	[HttpGet("nomeSocial")]
+	[ProducesResponseType(typeof(Entidade), StatusCodes.Status200OK)]
+	[ProducesResponseType(StatusCodes.Status400BadRequest)]
+	[ProducesResponseType(StatusCodes.Status404NotFound)]
+	public ActionResult<Entidade> GetNomeSocial([FromQuery] string name)
+	{
+		if (string.IsNullOrWhiteSpace(name))
+		{
+			return BadRequest("Query parameter 'name' is required.");
+		}
+
+		var entidade = _entidadeService.GetByNomeSocial(name);
+		if (entidade is null)
+		{
+			return NotFound($"No Entidade exists with the provided Name: {name}.");
+		}
+
+		return Ok(entidade);
+	}
+
+	/// <summary>
+	/// Gets an entidade by referencia.
+	/// </summary>
+	/// <param name="referncia">The referencia value to search for.</param>
+	/// <remarks>
+	/// The value is matched against the <c>Referencia</c> field.
+	/// </remarks>
+	/// <response code="200">Entidade returned successfully.</response>
+	/// <response code="400">The referncia query parameter is missing/invalid.</response>
+	/// <response code="404">Entidade not found.</response>
+	[HttpGet("Referencia")]
+	[ProducesResponseType(typeof(Entidade), StatusCodes.Status200OK)]
+	[ProducesResponseType(StatusCodes.Status400BadRequest)]
+	[ProducesResponseType(StatusCodes.Status404NotFound)]
+	public ActionResult<Entidade> GetByRefencia([FromQuery] string referncia)
+	{
+		if (string.IsNullOrWhiteSpace(referncia))
+		{
+			return BadRequest("Query parameter 'referncia' is required.");
+		}
+
+		var entidade = _entidadeService.GetByReferencia(referncia);
+		if (entidade is null)
+		{
+			return NotFound($"No Entidade exists with the provided Referncia: {referncia}.");
+		}
+
+		return Ok(entidade);
+	}
+
+
+
+
 	/// <summary>
 	/// Creates a new entidade.
 	/// </summary>
@@ -178,10 +239,25 @@ public class EntidadeController : ControllerBase
 	}
 
 
-[HttpGet("{id:int}/details")]
-public async Task<ActionResult<EntidadeDetailsDto>> GetDetails(int id)
-{
-    var dto = await _entidadeService.GetDetailsAsync(id);
-    return dto is null ? NotFound() : Ok(dto);
-}
+	/// <summary>
+	/// Gets an entidade with related data (details view).
+	/// </summary>
+	/// <param name="id">The entidade identifier.</param>
+	/// <remarks>
+	/// Returns an aggregated DTO that includes the entidade and its related clientes, processos, and intervenções.
+	/// </remarks>
+	/// <response code="200">Entidade details returned successfully.</response>
+	/// <response code="404">Entidade not found.</response>
+	[HttpGet("{id:int}/details")]
+	[ProducesResponseType(typeof(EntidadeDetailsDto), StatusCodes.Status200OK)]
+	[ProducesResponseType(StatusCodes.Status404NotFound)]
+	public async Task<ActionResult<EntidadeDetailsDto>> GetDetails(int id)
+	{
+		var dto = await _entidadeService.GetDetailsAsync(id);
+		return dto is null ? NotFound() : Ok(dto);
+	}
+
+
+
+
 }
