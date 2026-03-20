@@ -184,6 +184,9 @@
             <summary>
             Provides endpoints to manage intervencoes.
             </summary>
+            <remarks>
+            Base route: <c>/api/Intervencao</c>.
+            </remarks>
         </member>
         <member name="M:IntervencoesAPI.Controllers.IntervencaoController.GetAll(PageParameters)">
             <summary>
@@ -206,6 +209,78 @@
             </remarks>
             <response code="200">Intervencao returned successfully.</response>
             <response code="404">Intervencao not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.IntervencaoController.GetByReferencia(System.String)">
+            <summary>
+            Gets an intervencao by reference (referência).
+            </summary>
+            <param name="referencia">The reference value to search for. Read from query string parameter <c>referencia</c>.</param>
+            <remarks>
+            The provided value is matched against the <c>Referencia</c> field.
+            </remarks>
+            <response code="200">Intervencao returned successfully.</response>
+            <response code="400">The <c>referencia</c> query parameter is missing or invalid.</response>
+            <response code="404">Intervencao not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.IntervencaoController.GetByTipo(System.Int32)">
+            <summary>
+            Gets an intervencao by tipo.
+            </summary>
+            <param name="tipo">The tipo value to search for. Read from query string parameter <c>tipo</c>.</param>
+            <remarks>
+            Returns the first intervencao whose <c>Tipo</c> matches the provided value.
+            </remarks>
+            <response code="200">Intervencao returned successfully.</response>
+            <response code="400">The <c>tipo</c> query parameter is invalid.</response>
+            <response code="404">Intervencao not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.IntervencaoController.GetByEstado(System.Int32)">
+            <summary>
+            Gets an intervencao by estado.
+            </summary>
+            <param name="estado">The estado value to search for. Read from query string parameter <c>estado</c>.</param>
+            <remarks>
+            Returns the first intervencao whose <c>Estado</c> matches the provided value.
+            </remarks>
+            <response code="200">Intervencao returned successfully.</response>
+            <response code="400">The <c>estado</c> query parameter is invalid.</response>
+            <response code="404">Intervencao not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.IntervencaoController.GetByDataCriacao(System.DateTime)">
+            <summary>
+            Gets intervencoes created on a specific calendar date.
+            </summary>
+            <param name="dataCriacao">The date to search for. Read from query string parameter <c>dataCriacao</c>.</param>
+            <remarks>
+            Internally queries the full day interval for the provided date.
+            Example: GET /api/Intervencao/por-data-criacao-dia?dataCriacao=2026-03-20
+            </remarks>
+            <response code="200">Intervencoes returned successfully.</response>
+            <response code="400">The <c>dataCriacao</c> query parameter is missing or invalid.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.IntervencaoController.GetByIdProcesso(System.Int32)">
+            <summary>
+            Gets an intervencao by processo identifier.
+            </summary>
+            <param name="idProcesso">The processo identifier to search for. Read from query string parameter <c>idProcesso</c>.</param>
+            <remarks>
+            Returns the first intervencao whose <c>ProcessoId</c> matches the provided identifier.
+            </remarks>
+            <response code="200">Intervencao returned successfully.</response>
+            <response code="400">The <c>idProcesso</c> query parameter is invalid.</response>
+            <response code="404">Intervencao not found.</response>
+        </member>
+        <member name="M:IntervencoesAPI.Controllers.IntervencaoController.GetByIntervaloDataCriacao(System.DateTime,System.DateTime)">
+            <summary>
+            Gets intervencoes whose DataCriacao is within the provided interval.
+            </summary>
+            <param name="start">Interval start (inclusive). Read from query string parameter <c>start</c>.</param>
+            <param name="end">Interval end (inclusive). Read from query string parameter <c>end</c>.</param>
+            <remarks>
+            Example: GET /api/Intervencao/por-data-criacao?start=2026-03-01T00:00:00&amp;end=2026-03-31T23:59:59
+            </remarks>
+            <response code="200">Intervencoes returned successfully.</response>
+            <response code="400">The query parameters are invalid (for example, <c>start</c> is greater than <c>end</c>).</response>
         </member>
         <member name="M:IntervencoesAPI.Controllers.IntervencaoController.Create(IntervencoesAPI.Dtos.CreateIntervencao)">
             <summary>
@@ -440,6 +515,118 @@
             Loads related data (clientes, processos, and intervenções) and maps it into <see cref="T:IntervencoesAPI.Dtos.EntidadeDtos.EntidadeDetailsDto"/>.
             </remarks>
             <returns>The details DTO if found; otherwise <see langword="null"/>.</returns>
+        </member>
+        <member name="T:IntervencoesAPI.Services.IntervencaoService">
+            <summary>
+            Service layer for CRUD and query operations over <see cref="T:IntervencoesAPI.Models.Intervencao"/>.
+            </summary>
+            <remarks>
+            This service encapsulates Entity Framework Core access to <see cref="T:IntervencoesAPI.Data.IntervencoesAPIContext"/>.
+            </remarks>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.#ctor(IntervencoesAPI.Data.IntervencoesAPIContext,Microsoft.Extensions.Logging.ILogger{IntervencoesAPI.Services.IntervencaoService})">
+            <summary>
+            Initializes a new instance of the <see cref="T:IntervencoesAPI.Services.IntervencaoService"/> class.
+            </summary>
+            <param name="context">The EF Core database context.</param>
+            <param name="logger">The logger instance.</param>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.GetAll">
+            <summary>
+            Gets all intervenções ordered by identifier.
+            </summary>
+            <returns>A list of all <see cref="T:IntervencoesAPI.Models.Intervencao"/> records.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.GetAllPagedAsync(PageParameters)">
+            <summary>
+            Gets a paginated list of intervenções ordered by identifier.
+            </summary>
+            <param name="pageParameters">The pagination parameters (page number and page size).</param>
+            <returns>A <see cref="T:IntervencoesAPI.Services.PagedList`1"/> containing the requested page.</returns>
+            <remarks>
+            The query uses <see cref="M:Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.AsNoTracking``1(System.Linq.IQueryable{``0})"/> for read-only performance.
+            </remarks>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.GetByIdIntervencao(System.Int32)">
+            <summary>
+            Gets an intervenção by identifier.
+            </summary>
+            <param name="id">The intervenção identifier.</param>
+            <returns>The matching <see cref="T:IntervencoesAPI.Models.Intervencao"/>, or <see langword="null"/> if not found.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.GetByReferencia(System.String)">
+            <summary>
+            Gets an intervenção by reference (referência).
+            </summary>
+            <param name="referencia">The reference value to search for.</param>
+            <returns>The matching <see cref="T:IntervencoesAPI.Models.Intervencao"/>, or <see langword="null"/> if not found.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.GetByTipo(System.Int32)">
+            <summary>
+            Gets the first intervenção with the provided type.
+            </summary>
+            <param name="tipo">The type value to search for.</param>
+            <returns>The first matching <see cref="T:IntervencoesAPI.Models.Intervencao"/>, or <see langword="null"/> if not found.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.GetByEstado(System.Int32)">
+            <summary>
+            Gets the first intervenção with the provided state.
+            </summary>
+            <param name="estado">The state value to search for.</param>
+            <returns>The first matching <see cref="T:IntervencoesAPI.Models.Intervencao"/>, or <see langword="null"/> if not found.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.GetByIntervaloDataCriacaoAsync(System.DateTime,System.DateTime)">
+            <summary>
+            Gets intervenções whose creation date is within the provided interval.
+            </summary>
+            <param name="start">Interval start (inclusive).</param>
+            <param name="end">Interval end (inclusive).</param>
+            <returns>A list of matching <see cref="T:IntervencoesAPI.Models.Intervencao"/> records ordered by identifier.</returns>
+            <remarks>
+            This method performs a read-only query (<c>AsNoTracking</c>).
+            </remarks>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.GetByIntervelDataDeCriacao(System.DateTime)">
+            <summary>
+            Gets intervenções created on the same calendar date as <paramref name="dataCriacao"/>.
+            </summary>
+            <param name="dataCriacao">The date whose day range should be queried.</param>
+            <returns>A list of matching <see cref="T:IntervencoesAPI.Models.Intervencao"/> records.</returns>
+            <remarks>
+            Internally computes the day interval <c>[00:00:00, 23:59:59.9999999]</c> for <paramref name="dataCriacao"/>'s date.
+            Note: method name is preserved as-is to avoid breaking callers.
+            </remarks>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.GetByIdProcesso(System.Int32)">
+            <summary>
+            Gets the first intervenção associated with a given processo identifier.
+            </summary>
+            <param name="idProcesso">The processo identifier to search for.</param>
+            <returns>The first matching <see cref="T:IntervencoesAPI.Models.Intervencao"/>, or <see langword="null"/> if none exist.</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.CreateAsync(IntervencoesAPI.Dtos.CreateIntervencao)">
+            <summary>
+            Creates a new intervenção.
+            </summary>
+            <param name="dto">The DTO containing creation data.</param>
+            <returns>The created <see cref="T:IntervencoesAPI.Models.Intervencao"/> (including its generated identifier).</returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.UpdateAsync(System.Int32,IntervencoesAPI.Dtos.UpdateIntervencao)">
+            <summary>
+            Updates an existing intervenção.
+            </summary>
+            <param name="id">The intervenção identifier.</param>
+            <param name="dto">The DTO containing update data.</param>
+            <returns>
+            The updated <see cref="T:IntervencoesAPI.Models.Intervencao"/>, or <see langword="null"/> if no record exists with the provided identifier.
+            </returns>
+        </member>
+        <member name="M:IntervencoesAPI.Services.IntervencaoService.Delete(System.Int32)">
+            <summary>
+            Deletes an existing intervenção.
+            </summary>
+            <param name="id">The intervenção identifier.</param>
+            <returns><see langword="true"/> if deleted; otherwise <see langword="false"/> if not found.</returns>
         </member>
         <member name="T:IntervencoesAPI.Services.ProcessoProjectoService">
             <summary>

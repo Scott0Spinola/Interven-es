@@ -7,38 +7,153 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IntervencoesAPI.Services;
 
+/// <summary>
+/// Service layer for CRUD and query operations over <see cref="Intervencao"/>.
+/// </summary>
+/// <remarks>
+/// This service encapsulates Entity Framework Core access to <see cref="IntervencoesAPIContext"/>.
+/// </remarks>
 public class IntervencaoService
 {
     private readonly IntervencoesAPIContext _context;
 
     private readonly ILogger<IntervencaoService> _logger;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="IntervencaoService"/> class.
+    /// </summary>
+    /// <param name="context">The EF Core database context.</param>
+    /// <param name="logger">The logger instance.</param>
     public IntervencaoService(IntervencoesAPIContext context, ILogger<IntervencaoService> logger)
-	{
-		_context = context;
-		_logger = logger;
-	}
+    {
+        _context = context;
+        _logger = logger;
+    }
 
+    /// <summary>
+    /// Gets all intervenções ordered by identifier.
+    /// </summary>
+    /// <returns>A list of all <see cref="Intervencao"/> records.</returns>
     public List<Intervencao> GetAll()
     {
         return _context.Intervencaos.OrderBy(i => i.Id).ToList();
     }
 
-    	public async Task<PagedList<Intervencao>> GetAllPagedAsync(PageParameters pageParameters)
-	{
-		var query = _context.Intervencaos
-			.AsNoTracking()
-			.OrderBy(i => i.Id)
-			.AsQueryable();
+    /// <summary>
+    /// Gets a paginated list of intervenções ordered by identifier.
+    /// </summary>
+    /// <param name="pageParameters">The pagination parameters (page number and page size).</param>
+    /// <returns>A <see cref="PagedList{T}"/> containing the requested page.</returns>
+    /// <remarks>
+    /// The query uses <see cref="EntityFrameworkQueryableExtensions.AsNoTracking{TEntity}(IQueryable{TEntity})"/> for read-only performance.
+    /// </remarks>
+    public async Task<PagedList<Intervencao>> GetAllPagedAsync(PageParameters pageParameters)
+    {
+        var query = _context.Intervencaos
+            .AsNoTracking()
+            .OrderBy(i => i.Id)
+            .AsQueryable();
 
-		return await PagedList<Intervencao>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
-	}
+        return await PagedList<Intervencao>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
+    }
 
+    /// <summary>
+    /// Gets an intervenção by identifier.
+    /// </summary>
+    /// <param name="id">The intervenção identifier.</param>
+    /// <returns>The matching <see cref="Intervencao"/>, or <see langword="null"/> if not found.</returns>
     public Intervencao? GetByIdIntervencao(int id)
     {
         return _context.Intervencaos.FirstOrDefault(i => i.Id == id);
     }
 
+    /// <summary>
+    /// Gets an intervenção by reference (referência).
+    /// </summary>
+    /// <param name="referencia">The reference value to search for.</param>
+    /// <returns>The matching <see cref="Intervencao"/>, or <see langword="null"/> if not found.</returns>
+    public Intervencao? GetByReferencia(string referencia)
+    {
+        return _context.Intervencaos.FirstOrDefault(r => r.Referencia == referencia);
+    }
+
+    /// <summary>
+    /// Gets the first intervenção with the provided type.
+    /// </summary>
+    /// <param name="tipo">The type value to search for.</param>
+    /// <returns>The first matching <see cref="Intervencao"/>, or <see langword="null"/> if not found.</returns>
+    public Intervencao? GetByTipo(int tipo)
+    {
+        return _context.Intervencaos.FirstOrDefault(t => t.Tipo == tipo);
+    }
+
+    /// <summary>
+    /// Gets the first intervenção with the provided state.
+    /// </summary>
+    /// <param name="estado">The state value to search for.</param>
+    /// <returns>The first matching <see cref="Intervencao"/>, or <see langword="null"/> if not found.</returns>
+    public Intervencao? GetByEstado(int estado)
+    {
+        return _context.Intervencaos.FirstOrDefault(e => e.Estado == estado);
+    }
+
+    /// <summary>
+    /// Gets intervenções whose creation date is within the provided interval.
+    /// </summary>
+    /// <param name="start">Interval start (inclusive).</param>
+    /// <param name="end">Interval end (inclusive).</param>
+    /// <returns>A list of matching <see cref="Intervencao"/> records ordered by identifier.</returns>
+    /// <remarks>
+    /// This method performs a read-only query (<c>AsNoTracking</c>).
+    /// </remarks>
+    public async Task<List<Intervencao>> GetByIntervaloDataCriacaoAsync(DateTime start, DateTime end)
+    {
+        return await _context.Intervencaos
+            .AsNoTracking()
+            .Where(i => i.DataCriacao >= start && i.DataCriacao <= end)
+            .OrderBy(i => i.Id)
+            .ToListAsync();
+    }
+
+    /// <summary>
+    /// Gets intervenções created on the same calendar date as <paramref name="dataCriacao"/>.
+    /// </summary>
+    /// <param name="dataCriacao">The date whose day range should be queried.</param>
+    /// <returns>A list of matching <see cref="Intervencao"/> records.</returns>
+    /// <remarks>
+    /// Internally computes the day interval <c>[00:00:00, 23:59:59.9999999]</c> for <paramref name="dataCriacao"/>'s date.
+    /// Note: method name is preserved as-is to avoid breaking callers.
+    /// </remarks>
+    public Task<List<Intervencao>> GetByIntervelDataDeCriacao(DateTime dataCriacao)
+    {
+       
+        var start = dataCriacao.Date;
+        var end = start.AddDays(1).AddTicks(-1);
+        return GetByIntervaloDataCriacaoAsync(start, end);
+    }
+
+    /// <summary>
+    /// Gets the first intervenção associated with a given processo identifier.
+    /// </summary>
+    /// <param name="idProcesso">The processo identifier to search for.</param>
+    /// <returns>The first matching <see cref="Intervencao"/>, or <see langword="null"/> if none exist.</returns>
+    public Intervencao? GetByIdProcesso(int idProcesso)
+    {
+        return _context.Intervencaos.FirstOrDefault(p => p.ProcessoId == idProcesso);
+    }
+    
+    /*
+    public Intervencao? GetByIdCliente(int idCliente)
+    {
+        return _context.Intervencaos.FirstOrDefault(p => p.id ==idCliente);
+    }
+    */
+
+    /// <summary>
+    /// Creates a new intervenção.
+    /// </summary>
+    /// <param name="dto">The DTO containing creation data.</param>
+    /// <returns>The created <see cref="Intervencao"/> (including its generated identifier).</returns>
     public async Task<Intervencao> CreateAsync(CreateIntervencao dto)
     {
         var intervencao = new Intervencao
@@ -88,6 +203,14 @@ public class IntervencaoService
         return intervencao;
     }
 
+    /// <summary>
+    /// Updates an existing intervenção.
+    /// </summary>
+    /// <param name="id">The intervenção identifier.</param>
+    /// <param name="dto">The DTO containing update data.</param>
+    /// <returns>
+    /// The updated <see cref="Intervencao"/>, or <see langword="null"/> if no record exists with the provided identifier.
+    /// </returns>
     public async Task<Intervencao?> UpdateAsync(int id, UpdateIntervencao dto)
     {
         var intervencao = _context.Intervencaos.FirstOrDefault(i => i.Id == id);
@@ -140,6 +263,11 @@ public class IntervencaoService
         return intervencao;
     }
 
+    /// <summary>
+    /// Deletes an existing intervenção.
+    /// </summary>
+    /// <param name="id">The intervenção identifier.</param>
+    /// <returns><see langword="true"/> if deleted; otherwise <see langword="false"/> if not found.</returns>
     public bool Delete(int id)
     {
         var intervencao = _context.Intervencaos.FirstOrDefault(i => i.Id == id);
