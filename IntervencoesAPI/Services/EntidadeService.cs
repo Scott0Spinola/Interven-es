@@ -147,9 +147,19 @@ public class EntidadeService
 
             return entidade;
         }
-        catch (Exception ex)
+         catch (OperationCanceledException ex)
         {
-            _logger.LogError(ex, "Error in {Method}", nameof(CreateAsync));
+            _logger.LogInformation(ex, "Operation Canceled - {Method}", nameof(CreateAsync));
+            throw;
+        }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            _logger.LogWarning(ex, "Concurrency error in {Method}", nameof(CreateAsync));
+            throw;
+        }
+        catch (DbUpdateException ex)
+        {
+            _logger.LogWarning(ex, "Database update error in {Method}", nameof(CreateAsync));
             throw;
         }
     }
@@ -186,9 +196,23 @@ public class EntidadeService
             await _context.SaveChangesAsync();
             return entidade;
         }
+          catch (OperationCanceledException)
+        {
+            throw;
+        }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            _logger.LogWarning(ex, "Concurrency error in {Method}", nameof(UpdateAsync));
+            throw;
+        }
+        catch (DbUpdateException ex)
+        {
+            _logger.LogWarning(ex, "Database update error in {Method}", nameof(UpdateAsync));
+            throw;
+        }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error in {Method}", nameof(UpdateAsync));
+            _logger.LogError(ex, "Error in {Method} id={Id}", nameof(UpdateAsync), id);
             throw;
         }
     }
