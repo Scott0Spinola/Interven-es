@@ -14,15 +14,37 @@ public class ClienteService
 
     private readonly ILogger<ClienteService> _logger;
 
+    /// <summary>
+    /// Initializes a new instance of <see cref="ClienteService"/>.
+    /// </summary>
+    /// <param name="context">EF Core database context used to access <see cref="Cliente"/> entities.</param>
+    /// <param name="logger">Logger used to record failures and operational errors.</param>
     public ClienteService(IntervencoesAPIContext context, ILogger<ClienteService> logger)
     {
         _context = context;
         _logger = logger;
     }
 
+    /// <summary>
+    /// Gets all <see cref="Cliente"/> records ordered by identifier.
+    /// </summary>
+    /// <remarks>
+    /// This query is tracked by EF Core (no <c>AsNoTracking</c>). Use paged or no-tracking variants
+    /// where appropriate.
+    /// </remarks>
+    /// <returns>All clientes ordered by <see cref="Cliente.Id"/>.</returns>
+    /// <exception cref="Exception">Rethrows any exception after logging.</exception>
     public List<Cliente> GetAll()
     {
-        return _context.Clientes.OrderBy(i => i.Id).ToList();
+        try
+        {
+            return _context.Clientes.OrderBy(i => i.Id).ToList();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetAll));
+            throw;
+        }
     }
 
     /// <summary>
@@ -30,25 +52,62 @@ public class ClienteService
     /// </summary>
     /// <param name="pageParameters">Pagination parameters (page number and page size).</param>
     /// <returns>A paged list containing the requested page of clientes.</returns>
+    /// <exception cref="Exception">Rethrows any exception after logging.</exception>
     public async Task<PagedList<Cliente>> GetAllPagedAsync(PageParameters pageParameters)
     {
-        var query = _context.Clientes
-            .AsNoTracking()
-            .OrderBy(i => i.Id)
-            .AsQueryable();
+        try
+        {
+            var query = _context.Clientes
+                .AsNoTracking()
+                .OrderBy(i => i.Id)
+                .AsQueryable();
 
-        return await PagedList<Cliente>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
+            return await PagedList<Cliente>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetAllPagedAsync));
+            throw;
+        }
     }
 
+    /// <summary>
+    /// Gets a single <see cref="Cliente"/> by its identifier.
+    /// </summary>
+    /// <param name="id">The cliente identifier.</param>
+    /// <returns>The matching cliente, or <see langword="null"/> if not found.</returns>
+    /// <exception cref="Exception">Rethrows any exception after logging.</exception>
     public Cliente? GetByIdCliente(int id)
     {
-        return _context.Clientes.FirstOrDefault(i => i.Id == id);
+        try
+        {
+            return _context.Clientes.FirstOrDefault(i => i.Id == id);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByIdCliente));
+            throw;
+        }
     }
 
 
+    /// <summary>
+    /// Gets a single <see cref="Cliente"/> by its <see cref="Cliente.Referencia"/>.
+    /// </summary>
+    /// <param name="referencia">The reference value to look up.</param>
+    /// <returns>The matching cliente, or <see langword="null"/> if not found.</returns>
+    /// <exception cref="Exception">Rethrows any exception after logging.</exception>
     public Cliente? GetByReferencia(string referencia)
     {
-        return _context.Clientes.FirstOrDefault(r => r.Referencia == referencia);
+        try
+        {
+            return _context.Clientes.FirstOrDefault(r => r.Referencia == referencia);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByReferencia));
+            throw;
+        }
     }
 
     /// <summary>
@@ -56,9 +115,18 @@ public class ClienteService
     /// </summary>
     /// <param name="idEntidade">The entidade identifier.</param>
     /// <returns>The first matching cliente, or <see langword="null"/> if none exists.</returns>
+    /// <exception cref="Exception">Rethrows any exception after logging.</exception>
     public Cliente? GetByIdEntidade(int idEntidade)
     {
-        return _context.Clientes.FirstOrDefault(r => r.IdEntidade == idEntidade);
+        try
+        {
+            return _context.Clientes.FirstOrDefault(r => r.IdEntidade == idEntidade);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByIdEntidade));
+            throw;
+        }
     }
 
     /// <summary>
@@ -67,73 +135,154 @@ public class ClienteService
     /// <param name="idEntidade">The entidade identifier to filter clientes by.</param>
     /// <param name="pageParameters">Pagination parameters (page number and page size).</param>
     /// <returns>A paged list containing clientes associated with the provided entidade identifier.</returns>
+    /// <exception cref="Exception">Rethrows any exception after logging.</exception>
     public async Task<PagedList<Cliente>> GetByIdEntidadePagedAsync(int idEntidade, PageParameters pageParameters)
     {
-        var query = _context.Clientes
-            .AsNoTracking()
-            .Where(c => c.IdEntidade == idEntidade)
-            .OrderBy(c => c.Id)
-            .AsQueryable();
+        try
+        {
+            var query = _context.Clientes
+                .AsNoTracking()
+                .Where(c => c.IdEntidade == idEntidade)
+                .OrderBy(c => c.Id)
+                .AsQueryable();
 
-        return await PagedList<Cliente>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
+            return await PagedList<Cliente>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByIdEntidadePagedAsync));
+            throw;
+        }
     }
+
+    /// <summary>
+    /// Creates a new <see cref="Cliente"/> from the provided DTO.
+    /// </summary>
+    /// <remarks>
+    /// Sets <see cref="Cliente.DataDeInicio"/> and <see cref="Cliente.DataActualizacao"/> to
+    /// <see cref="DateTime.UtcNow"/>.
+    /// </remarks>
+    /// <param name="dto">The values to use for creation.</param>
+    /// <returns>The created cliente after it has been persisted.</returns>
+    /// <exception cref="Exception">Rethrows any exception after logging.</exception>
     public async Task<Cliente> CreateAsync(CreateCliente dto)
     {
-        var cliente = new Cliente
+        try
         {
-            IdEntidade = dto.IdEntidade,
-            Referencia = dto.Referencia,
-            Observacoes = dto.Observacoes,
-            Estado = dto.Estado,
-            NProcesso = dto.NProcesso,
-            DataDeInicio = DateTime.UtcNow,
-            DataActualizacao = DateTime.UtcNow,
-            CliCampo1 = dto.CliCampo1,
-            CliCampo2 = dto.CliCampo2,
-            CliCampo3 = dto.CliCampo3,
-            CliCampo4 = dto.CliCampo4,
-        };
+            var cliente = new Cliente
+            {
+                IdEntidade = dto.IdEntidade,
+                Referencia = dto.Referencia,
+                Observacoes = dto.Observacoes,
+                Estado = dto.Estado,
+                NProcesso = dto.NProcesso,
+                DataDeInicio = DateTime.UtcNow,
+                DataActualizacao = DateTime.UtcNow,
+                CliCampo1 = dto.CliCampo1,
+                CliCampo2 = dto.CliCampo2,
+                CliCampo3 = dto.CliCampo3,
+                CliCampo4 = dto.CliCampo4,
+            };
 
-        _context.Clientes.Add(cliente);
-        await _context.SaveChangesAsync();
-        return cliente;
+            _context.Clientes.Add(cliente);
+            await _context.SaveChangesAsync();
+            return cliente;
+        }
+       catch (OperationCanceledException ex)
+        {
+            _logger.LogInformation(ex, "Operation Canceled - {Method}", nameof(CreateAsync));
+            throw;
+        }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            _logger.LogWarning(ex, "Concurrency error in {Method}", nameof(CreateAsync));
+            throw;
+        }
+        catch (DbUpdateException ex)
+        {
+            _logger.LogWarning(ex, "Database update error in {Method}", nameof(CreateAsync));
+            throw;
+        }
     }
 
+    /// <summary>
+    /// Updates an existing <see cref="Cliente"/> identified by <paramref name="id"/>.
+    /// </summary>
+    /// <remarks>
+    /// Updates <see cref="Cliente.DataActualizacao"/> to <see cref="DateTime.UtcNow"/>.
+    /// </remarks>
+    /// <param name="id">The cliente identifier.</param>
+    /// <param name="dto">The values to apply to the existing cliente.</param>
+    /// <returns>The updated cliente, or <see langword="null"/> if no cliente exists with the given identifier.</returns>
+    /// <exception cref="Exception">Rethrows any exception after logging.</exception>
     public async Task<Cliente?> UpdateAsync(int id, UpdateCliente dto)
     {
-        var cliente = _context.Clientes.FirstOrDefault(i => i.Id == id);
-
-        if (cliente is null)
+        try
         {
-            return null;
+            var cliente = _context.Clientes.FirstOrDefault(i => i.Id == id);
+
+            if (cliente is null)
+            {
+                return null;
+            }
+            cliente.IdEntidade = dto.IdEntidade;
+            cliente.Referencia = dto.Referencia;
+            cliente.Observacoes = dto.Observacoes;
+            cliente.Estado = dto.Estado;
+            cliente.NProcesso = dto.NProcesso;
+            cliente.DataActualizacao = DateTime.UtcNow;
+            cliente.CliCampo1 = dto.CliCampo1;
+            cliente.CliCampo2 = dto.CliCampo2;
+            cliente.CliCampo3 = dto.CliCampo3;
+            cliente.CliCampo4 = dto.CliCampo4;
+
+            await _context.SaveChangesAsync();
+            return cliente;
         }
-        cliente.IdEntidade = dto.IdEntidade;
-        cliente.Referencia = dto.Referencia;
-        cliente.Observacoes = dto.Observacoes;
-        cliente.Estado = dto.Estado;
-        cliente.NProcesso = dto.NProcesso;
-        cliente.DataActualizacao = DateTime.UtcNow;
-        cliente.CliCampo1 = dto.CliCampo1;
-        cliente.CliCampo2 = dto.CliCampo2;
-        cliente.CliCampo3 = dto.CliCampo3;
-        cliente.CliCampo4 = dto.CliCampo4;
-
-
-
-
-        await _context.SaveChangesAsync();
-        return cliente;
+        catch (OperationCanceledException)
+        {
+            throw;
+        }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            _logger.LogWarning(ex, "Concurrency error in {Method}", nameof(UpdateAsync));
+            throw;
+        }
+        catch (DbUpdateException ex)
+        {
+            _logger.LogWarning(ex, "Database update error in {Method}", nameof(UpdateAsync));
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method} id={Id}", nameof(UpdateAsync), id);
+            throw;
+        }
     }
 
+    /// <summary>
+    /// Deletes a <see cref="Cliente"/> identified by <paramref name="id"/>.
+    /// </summary>
+    /// <param name="id">The cliente identifier.</param>
+    /// <returns><see langword="true"/> if the cliente existed and was deleted; otherwise <see langword="false"/>.</returns>
+    /// <exception cref="Exception">Rethrows any exception after logging.</exception>
     public bool Delete(int id)
     {
-        var cliente = _context.Clientes.FirstOrDefault(i => i.Id == id);
-        if (cliente is null)
+        try
         {
-            return false;
+            var cliente = _context.Clientes.FirstOrDefault(i => i.Id == id);
+            if (cliente is null)
+            {
+                return false;
+            }
+            _context.Clientes.Remove(cliente);
+            _context.SaveChanges();
+            return true;
         }
-        _context.Clientes.Remove(cliente);
-        _context.SaveChanges();
-        return true;
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(Delete));
+            throw;
+        }
     }
 }

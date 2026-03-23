@@ -36,7 +36,15 @@ public class IntervencaoService
     /// <returns>A list of all <see cref="Intervencao"/> records.</returns>
     public List<Intervencao> GetAll()
     {
-        return _context.Intervencaos.OrderBy(i => i.Id).ToList();
+        try
+        {
+            return _context.Intervencaos.OrderBy(i => i.Id).ToList();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetAll));
+            throw;
+        }
     }
 
     /// <summary>
@@ -49,12 +57,20 @@ public class IntervencaoService
     /// </remarks>
     public async Task<PagedList<Intervencao>> GetAllPagedAsync(PageParameters pageParameters)
     {
-        var query = _context.Intervencaos
-            .AsNoTracking()
-            .OrderBy(i => i.Id)
-            .AsQueryable();
+        try
+        {
+            var query = _context.Intervencaos
+                .AsNoTracking()
+                .OrderBy(i => i.Id)
+                .AsQueryable();
 
-        return await PagedList<Intervencao>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
+            return await PagedList<Intervencao>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetAllPagedAsync));
+            throw;
+        }
     }
 
     /// <summary>
@@ -64,7 +80,15 @@ public class IntervencaoService
     /// <returns>The matching <see cref="Intervencao"/>, or <see langword="null"/> if not found.</returns>
     public Intervencao? GetByIdIntervencao(int id)
     {
-        return _context.Intervencaos.FirstOrDefault(i => i.Id == id);
+        try
+        {
+            return _context.Intervencaos.FirstOrDefault(i => i.Id == id);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByIdIntervencao));
+            throw;
+        }
     }
 
     /// <summary>
@@ -74,7 +98,15 @@ public class IntervencaoService
     /// <returns>The matching <see cref="Intervencao"/>, or <see langword="null"/> if not found.</returns>
     public Intervencao? GetByReferencia(string referencia)
     {
-        return _context.Intervencaos.FirstOrDefault(r => r.Referencia == referencia);
+        try
+        {
+            return _context.Intervencaos.FirstOrDefault(r => r.Referencia == referencia);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByReferencia));
+            throw;
+        }
     }
 
     /// <summary>
@@ -84,7 +116,15 @@ public class IntervencaoService
     /// <returns>The first matching <see cref="Intervencao"/>, or <see langword="null"/> if not found.</returns>
     public Intervencao? GetByTipo(int tipo)
     {
-        return _context.Intervencaos.FirstOrDefault(t => t.Tipo == tipo);
+        try
+        {
+            return _context.Intervencaos.FirstOrDefault(t => t.Tipo == tipo);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByTipo));
+            throw;
+        }
     }
 
     /// <summary>
@@ -94,7 +134,15 @@ public class IntervencaoService
     /// <returns>The first matching <see cref="Intervencao"/>, or <see langword="null"/> if not found.</returns>
     public Intervencao? GetByEstado(int estado)
     {
-        return _context.Intervencaos.FirstOrDefault(e => e.Estado == estado);
+        try
+        {
+            return _context.Intervencaos.FirstOrDefault(e => e.Estado == estado);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByEstado));
+            throw;
+        }
     }
 
     /// <summary>
@@ -108,11 +156,19 @@ public class IntervencaoService
     /// </remarks>
     public async Task<List<Intervencao>> GetByIntervaloDataCriacaoAsync(DateTime start, DateTime end)
     {
-        return await _context.Intervencaos
-            .AsNoTracking()
-            .Where(i => i.DataCriacao >= start && i.DataCriacao <= end)
-            .OrderBy(i => i.Id)
-            .ToListAsync();
+        try
+        {
+            return await _context.Intervencaos
+                .AsNoTracking()
+                .Where(i => i.DataCriacao >= start && i.DataCriacao <= end)
+                .OrderBy(i => i.Id)
+                .ToListAsync();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByIntervaloDataCriacaoAsync));
+            throw;
+        }
     }
 
     /// <summary>
@@ -126,10 +182,17 @@ public class IntervencaoService
     /// </remarks>
     public Task<List<Intervencao>> GetByIntervelDataDeCriacao(DateTime dataCriacao)
     {
-       
-        var start = dataCriacao.Date;
-        var end = start.AddDays(1).AddTicks(-1);
-        return GetByIntervaloDataCriacaoAsync(start, end);
+        try
+        {
+            var start = dataCriacao.Date;
+            var end = start.AddDays(1).AddTicks(-1);
+            return GetByIntervaloDataCriacaoAsync(start, end);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByIntervelDataDeCriacao));
+            throw;
+        }
     }
 
     /// <summary>
@@ -139,9 +202,17 @@ public class IntervencaoService
     /// <returns>The first matching <see cref="Intervencao"/>, or <see langword="null"/> if none exist.</returns>
     public Intervencao? GetByIdProcesso(int idProcesso)
     {
-        return _context.Intervencaos.FirstOrDefault(p => p.ProcessoId == idProcesso);
+        try
+        {
+            return _context.Intervencaos.FirstOrDefault(p => p.ProcessoId == idProcesso);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByIdProcesso));
+            throw;
+        }
     }
-    
+
     /*
     public Intervencao? GetByIdCliente(int idCliente)
     {
@@ -156,51 +227,69 @@ public class IntervencaoService
     /// <returns>The created <see cref="Intervencao"/> (including its generated identifier).</returns>
     public async Task<Intervencao> CreateAsync(CreateIntervencao dto)
     {
-        var intervencao = new Intervencao
+        try
         {
-            ProcessoId = dto.ProcessoId,
-            TarefaId = dto.TarefaId,
-            Autor = dto.Autor,
-            Visibilidade = dto.Visibilidade,
-            Tipo = dto.Tipo,
-            Estado = dto.Estado,
-            HistoricoEstados = dto.HistoricoEstados,
-            Prioridade = dto.Prioridade,
-            DataRegisto = dto.DataRegisto,
-            DataLimite = dto.DataLimite,
-            DataConclusao = dto.DataConclusao,
-            DataConfirmacao = dto.DataConfirmacao,
-            DataInstalacao = dto.DataInstalacao,
-            Tema = dto.Tema,
-            AccaoRealizada = dto.AccaoRealizada,
-            PrevisaoEsforco = dto.PrevisaoEsforco,
-            EsforcoReal = dto.EsforcoReal,
-            Referencia = dto.Referencia,
-            Responsavel = dto.Responsavel,
-            Coresponsavel = dto.Coresponsavel,
-            Descricao = dto.Descricao,
-            Notas = dto.Notas,
-            Comentarios = dto.Comentarios,
-            IntervencaoPaiId = dto.IntervencaoPaiId,
-            EsforcoACobrar = dto.EsforcoACobrar,
-            Valor = dto.Valor,
-            DataCriacao = dto.DataCriacao,
-            DataQualidade = dto.DataQualidade,
-            UpdateUser = dto.UpdateUser,
-            UpdateDate = dto.UpdateDate,
-            Email = dto.Email,
-            Codigo = dto.Codigo,
-            DataInicio = dto.DataInicio,
-            TarefaAgendadaId = dto.TarefaAgendadaId,
-            DataInicioPrevista = dto.DataInicioPrevista,
-            DataFimPrevista = dto.DataFimPrevista,
-            Alerta = dto.Alerta,
-            MotivoAlerta = dto.MotivoAlerta,
-        };
+            var intervencao = new Intervencao
+            {
+                ProcessoId = dto.ProcessoId,
+                TarefaId = dto.TarefaId,
+                Autor = dto.Autor,
+                Visibilidade = dto.Visibilidade,
+                Tipo = dto.Tipo,
+                Estado = dto.Estado,
+                HistoricoEstados = dto.HistoricoEstados,
+                Prioridade = dto.Prioridade,
+                DataRegisto = dto.DataRegisto,
+                DataLimite = dto.DataLimite,
+                DataConclusao = dto.DataConclusao,
+                DataConfirmacao = dto.DataConfirmacao,
+                DataInstalacao = dto.DataInstalacao,
+                Tema = dto.Tema,
+                AccaoRealizada = dto.AccaoRealizada,
+                PrevisaoEsforco = dto.PrevisaoEsforco,
+                EsforcoReal = dto.EsforcoReal,
+                Referencia = dto.Referencia,
+                Responsavel = dto.Responsavel,
+                Coresponsavel = dto.Coresponsavel,
+                Descricao = dto.Descricao,
+                Notas = dto.Notas,
+                Comentarios = dto.Comentarios,
+                IntervencaoPaiId = dto.IntervencaoPaiId,
+                EsforcoACobrar = dto.EsforcoACobrar,
+                Valor = dto.Valor,
+                DataCriacao = dto.DataCriacao,
+                DataQualidade = dto.DataQualidade,
+                UpdateUser = dto.UpdateUser,
+                UpdateDate = dto.UpdateDate,
+                Email = dto.Email,
+                Codigo = dto.Codigo,
+                DataInicio = dto.DataInicio,
+                TarefaAgendadaId = dto.TarefaAgendadaId,
+                DataInicioPrevista = dto.DataInicioPrevista,
+                DataFimPrevista = dto.DataFimPrevista,
+                Alerta = dto.Alerta,
+                MotivoAlerta = dto.MotivoAlerta,
+            };
 
-        _context.Intervencaos.Add(intervencao);
-        await _context.SaveChangesAsync();
-        return intervencao;
+            _context.Intervencaos.Add(intervencao);
+            await _context.SaveChangesAsync();
+            return intervencao;
+        }
+        catch (OperationCanceledException ex)
+        {
+            _logger.LogInformation(ex, "Operation Canceled - {Method}", nameof(CreateAsync));
+            throw;
+        }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            _logger.LogWarning(ex, "Concurrency error in {Method}", nameof(CreateAsync));
+            throw;
+        }
+        catch (DbUpdateException ex)
+        {
+            _logger.LogWarning(ex, "Database update error in {Method}", nameof(CreateAsync));
+            throw;
+        }
     }
 
     /// <summary>
@@ -213,54 +302,76 @@ public class IntervencaoService
     /// </returns>
     public async Task<Intervencao?> UpdateAsync(int id, UpdateIntervencao dto)
     {
-        var intervencao = _context.Intervencaos.FirstOrDefault(i => i.Id == id);
-
-        if (intervencao is null)
+        try
         {
-            return null;
+            var intervencao = _context.Intervencaos.FirstOrDefault(i => i.Id == id);
+
+            if (intervencao is null)
+            {
+                return null;
+            }
+
+            intervencao.ProcessoId = dto.ProcessoId;
+            intervencao.TarefaId = dto.TarefaId;
+            intervencao.Autor = dto.Autor;
+            intervencao.Visibilidade = dto.Visibilidade;
+            intervencao.Tipo = dto.Tipo;
+            intervencao.Estado = dto.Estado;
+            intervencao.HistoricoEstados = dto.HistoricoEstados;
+            intervencao.Prioridade = dto.Prioridade;
+            intervencao.DataRegisto = dto.DataRegisto;
+            intervencao.DataLimite = dto.DataLimite;
+            intervencao.DataConclusao = dto.DataConclusao;
+            intervencao.DataConfirmacao = dto.DataConfirmacao;
+            intervencao.DataInstalacao = dto.DataInstalacao;
+            intervencao.Tema = dto.Tema;
+            intervencao.AccaoRealizada = dto.AccaoRealizada;
+            intervencao.PrevisaoEsforco = dto.PrevisaoEsforco;
+            intervencao.EsforcoReal = dto.EsforcoReal;
+            intervencao.Referencia = dto.Referencia;
+            intervencao.Responsavel = dto.Responsavel;
+            intervencao.Coresponsavel = dto.Coresponsavel;
+            intervencao.Descricao = dto.Descricao;
+            intervencao.Notas = dto.Notas;
+            intervencao.Comentarios = dto.Comentarios;
+            intervencao.IntervencaoPaiId = dto.IntervencaoPaiId;
+            intervencao.EsforcoACobrar = dto.EsforcoACobrar;
+            intervencao.Valor = dto.Valor;
+            intervencao.DataCriacao = dto.DataCriacao;
+            intervencao.DataQualidade = dto.DataQualidade;
+            intervencao.UpdateUser = dto.UpdateUser;
+            intervencao.UpdateDate = dto.UpdateDate;
+            intervencao.Email = dto.Email;
+            intervencao.Codigo = dto.Codigo;
+            intervencao.DataInicio = dto.DataInicio;
+            intervencao.TarefaAgendadaId = dto.TarefaAgendadaId;
+            intervencao.DataInicioPrevista = dto.DataInicioPrevista;
+            intervencao.DataFimPrevista = dto.DataFimPrevista;
+            intervencao.Alerta = dto.Alerta;
+            intervencao.MotivoAlerta = dto.MotivoAlerta;
+
+            await _context.SaveChangesAsync();
+            return intervencao;
         }
-
-        intervencao.ProcessoId = dto.ProcessoId;
-        intervencao.TarefaId = dto.TarefaId;
-        intervencao.Autor = dto.Autor;
-        intervencao.Visibilidade = dto.Visibilidade;
-        intervencao.Tipo = dto.Tipo;
-        intervencao.Estado = dto.Estado;
-        intervencao.HistoricoEstados = dto.HistoricoEstados;
-        intervencao.Prioridade = dto.Prioridade;
-        intervencao.DataRegisto = dto.DataRegisto;
-        intervencao.DataLimite = dto.DataLimite;
-        intervencao.DataConclusao = dto.DataConclusao;
-        intervencao.DataConfirmacao = dto.DataConfirmacao;
-        intervencao.DataInstalacao = dto.DataInstalacao;
-        intervencao.Tema = dto.Tema;
-        intervencao.AccaoRealizada = dto.AccaoRealizada;
-        intervencao.PrevisaoEsforco = dto.PrevisaoEsforco;
-        intervencao.EsforcoReal = dto.EsforcoReal;
-        intervencao.Referencia = dto.Referencia;
-        intervencao.Responsavel = dto.Responsavel;
-        intervencao.Coresponsavel = dto.Coresponsavel;
-        intervencao.Descricao = dto.Descricao;
-        intervencao.Notas = dto.Notas;
-        intervencao.Comentarios = dto.Comentarios;
-        intervencao.IntervencaoPaiId = dto.IntervencaoPaiId;
-        intervencao.EsforcoACobrar = dto.EsforcoACobrar;
-        intervencao.Valor = dto.Valor;
-        intervencao.DataCriacao = dto.DataCriacao;
-        intervencao.DataQualidade = dto.DataQualidade;
-        intervencao.UpdateUser = dto.UpdateUser;
-        intervencao.UpdateDate = dto.UpdateDate;
-        intervencao.Email = dto.Email;
-        intervencao.Codigo = dto.Codigo;
-        intervencao.DataInicio = dto.DataInicio;
-        intervencao.TarefaAgendadaId = dto.TarefaAgendadaId;
-        intervencao.DataInicioPrevista = dto.DataInicioPrevista;
-        intervencao.DataFimPrevista = dto.DataFimPrevista;
-        intervencao.Alerta = dto.Alerta;
-        intervencao.MotivoAlerta = dto.MotivoAlerta;
-
-        await _context.SaveChangesAsync();
-        return intervencao;
+        catch (OperationCanceledException)
+        {
+            throw;
+        }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            _logger.LogWarning(ex, "Concurrency error in {Method}", nameof(UpdateAsync));
+            throw;
+        }
+        catch (DbUpdateException ex)
+        {
+            _logger.LogWarning(ex, "Database update error in {Method}", nameof(UpdateAsync));
+            throw;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method} id={Id}", nameof(UpdateAsync), id);
+            throw;
+        }
     }
 
     /// <summary>
@@ -270,14 +381,22 @@ public class IntervencaoService
     /// <returns><see langword="true"/> if deleted; otherwise <see langword="false"/> if not found.</returns>
     public bool Delete(int id)
     {
-        var intervencao = _context.Intervencaos.FirstOrDefault(i => i.Id == id);
-        if (intervencao is null)
+        try
         {
-            return false;
-        }
+            var intervencao = _context.Intervencaos.FirstOrDefault(i => i.Id == id);
+            if (intervencao is null)
+            {
+                return false;
+            }
 
-        _context.Intervencaos.Remove(intervencao);
-        _context.SaveChanges();
-        return true;
+            _context.Intervencaos.Remove(intervencao);
+            _context.SaveChanges();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(Delete));
+            throw;
+        }
     }
 }

@@ -30,7 +30,15 @@ public class EntidadeService
     /// <returns>A list of entidades.</returns>
     public List<Entidade> GetAll()
     {
-        return _context.Entidades.OrderBy(i => i.Id).ToList();
+        try
+        {
+            return _context.Entidades.OrderBy(i => i.Id).ToList();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetAll));
+            throw;
+        }
     }
 
     /// <summary>
@@ -40,12 +48,20 @@ public class EntidadeService
     /// <returns>A paged list containing the requested page of entidades.</returns>
     public async Task<PagedList<Entidade>> GetAllPagedAsync(PageParameters pageParameters)
     {
-        var query = _context.Entidades
-            .AsNoTracking()
-            .OrderBy(i => i.Id)
-            .AsQueryable();
+        try
+        {
+            var query = _context.Entidades
+                .AsNoTracking()
+                .OrderBy(i => i.Id)
+                .AsQueryable();
 
-        return await PagedList<Entidade>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
+            return await PagedList<Entidade>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetAllPagedAsync));
+            throw;
+        }
     }
 
     /// <summary>
@@ -55,7 +71,15 @@ public class EntidadeService
     /// <returns>The entidade if found; otherwise <see langword="null"/>.</returns>
     public Entidade? GetByNomeSocial(string name)
     {
-        return _context.Entidades.FirstOrDefault(n => n.NomeSocial == name);
+        try
+        {
+            return _context.Entidades.FirstOrDefault(n => n.NomeSocial == name);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByNomeSocial));
+            throw;
+        }
     }
 
     /// <summary>
@@ -65,7 +89,15 @@ public class EntidadeService
     /// <returns>The entidade if found; otherwise <see langword="null"/>.</returns>
      public Entidade? GetByReferencia(string referncia)
     {
-        return _context.Entidades.FirstOrDefault(n => n.Referencia == referncia);
+        try
+        {
+            return _context.Entidades.FirstOrDefault(n => n.Referencia == referncia);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByReferencia));
+            throw;
+        }
     }
 
     /// <summary>
@@ -75,7 +107,15 @@ public class EntidadeService
     /// <returns>The entidade if found; otherwise <see langword="null"/>.</returns>
     public Entidade? GetByIdEntidade(int id)
     {
-        return _context.Entidades.FirstOrDefault(i => i.Id == id);
+        try
+        {
+            return _context.Entidades.FirstOrDefault(i => i.Id == id);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(GetByIdEntidade));
+            throw;
+        }
     }
 
     /// <summary>
@@ -85,25 +125,33 @@ public class EntidadeService
     /// <returns>The created entidade with its generated identifier.</returns>
     public async Task<Entidade> CreateAsync(CreateEntidade dto)
     {
-        var entidade = new Entidade
+        try
         {
-            Referencia = dto.Referencia,
-            NomeSocial = dto.NomeSocial,
-            Contribuinte = dto.Contribuinte,
-            Observacoes = dto.Observacoes,
-            Tipo = dto.Tipo,
-            Estado = dto.Estado,
-            Item1 = dto.Item1,
-            Item2 = dto.Item2,
-            Item3 = dto.Item3,
-            DesignacaoComercial = dto.DesignacaoComercial,
-            DataActualizacao = DateTime.UtcNow,
-        };
+            var entidade = new Entidade
+            {
+                Referencia = dto.Referencia,
+                NomeSocial = dto.NomeSocial,
+                Contribuinte = dto.Contribuinte,
+                Observacoes = dto.Observacoes,
+                Tipo = dto.Tipo,
+                Estado = dto.Estado,
+                Item1 = dto.Item1,
+                Item2 = dto.Item2,
+                Item3 = dto.Item3,
+                DesignacaoComercial = dto.DesignacaoComercial,
+                DataActualizacao = DateTime.UtcNow,
+            };
 
-        _context.Entidades.Add(entidade);
-        await _context.SaveChangesAsync();
+            _context.Entidades.Add(entidade);
+            await _context.SaveChangesAsync();
 
-        return entidade;
+            return entidade;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(CreateAsync));
+            throw;
+        }
     }
 
 
@@ -115,26 +163,34 @@ public class EntidadeService
     /// <returns>The updated entidade if found; otherwise <see langword="null"/>.</returns>
     public async Task<Entidade?> UpdateAsync(int id, UpdateEntidade dto)
     {
-        var entidade = _context.Entidades.FirstOrDefault(i => i.Id == id);
-
-        if (entidade is null)
+        try
         {
-            return null;
-        }
-        entidade.Referencia = dto.Referencia;
-        entidade.NomeSocial = dto.NomeSocial;
-        entidade.Contribuinte = dto.Contribuinte;
-        entidade.Observacoes = dto.Observacoes;
-        entidade.Tipo = dto.Tipo;
-        entidade.Estado = dto.Estado;
-        entidade.Item1 = dto.Item1;
-        entidade.Item2 = dto.Item2;
-        entidade.Item3 = dto.Item3;
-        entidade.DesignacaoComercial = dto.DesignacaoComercial;
-        entidade.DataActualizacao = DateTime.UtcNow;
+            var entidade = _context.Entidades.FirstOrDefault(i => i.Id == id);
 
-        await _context.SaveChangesAsync();
-        return entidade;
+            if (entidade is null)
+            {
+                return null;
+            }
+            entidade.Referencia = dto.Referencia;
+            entidade.NomeSocial = dto.NomeSocial;
+            entidade.Contribuinte = dto.Contribuinte;
+            entidade.Observacoes = dto.Observacoes;
+            entidade.Tipo = dto.Tipo;
+            entidade.Estado = dto.Estado;
+            entidade.Item1 = dto.Item1;
+            entidade.Item2 = dto.Item2;
+            entidade.Item3 = dto.Item3;
+            entidade.DesignacaoComercial = dto.DesignacaoComercial;
+            entidade.DataActualizacao = DateTime.UtcNow;
+
+            await _context.SaveChangesAsync();
+            return entidade;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(UpdateAsync));
+            throw;
+        }
     }
 
 
@@ -146,14 +202,22 @@ public class EntidadeService
     /// <returns><see langword="true"/> if deleted; <see langword="false"/> if not found.</returns>
     public bool Delete(int id)
     {
-        var entidade = _context.Entidades.FirstOrDefault(i => i.Id == id);
-        if (entidade is null)
+        try
         {
-            return false;
+            var entidade = _context.Entidades.FirstOrDefault(i => i.Id == id);
+            if (entidade is null)
+            {
+                return false;
+            }
+            _context.Entidades.Remove(entidade);
+            _context.SaveChanges();
+            return true;
         }
-        _context.Entidades.Remove(entidade);
-        _context.SaveChanges();
-        return true;
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error in {Method}", nameof(Delete));
+            throw;
+        }
     }
 
 
@@ -224,9 +288,9 @@ public class EntidadeService
                     .ToList()
             );
         }
-        catch (System.Exception)
+        catch (Exception ex)
         {
-
+            _logger.LogError(ex, "Error in {Method}", nameof(GetDetailsAsync));
             throw;
         }
 
