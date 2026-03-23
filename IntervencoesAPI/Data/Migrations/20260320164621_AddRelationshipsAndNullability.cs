@@ -10,6 +10,19 @@ namespace IntervencoesAPI.Data.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            // SQLite adds foreign keys by rebuilding the table and copying rows into a temp table.
+            // If an existing database has orphaned rows (created before these relationships existed),
+            // the copy will fail with "FOREIGN KEY constraint failed".
+            // Clean up orphans in dependency order before adding the FK constraints.
+            migrationBuilder.Sql(
+                "DELETE FROM \"Clientes\" WHERE \"IdEntidade\" NOT IN (SELECT \"Id\" FROM \"Entidades\");");
+
+            migrationBuilder.Sql(
+                "DELETE FROM \"ProcessoProjectos\" WHERE \"ClienteId\" NOT IN (SELECT \"Id\" FROM \"Clientes\");");
+
+            migrationBuilder.Sql(
+                "DELETE FROM \"Intervencaos\" WHERE \"ProcessoId\" NOT IN (SELECT \"Id\" FROM \"ProcessoProjectos\");");
+
             migrationBuilder.AlterColumn<string>(
                 name: "HistoricoEstados",
                 table: "Intervencaos",

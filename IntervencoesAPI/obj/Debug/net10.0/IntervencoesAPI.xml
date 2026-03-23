@@ -423,6 +423,18 @@
         <member name="M:IntervencoesAPI.Data.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:IntervencoesAPI.Data.Migrations.AddRelationshipsAndNullability">
+            <inheritdoc />
+        </member>
+        <member name="M:IntervencoesAPI.Data.Migrations.AddRelationshipsAndNullability.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:IntervencoesAPI.Data.Migrations.AddRelationshipsAndNullability.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:IntervencoesAPI.Data.Migrations.AddRelationshipsAndNullability.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
         <member name="M:IntervencoesAPI.Services.ClienteService.GetAllPagedAsync(PageParameters)">
             <summary>
             Gets a paginated list of clientes.

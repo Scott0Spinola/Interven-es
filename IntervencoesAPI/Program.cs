@@ -10,19 +10,21 @@ using Serilog;
 using System.Reflection;
 using Microsoft.OpenApi;
 
-Log.Logger = new LoggerConfiguration()
-    .MinimumLevel.Information()
-    .WriteTo.Console()
-    .WriteTo.File("Logs/log-.txt",
-                  rollingInterval: RollingInterval.Day,
-                  retainedFileCountLimit: 7)
-    .CreateLogger();
-
-
-
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseSerilog();
+builder.Host.UseSerilog((context, services, loggerConfiguration) =>
+{
+    var logDirectory = Path.Combine(context.HostingEnvironment.ContentRootPath, "Logs");
+    Directory.CreateDirectory(logDirectory);
+
+    loggerConfiguration
+        .MinimumLevel.Information()
+        .WriteTo.Console()
+        .WriteTo.File(
+            Path.Combine(logDirectory, "log-.txt"),
+            rollingInterval: RollingInterval.Day,
+            retainedFileCountLimit: 7);
+});
 
 builder.Services.AddDbContext<IntervencoesAPIContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));

@@ -12,6 +12,7 @@ services:
       - ConnectionStrings__DefaultConnection=Data Source=/data/intervencoes.db
     volumes:
       - intervencoes_data:/data
+      - ./Logs:/app/Logs
 
 volumes:
   intervencoes_data:
