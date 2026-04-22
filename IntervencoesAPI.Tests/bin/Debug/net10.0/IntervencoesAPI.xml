@@ -435,12 +435,47 @@
         <member name="M:IntervencoesAPI.Data.Migrations.AddRelationshipsAndNullability.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="M:IntervencoesAPI.Services.ClienteService.#ctor(IntervencoesAPI.Data.IntervencoesAPIContext,Microsoft.Extensions.Logging.ILogger{IntervencoesAPI.Services.ClienteService})">
+            <summary>
+            Initializes a new instance of <see cref="T:IntervencoesAPI.Services.ClienteService"/>.
+            </summary>
+            <param name="context">EF Core database context used to access <see cref="T:IntervencoesAPI.Models.Cliente"/> entities.</param>
+            <param name="logger">Logger used to record failures and operational errors.</param>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ClienteService.GetAll">
+            <summary>
+            Gets all <see cref="T:IntervencoesAPI.Models.Cliente"/> records ordered by identifier.
+            </summary>
+            <remarks>
+            This query is tracked by EF Core (no <c>AsNoTracking</c>). Use paged or no-tracking variants
+            where appropriate.
+            </remarks>
+            <returns>All clientes ordered by <see cref="P:IntervencoesAPI.Models.Cliente.Id"/>.</returns>
+            <exception cref="T:System.Exception">Rethrows any exception after logging.</exception>
+        </member>
         <member name="M:IntervencoesAPI.Services.ClienteService.GetAllPagedAsync(PageParameters)">
             <summary>
             Gets a paginated list of clientes.
             </summary>
             <param name="pageParameters">Pagination parameters (page number and page size).</param>
             <returns>A paged list containing the requested page of clientes.</returns>
+            <exception cref="T:System.Exception">Rethrows any exception after logging.</exception>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ClienteService.GetByIdCliente(System.Int32)">
+            <summary>
+            Gets a single <see cref="T:IntervencoesAPI.Models.Cliente"/> by its identifier.
+            </summary>
+            <param name="id">The cliente identifier.</param>
+            <returns>The matching cliente, or <see langword="null"/> if not found.</returns>
+            <exception cref="T:System.Exception">Rethrows any exception after logging.</exception>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ClienteService.GetByReferencia(System.String)">
+            <summary>
+            Gets a single <see cref="T:IntervencoesAPI.Models.Cliente"/> by its <see cref="P:IntervencoesAPI.Models.Cliente.Referencia"/>.
+            </summary>
+            <param name="referencia">The reference value to look up.</param>
+            <returns>The matching cliente, or <see langword="null"/> if not found.</returns>
+            <exception cref="T:System.Exception">Rethrows any exception after logging.</exception>
         </member>
         <member name="M:IntervencoesAPI.Services.ClienteService.GetByIdEntidade(System.Int32)">
             <summary>
@@ -448,6 +483,7 @@
             </summary>
             <param name="idEntidade">The entidade identifier.</param>
             <returns>The first matching cliente, or <see langword="null"/> if none exists.</returns>
+            <exception cref="T:System.Exception">Rethrows any exception after logging.</exception>
         </member>
         <member name="M:IntervencoesAPI.Services.ClienteService.GetByIdEntidadePagedAsync(System.Int32,PageParameters)">
             <summary>
@@ -456,6 +492,39 @@
             <param name="idEntidade">The entidade identifier to filter clientes by.</param>
             <param name="pageParameters">Pagination parameters (page number and page size).</param>
             <returns>A paged list containing clientes associated with the provided entidade identifier.</returns>
+            <exception cref="T:System.Exception">Rethrows any exception after logging.</exception>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ClienteService.CreateAsync(IntervencoesAPI.Dtos.CreateCliente)">
+            <summary>
+            Creates a new <see cref="T:IntervencoesAPI.Models.Cliente"/> from the provided DTO.
+            </summary>
+            <remarks>
+            Sets <see cref="P:IntervencoesAPI.Models.Cliente.DataDeInicio"/> and <see cref="P:IntervencoesAPI.Models.Cliente.DataActualizacao"/> to
+            <see cref="P:System.DateTime.UtcNow"/>.
+            </remarks>
+            <param name="dto">The values to use for creation.</param>
+            <returns>The created cliente after it has been persisted.</returns>
+            <exception cref="T:System.Exception">Rethrows any exception after logging.</exception>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ClienteService.UpdateAsync(System.Int32,IntervencoesAPI.Dtos.UpdateCliente)">
+            <summary>
+            Updates an existing <see cref="T:IntervencoesAPI.Models.Cliente"/> identified by <paramref name="id"/>.
+            </summary>
+            <remarks>
+            Updates <see cref="P:IntervencoesAPI.Models.Cliente.DataActualizacao"/> to <see cref="P:System.DateTime.UtcNow"/>.
+            </remarks>
+            <param name="id">The cliente identifier.</param>
+            <param name="dto">The values to apply to the existing cliente.</param>
+            <returns>The updated cliente, or <see langword="null"/> if no cliente exists with the given identifier.</returns>
+            <exception cref="T:System.Exception">Rethrows any exception after logging.</exception>
+        </member>
+        <member name="M:IntervencoesAPI.Services.ClienteService.Delete(System.Int32)">
+            <summary>
+            Deletes a <see cref="T:IntervencoesAPI.Models.Cliente"/> identified by <paramref name="id"/>.
+            </summary>
+            <param name="id">The cliente identifier.</param>
+            <returns><see langword="true"/> if the cliente existed and was deleted; otherwise <see langword="false"/>.</returns>
+            <exception cref="T:System.Exception">Rethrows any exception after logging.</exception>
         </member>
         <member name="T:IntervencoesAPI.Services.EntidadeService">
             <summary>

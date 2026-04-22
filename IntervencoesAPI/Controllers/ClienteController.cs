@@ -87,33 +87,33 @@ public class ClienteController : ControllerBase
     [HttpGet("Refencia")]
     [ProducesResponseType(typeof(Cliente), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<Cliente> GetByReferencia([FromQuery] string referencia  )
-    	{
-		if (string.IsNullOrWhiteSpace(referencia))
-		{
-			return BadRequest("Query parameter 'referencia' is required.");
-		}
+    public ActionResult<Cliente> GetByReferencia([FromQuery] string referencia)
+    {
+        if (string.IsNullOrWhiteSpace(referencia))
+        {
+            return BadRequest("Query parameter 'referencia' is required.");
+        }
 
-		var entidade = _clienteService.GetByReferencia(referencia);
-		if (entidade is null)
-		{
-			return NotFound($"No Entidade exists with the provided Referencia: {referencia}.");
-		}
+        var entidade = _clienteService.GetByReferencia(referencia);
+        if (entidade is null)
+        {
+            return NotFound($"No Entidade exists with the provided Referencia: {referencia}.");
+        }
 
-		return Ok(entidade);
-	}
+        return Ok(entidade);
+    }
 
-        /// <summary>
-        /// Gets clientes for a given entidade identifier (paged).
-        /// </summary>
-        /// <param name="idEntidade">The entidade identifier to filter clientes by.</param>
-        /// <param name="pageParameters">Pagination parameters (page number and page size).</param>
-        /// <remarks>
-        /// Returns a paged result containing clientes associated with the provided <paramref name="idEntidade"/>.
-        /// </remarks>
-        /// <response code="200">Clientes returned successfully.</response>
-        /// <response code="400">The query parameters are invalid.</response>
-        /// <response code="404">No clientes were found for the provided entidade identifier.</response>
+    /// <summary>
+    /// Gets clientes for a given entidade identifier (paged).
+    /// </summary>
+    /// <param name="idEntidade">The entidade identifier to filter clientes by.</param>
+    /// <param name="pageParameters">Pagination parameters (page number and page size).</param>
+    /// <remarks>
+    /// Returns a paged result containing clientes associated with the provided <paramref name="idEntidade"/>.
+    /// </remarks>
+    /// <response code="200">Clientes returned successfully.</response>
+    /// <response code="400">The query parameters are invalid.</response>
+    /// <response code="404">No clientes were found for the provided entidade identifier.</response>
     [HttpGet("IdEntidade")]
     [ProducesResponseType(typeof(PagedList<Cliente>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -208,19 +208,19 @@ public class ClienteController : ControllerBase
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-   public ActionResult Delete(int id)
-   {
+    public ActionResult Delete(int id)
+    {
         {
             _logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Delete", "Cliente", id);
 
             var DeleteCliente = _clienteService.Delete(id);
-              if (!DeleteCliente)
-                {
-                    return NotFound($"No Cliente exists with the provided ID: {id}.");
-                }
-                return NoContent();
+            if (!DeleteCliente)
+            {
+                return NotFound($"No Cliente exists with the provided ID: {id}.");
+            }
+            return NoContent();
         }
-   }
+    }
 
 
 
