@@ -13,7 +13,7 @@ public class ClienteServiceTests
     [Fact]
     public async Task CreateAsync_PersistsCliente_AndSetsTimestamps()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var entidade = new Entidade
@@ -57,7 +57,7 @@ public class ClienteServiceTests
     [Fact]
     public async Task UpdateAsync_WhenMissing_ReturnsNull()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var service = new ClienteService(context, NullLogger<ClienteService>.Instance);
@@ -81,7 +81,7 @@ public class ClienteServiceTests
     [Fact]
     public async Task Delete_WhenMissing_ReturnsFalse()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var service = new ClienteService(context, NullLogger<ClienteService>.Instance);
@@ -94,7 +94,7 @@ public class ClienteServiceTests
     [Fact]
     public async Task GetAllPagedAsync_ReturnsPageAndTotalCount()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var entidade = new Entidade

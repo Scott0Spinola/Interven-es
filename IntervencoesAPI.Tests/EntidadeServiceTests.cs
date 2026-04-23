@@ -14,7 +14,7 @@ public class EntidadeServiceTests
     [Fact]
     public async Task CreateAsync_PersistsEntidade_AndSetsDataActualizacao()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var service = new EntidadeService(context, NullLogger<EntidadeService>.Instance);
@@ -47,7 +47,7 @@ public class EntidadeServiceTests
     [Fact]
     public async Task UpdateAsync_WhenMissing_ReturnsNull()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var service = new EntidadeService(context, NullLogger<EntidadeService>.Instance);
@@ -72,7 +72,7 @@ public class EntidadeServiceTests
     [Fact]
     public async Task Delete_WhenMissing_ReturnsFalse()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var service = new EntidadeService(context, NullLogger<EntidadeService>.Instance);
@@ -85,7 +85,7 @@ public class EntidadeServiceTests
     [Fact]
     public async Task GetAllPagedAsync_ReturnsPageAndTotalCount()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         for (var i = 1; i <= 25; i++)
@@ -118,7 +118,7 @@ public class EntidadeServiceTests
     [Fact]
     public async Task GetDetailsAsync_ReturnsNestedGraph()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var entidade = new Entidade

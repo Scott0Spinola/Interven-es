@@ -13,7 +13,7 @@ public class ProcessoProjectoServiceTests
     [Fact]
     public async Task CreateAsync_PersistsProcessoProjecto_AndCanQueryByIdAndReferencia()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var entidade = new Entidade
@@ -86,7 +86,7 @@ public class ProcessoProjectoServiceTests
     [Fact]
     public async Task UpdateAsync_WhenMissing_ReturnsNull()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var service = new ProcessoProjectoService(context, NullLogger<ProcessoProjectoService>.Instance);
@@ -118,7 +118,7 @@ public class ProcessoProjectoServiceTests
     [Fact]
     public async Task Delete_WhenMissing_ReturnsFalse()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var service = new ProcessoProjectoService(context, NullLogger<ProcessoProjectoService>.Instance);
@@ -131,7 +131,7 @@ public class ProcessoProjectoServiceTests
     [Fact]
     public async Task GetAllPagedAsync_ReturnsPageAndTotalCount()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var entidade = new Entidade

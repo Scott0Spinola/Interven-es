@@ -13,7 +13,7 @@ public class IntervencaoServiceTests
     [Fact]
     public async Task CreateAsync_PersistsIntervencao_AndCanQueryByIdAndReferencia()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var (processoId, _) = await SeedProcessoAsync(context);
@@ -54,7 +54,7 @@ public class IntervencaoServiceTests
     [Fact]
     public async Task UpdateAsync_WhenMissing_ReturnsNull()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var (processoId, _) = await SeedProcessoAsync(context);
@@ -109,7 +109,7 @@ public class IntervencaoServiceTests
     [Fact]
     public async Task Delete_WhenMissing_ReturnsFalse()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var service = new IntervencaoService(context, NullLogger<IntervencaoService>.Instance);
@@ -122,7 +122,7 @@ public class IntervencaoServiceTests
     [Fact]
     public async Task GetByIntervaloDataCriacaoAsync_FiltersByDateRange()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var (processoId, _) = await SeedProcessoAsync(context);
@@ -147,7 +147,7 @@ public class IntervencaoServiceTests
     [Fact]
     public async Task GetAllPagedAsync_ReturnsPageAndTotalCount()
     {
-        await using var db = new SqliteInMemoryDb();
+        await using var db = new InMemoryDb();
         await using var context = db.CreateContext();
 
         var (processoId, _) = await SeedProcessoAsync(context);

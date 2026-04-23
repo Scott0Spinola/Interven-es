@@ -15,6 +15,30 @@ public class IntervencoesAPIContext(DbContextOptions<IntervencoesAPIContext> opt
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Intervencao>()
+            .Property(i => i.PrevisaoEsforco)
+            .HasPrecision(18, 2);
+
+        modelBuilder.Entity<Intervencao>()
+            .Property(i => i.EsforcoReal)
+            .HasPrecision(18, 2);
+
+        modelBuilder.Entity<Intervencao>()
+            .Property(i => i.EsforcoACobrar)
+            .HasPrecision(18, 2);
+
+        modelBuilder.Entity<Intervencao>()
+            .Property(i => i.Valor)
+            .HasPrecision(18, 2);
+
+        modelBuilder.Entity<ProcessoProjecto>()
+            .Property(p => p.EsforcoPrevisto)
+            .HasPrecision(18, 2);
+
+        modelBuilder.Entity<ProcessoProjecto>()
+            .Property(p => p.EsforcoReal)
+            .HasPrecision(18, 2);
+
         modelBuilder.Entity<Cliente>()
             .HasOne(c => c.Entidade)
             .WithMany(e => e.Clientes)

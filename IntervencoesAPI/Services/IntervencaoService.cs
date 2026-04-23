@@ -38,7 +38,11 @@ public class IntervencaoService
     {
         try
         {
-            return _context.Intervencaos.OrderBy(i => i.Id).ToList();
+            return _context.Intervencaos
+                .AsNoTracking()
+                .Include(i => i.ProcessoProjecto)
+                .OrderBy(i => i.Id)
+                .ToList();
         }
         catch (Exception ex)
         {
@@ -61,6 +65,7 @@ public class IntervencaoService
         {
             var query = _context.Intervencaos
                 .AsNoTracking()
+                .Include(i => i.ProcessoProjecto)
                 .OrderBy(i => i.Id)
                 .AsQueryable();
 
@@ -82,7 +87,10 @@ public class IntervencaoService
     {
         try
         {
-            return _context.Intervencaos.FirstOrDefault(i => i.Id == id);
+            return _context.Intervencaos
+                .AsNoTracking()
+                .Include(i => i.ProcessoProjecto)
+                .FirstOrDefault(i => i.Id == id);
         }
         catch (Exception ex)
         {
@@ -100,7 +108,10 @@ public class IntervencaoService
     {
         try
         {
-            return _context.Intervencaos.FirstOrDefault(r => r.Referencia == referencia);
+            return _context.Intervencaos
+                .AsNoTracking()
+                .Include(i => i.ProcessoProjecto)
+                .FirstOrDefault(r => r.Referencia == referencia);
         }
         catch (Exception ex)
         {
@@ -118,7 +129,10 @@ public class IntervencaoService
     {
         try
         {
-            return _context.Intervencaos.FirstOrDefault(t => t.Tipo == tipo);
+            return _context.Intervencaos
+                .AsNoTracking()
+                .Include(i => i.ProcessoProjecto)
+                .FirstOrDefault(t => t.Tipo == tipo);
         }
         catch (Exception ex)
         {
@@ -136,7 +150,10 @@ public class IntervencaoService
     {
         try
         {
-            return _context.Intervencaos.FirstOrDefault(e => e.Estado == estado);
+            return _context.Intervencaos
+                .AsNoTracking()
+                .Include(i => i.ProcessoProjecto)
+                .FirstOrDefault(e => e.Estado == estado);
         }
         catch (Exception ex)
         {
@@ -160,6 +177,7 @@ public class IntervencaoService
         {
             return await _context.Intervencaos
                 .AsNoTracking()
+                .Include(i => i.ProcessoProjecto)
                 .Where(i => i.DataCriacao >= start && i.DataCriacao <= end)
                 .OrderBy(i => i.Id)
                 .ToListAsync();
@@ -204,7 +222,11 @@ public class IntervencaoService
     {
         try
         {
-            return _context.Intervencaos.FirstOrDefault(p => p.ProcessoId == idProcesso);
+            return _context.Intervencaos
+                .AsNoTracking()
+                .Include(i => i.ProcessoProjecto)
+                .Include(i => i.Id)
+                .FirstOrDefault(p => p.ProcessoId == idProcesso);
         }
         catch (Exception ex)
         {

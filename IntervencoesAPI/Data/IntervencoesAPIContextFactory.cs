@@ -23,7 +23,7 @@ public sealed class IntervencoesAPIContextFactory : IDesignTimeDbContextFactory<
         }
 
         var optionsBuilder = new DbContextOptionsBuilder<IntervencoesAPIContext>();
-        optionsBuilder.UseSqlite(connectionString);
+        optionsBuilder.UseSqlServer(connectionString);
 
         return new IntervencoesAPIContext(optionsBuilder.Options);
     }

@@ -38,7 +38,13 @@ public class ProcessoProjectoService
 	{
 		try
 		{
-			return _context.ProcessoProjectos.OrderBy(i => i.Id).ToList();
+			return _context.ProcessoProjectos
+				.AsNoTracking()
+				.AsSplitQuery()
+				.Include(p => p.Cliente)
+				.Include(p => p.Intervencaos)
+				.OrderBy(i => i.Id)
+				.ToList();
 		}
 		catch (Exception ex)
 		{
@@ -61,6 +67,9 @@ public class ProcessoProjectoService
 		{
 			var query = _context.ProcessoProjectos
 				.AsNoTracking()
+				.AsSplitQuery()
+				.Include(p => p.Cliente)
+				.Include(p => p.Intervencaos)
 				.OrderBy(i => i.Id)
 				.AsQueryable();
 
@@ -82,7 +91,12 @@ public class ProcessoProjectoService
 	{
 		try
 		{
-			return _context.ProcessoProjectos.FirstOrDefault(i => i.Id == id);
+			return _context.ProcessoProjectos
+				.AsNoTracking()
+				.AsSplitQuery()
+				.Include(p => p.Cliente)
+				.Include(p => p.Intervencaos)
+				.FirstOrDefault(i => i.Id == id);
 		}
 		catch (Exception ex)
 		{
@@ -100,7 +114,12 @@ public class ProcessoProjectoService
 	{
 		try
 		{
-			return _context.ProcessoProjectos.FirstOrDefault(r => r.Referencia == referencia);
+			return _context.ProcessoProjectos
+				.AsNoTracking()
+				.AsSplitQuery()
+				.Include(p => p.Cliente)
+				.Include(p => p.Intervencaos)
+				.FirstOrDefault(r => r.Referencia == referencia);
 		}
 		catch (Exception ex)
 		{
@@ -118,7 +137,12 @@ public class ProcessoProjectoService
 	{
 		try
 		{
-			return _context.ProcessoProjectos.FirstOrDefault(c => c.ClienteId == IdCliente);
+			return _context.ProcessoProjectos
+				.AsNoTracking()
+				.AsSplitQuery()
+				.Include(p => p.Cliente)
+				.Include(p => p.Intervencaos)
+				.FirstOrDefault(c => c.ClienteId == IdCliente);
 		}
 		catch (Exception ex)
 		{

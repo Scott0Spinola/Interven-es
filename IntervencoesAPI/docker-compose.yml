@@ -1,4 +1,14 @@
 services:
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Your_password123!
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+
   intervencoesapi:
     build:
       context: .
@@ -8,11 +18,11 @@ services:
       - "8080:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      # Persist SQLite in a mounted volume
-      - ConnectionStrings__DefaultConnection=Data Source=/data/intervencoes.db
+      - ConnectionStrings__DefaultConnection=Server=mssql,1433;Database=IntervencoesAPI;User Id=sa;Password=Your_password123!;TrustServerCertificate=True;Encrypt=False
+    depends_on:
+      - mssql
     volumes:
-      - intervencoes_data:/data
       - ./Logs:/app/Logs
 
 volumes:
-  intervencoes_data:
+  mssql_data:

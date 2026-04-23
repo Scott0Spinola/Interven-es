@@ -38,7 +38,13 @@ public class ClienteService
     {
         try
         {
-            return _context.Clientes.OrderBy(i => i.Id).ToList();
+            return _context.Clientes
+                .AsNoTracking()
+                .AsSplitQuery()
+                .Include(c => c.Entidade)
+                .Include(c => c.ProcessoProjectos)
+                .OrderBy(i => i.Id)
+                .ToList();
         }
         catch (Exception ex)
         {
@@ -59,6 +65,9 @@ public class ClienteService
         {
             var query = _context.Clientes
                 .AsNoTracking()
+                .AsSplitQuery()
+                .Include(c => c.Entidade)
+                .Include(c => c.ProcessoProjectos)
                 .OrderBy(i => i.Id)
                 .AsQueryable();
 
@@ -81,7 +90,12 @@ public class ClienteService
     {
         try
         {
-            return _context.Clientes.FirstOrDefault(i => i.Id == id);
+            return _context.Clientes
+                .AsNoTracking()
+                .AsSplitQuery()
+                .Include(c => c.Entidade)
+                .Include(c => c.ProcessoProjectos)
+                .FirstOrDefault(i => i.Id == id);
         }
         catch (Exception ex)
         {
@@ -101,7 +115,12 @@ public class ClienteService
     {
         try
         {
-            return _context.Clientes.FirstOrDefault(r => r.Referencia == referencia);
+            return _context.Clientes
+                .AsNoTracking()
+                .AsSplitQuery()
+                .Include(c => c.Entidade)
+                .Include(c => c.ProcessoProjectos)
+                .FirstOrDefault(r => r.Referencia == referencia);
         }
         catch (Exception ex)
         {
@@ -120,7 +139,12 @@ public class ClienteService
     {
         try
         {
-            return _context.Clientes.FirstOrDefault(r => r.IdEntidade == idEntidade);
+            return _context.Clientes
+                .AsNoTracking()
+                .AsSplitQuery()
+                .Include(c => c.Entidade)
+                .Include(c => c.ProcessoProjectos)
+                .FirstOrDefault(r => r.IdEntidade == idEntidade);
         }
         catch (Exception ex)
         {
@@ -142,6 +166,9 @@ public class ClienteService
         {
             var query = _context.Clientes
                 .AsNoTracking()
+                .AsSplitQuery()
+                .Include(c => c.Entidade)
+                .Include(c => c.ProcessoProjectos)
                 .Where(c => c.IdEntidade == idEntidade)
                 .OrderBy(c => c.Id)
                 .AsQueryable();

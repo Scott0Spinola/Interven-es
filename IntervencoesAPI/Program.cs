@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Serilog;
 using System.Reflection;
 using Microsoft.OpenApi;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,14 +28,19 @@ builder.Host.UseSerilog((context, services, loggerConfiguration) =>
 });
 
 builder.Services.AddDbContext<IntervencoesAPIContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped<ClienteService>();
 builder.Services.AddScoped<EntidadeService>();
 builder.Services.AddScoped<ProcessoProjectoService>();
 builder.Services.AddScoped<IntervencaoService>();
 
-builder.Services.AddControllers();
+builder.Services
+    .AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    });
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -88,7 +94,7 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Ensure SQLite schema exists (esp. in Docker volumes) during development
+// Ensure database schema exists during development
 if (app.Environment.IsDevelopment())
 {
     using var scope = app.Services.CreateScope();
