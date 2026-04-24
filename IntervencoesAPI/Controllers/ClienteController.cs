@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using IntervencoesAPI.Dtos;
+using IntervencoesAPI.Dtos.ClienteDtos;
 using IntervencoesAPI.Models;
 using IntervencoesAPI.Services;
 using Microsoft.Extensions.Logging;
@@ -30,9 +31,9 @@ public class ClienteController : ControllerBase
     /// <response code="200">Clientes returned successfully.</response>
     /// <response code="400">The query parameters are invalid.</response>
     [HttpGet]
-    [ProducesResponseType(typeof(PagedList<Cliente>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(PagedList<GetCliente>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<PagedList<Cliente>>> GetAll([FromQuery] PageParameters pageParameters)
+    public async Task<ActionResult<PagedList<GetCliente>>> GetAll([FromQuery] PageParameters pageParameters)
     {
         {
             _logger.LogInformation(
@@ -42,8 +43,8 @@ public class ClienteController : ControllerBase
                 pageParameters.PageNumber,
                 pageParameters.PageSize);
 
-            var pagedIdeas = await _clienteService.GetAllPagedAsync(pageParameters);
-            return Ok(pagedIdeas);
+            var pagedClientes = await _clienteService.GetAllPagedAsync(pageParameters);
+            return Ok(pagedClientes);
         }
     }
 
@@ -57,20 +58,20 @@ public class ClienteController : ControllerBase
     /// <response code="200">Cliente returned successfully.</response>
     /// <response code="404">Cliente not found.</response>
     [HttpGet("{id:int}")]
-    [ProducesResponseType(typeof(Cliente), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(GetCliente), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<Cliente> GetById(int id)
+    public async Task<ActionResult<GetCliente>> GetById(int id)
     {
         {
             _logger.LogInformation("CRUD {CrudOperation} {Resource} id={Id}", "Read", "Cliente", id);
 
-            var cliente = _clienteService.GetByIdCliente(id);
+            var cliente = await _clienteService.GetByIdCliente(id);
             if (cliente is null)
             {
                 return NotFound($"No Cliente exists with the provided ID: {id}.");
             }
 
-            return cliente;
+            return Ok(cliente);
         }
     }
 
@@ -85,22 +86,22 @@ public class ClienteController : ControllerBase
     /// <response code="400">The query parameter is missing or invalid.</response>
     /// <response code="404">Cliente not found.</response>
     [HttpGet("Refencia")]
-    [ProducesResponseType(typeof(Cliente), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(GetCliente), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public ActionResult<Cliente> GetByReferencia([FromQuery] string referencia)
+    public async Task<ActionResult<GetCliente>> GetByReferencia([FromQuery] string referencia)
     {
         if (string.IsNullOrWhiteSpace(referencia))
         {
             return BadRequest("Query parameter 'referencia' is required.");
         }
 
-        var entidade = _clienteService.GetByReferencia(referencia);
-        if (entidade is null)
+        var cliente = await _clienteService.GetByReferencia(referencia);
+        if (cliente is null)
         {
-            return NotFound($"No Entidade exists with the provided Referencia: {referencia}.");
+            return NotFound($"No Cliente exists with the provided Referencia: {referencia}.");
         }
 
-        return Ok(entidade);
+        return Ok(cliente);
     }
 
     /// <summary>
@@ -115,10 +116,10 @@ public class ClienteController : ControllerBase
     /// <response code="400">The query parameters are invalid.</response>
     /// <response code="404">No clientes were found for the provided entidade identifier.</response>
     [HttpGet("IdEntidade")]
-    [ProducesResponseType(typeof(PagedList<Cliente>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(PagedList<GetCliente>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<PagedList<Cliente>>> GetByIdEntidae([FromQuery] int idEntidade, [FromQuery] PageParameters pageParameters)
+    public async Task<ActionResult<PagedList<GetCliente>>> GetByIdEntidae([FromQuery] int idEntidade, [FromQuery] PageParameters pageParameters)
     {
         if (idEntidade <= 0)
         {

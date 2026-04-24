@@ -458,7 +458,7 @@
             Gets a paginated list of clientes.
             </summary>
             <param name="pageParameters">Pagination parameters (page number and page size).</param>
-            <returns>A paged list containing the requested page of clientes.</returns>
+            <returns>A paged list containing the requested page of clientes as DTOs.</returns>
             <exception cref="T:System.Exception">Rethrows any exception after logging.</exception>
         </member>
         <member name="M:IntervencoesAPI.Services.ClienteService.GetByIdCliente(System.Int32)">

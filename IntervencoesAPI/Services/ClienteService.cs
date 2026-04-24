@@ -1,6 +1,7 @@
 using System.Data;
 using IntervencoesAPI.Data;
 using IntervencoesAPI.Dtos;
+using IntervencoesAPI.Dtos.ClienteDtos;
 using IntervencoesAPI.Models;
 
 using Microsoft.EntityFrameworkCore;
@@ -57,21 +58,31 @@ public class ClienteService
     /// Gets a paginated list of clientes.
     /// </summary>
     /// <param name="pageParameters">Pagination parameters (page number and page size).</param>
-    /// <returns>A paged list containing the requested page of clientes.</returns>
+    /// <returns>A paged list containing the requested page of clientes as DTOs.</returns>
     /// <exception cref="Exception">Rethrows any exception after logging.</exception>
-    public async Task<PagedList<Cliente>> GetAllPagedAsync(PageParameters pageParameters)
+    public async Task<PagedList<GetCliente>> GetAllPagedAsync(PageParameters pageParameters)
     {
         try
         {
             var query = _context.Clientes
                 .AsNoTracking()
-                .AsSplitQuery()
-                .Include(c => c.Entidade)
-                .Include(c => c.ProcessoProjectos)
-                .OrderBy(i => i.Id)
-                .AsQueryable();
+                .OrderBy(c => c.Id)
+                .Select(c => new GetCliente(
+                    c.Id,
+                    c.IdEntidade,
+                    c.Referencia,
+                    c.Observacoes,
+                    c.Estado,
+                    c.NProcesso,
+                    c.DataDeInicio,
+                    c.DataActualizacao,
+                    c.CliCampo1,
+                    c.CliCampo2,
+                    c.CliCampo3,
+                    c.CliCampo4
+                ));
 
-            return await PagedList<Cliente>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
+            return await PagedList<GetCliente>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
         }
         catch (Exception ex)
         {
@@ -86,16 +97,28 @@ public class ClienteService
     /// <param name="id">The cliente identifier.</param>
     /// <returns>The matching cliente, or <see langword="null"/> if not found.</returns>
     /// <exception cref="Exception">Rethrows any exception after logging.</exception>
-    public Cliente? GetByIdCliente(int id)
+    public async Task<GetCliente?>  GetByIdCliente(int id)
     {
         try
         {
-            return _context.Clientes
+            return await _context.Clientes
                 .AsNoTracking()
-                .AsSplitQuery()
-                .Include(c => c.Entidade)
-                .Include(c => c.ProcessoProjectos)
-                .FirstOrDefault(i => i.Id == id);
+                .Where(c => c.Id == id)
+                .Select(c => new GetCliente(
+                    c.Id,
+                    c.IdEntidade,
+                    c.Referencia,
+                    c.Observacoes,
+                    c.Estado,
+                    c.NProcesso,
+                    c.DataDeInicio,
+                    c.DataActualizacao,
+                    c.CliCampo1,
+                    c.CliCampo2,
+                    c.CliCampo3,
+                    c.CliCampo4
+                ))
+                .FirstOrDefaultAsync();
         }
         catch (Exception ex)
         {
@@ -111,16 +134,28 @@ public class ClienteService
     /// <param name="referencia">The reference value to look up.</param>
     /// <returns>The matching cliente, or <see langword="null"/> if not found.</returns>
     /// <exception cref="Exception">Rethrows any exception after logging.</exception>
-    public Cliente? GetByReferencia(string referencia)
+    public async Task<GetCliente?> GetByReferencia(string referencia)
     {
         try
         {
-            return _context.Clientes
+            return  await _context.Clientes
                 .AsNoTracking()
-                .AsSplitQuery()
-                .Include(c => c.Entidade)
-                .Include(c => c.ProcessoProjectos)
-                .FirstOrDefault(r => r.Referencia == referencia);
+                .Where(c => c.Referencia == referencia)
+                .Select(c => new GetCliente(
+                    c.Id,
+                    c.IdEntidade,
+                    c.Referencia,
+                    c.Observacoes,
+                    c.Estado,
+                    c.NProcesso,
+                    c.DataDeInicio,
+                    c.DataActualizacao,
+                    c.CliCampo1,
+                    c.CliCampo2,
+                    c.CliCampo3,
+                    c.CliCampo4
+                ))
+                .FirstOrDefaultAsync();
         }
         catch (Exception ex)
         {
@@ -135,16 +170,28 @@ public class ClienteService
     /// <param name="idEntidade">The entidade identifier.</param>
     /// <returns>The first matching cliente, or <see langword="null"/> if none exists.</returns>
     /// <exception cref="Exception">Rethrows any exception after logging.</exception>
-    public Cliente? GetByIdEntidade(int idEntidade)
+    public async Task<GetCliente?> GetByIdEntidade(int idEntidade)
     {
         try
         {
-            return _context.Clientes
+            return await _context.Clientes
                 .AsNoTracking()
-                .AsSplitQuery()
-                .Include(c => c.Entidade)
-                .Include(c => c.ProcessoProjectos)
-                .FirstOrDefault(r => r.IdEntidade == idEntidade);
+                .Where(c => c.IdEntidade == idEntidade)
+                .Select(c => new GetCliente(
+                    c.Id,
+                    c.IdEntidade,
+                    c.Referencia,
+                    c.Observacoes,
+                    c.Estado,
+                    c.NProcesso,
+                    c.DataDeInicio,
+                    c.DataActualizacao,
+                    c.CliCampo1,
+                    c.CliCampo2,
+                    c.CliCampo3,
+                    c.CliCampo4
+                ))
+                .FirstOrDefaultAsync();
         }
         catch (Exception ex)
         {
@@ -160,20 +207,31 @@ public class ClienteService
     /// <param name="pageParameters">Pagination parameters (page number and page size).</param>
     /// <returns>A paged list containing clientes associated with the provided entidade identifier.</returns>
     /// <exception cref="Exception">Rethrows any exception after logging.</exception>
-    public async Task<PagedList<Cliente>> GetByIdEntidadePagedAsync(int idEntidade, PageParameters pageParameters)
+    public async Task<PagedList<GetCliente>> GetByIdEntidadePagedAsync(int idEntidade, PageParameters pageParameters)
     {
         try
         {
-            var query = _context.Clientes
+            var query =  _context.Clientes
                 .AsNoTracking()
-                .AsSplitQuery()
-                .Include(c => c.Entidade)
-                .Include(c => c.ProcessoProjectos)
                 .Where(c => c.IdEntidade == idEntidade)
                 .OrderBy(c => c.Id)
+                .Select(c => new GetCliente(
+                    c.Id,
+                    c.IdEntidade,
+                    c.Referencia,
+                    c.Observacoes,
+                    c.Estado,
+                    c.NProcesso,
+                    c.DataDeInicio,
+                    c.DataActualizacao,
+                    c.CliCampo1,
+                    c.CliCampo2,
+                    c.CliCampo3,
+                    c.CliCampo4
+                ))
                 .AsQueryable();
 
-            return await PagedList<Cliente>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
+            return await PagedList<GetCliente>.CreateAsync(query, pageParameters.PageNumber, pageParameters.PageSize);
         }
         catch (Exception ex)
         {
