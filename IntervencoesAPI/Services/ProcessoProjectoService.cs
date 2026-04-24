@@ -42,6 +42,7 @@ public class ProcessoProjectoService
 				.AsNoTracking()
 				.AsSplitQuery()
 				.Include(p => p.Cliente)
+					.ThenInclude(c => c!.Entidade)
 				.Include(p => p.Intervencaos)
 				.OrderBy(i => i.Id)
 				.ToList();
@@ -69,6 +70,7 @@ public class ProcessoProjectoService
 				.AsNoTracking()
 				.AsSplitQuery()
 				.Include(p => p.Cliente)
+					.ThenInclude(c => c!.Entidade)
 				.Include(p => p.Intervencaos)
 				.OrderBy(i => i.Id)
 				.AsQueryable();
@@ -95,6 +97,7 @@ public class ProcessoProjectoService
 				.AsNoTracking()
 				.AsSplitQuery()
 				.Include(p => p.Cliente)
+					.ThenInclude(c => c!.Entidade)
 				.Include(p => p.Intervencaos)
 				.FirstOrDefault(i => i.Id == id);
 		}
@@ -118,6 +121,7 @@ public class ProcessoProjectoService
 				.AsNoTracking()
 				.AsSplitQuery()
 				.Include(p => p.Cliente)
+					.ThenInclude(c => c!.Entidade)
 				.Include(p => p.Intervencaos)
 				.FirstOrDefault(r => r.Referencia == referencia);
 		}
@@ -141,6 +145,7 @@ public class ProcessoProjectoService
 				.AsNoTracking()
 				.AsSplitQuery()
 				.Include(p => p.Cliente)
+					.ThenInclude(c => c!.Entidade)
 				.Include(p => p.Intervencaos)
 				.FirstOrDefault(c => c.ClienteId == IdCliente);
 		}
