@@ -6,6 +6,8 @@ public record GetCliente
 
     int IdEntidade,
 
+	string Nome,
+
 	string Referencia,
 
 	string Observacoes,

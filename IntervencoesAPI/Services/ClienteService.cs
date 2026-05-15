@@ -70,6 +70,7 @@ public class ClienteService
                 .Select(c => new GetCliente(
                     c.Id,
                     c.IdEntidade,
+                    c.Nome,
                     c.Referencia,
                     c.Observacoes,
                     c.Estado,
@@ -107,6 +108,7 @@ public class ClienteService
                 .Select(c => new GetCliente(
                     c.Id,
                     c.IdEntidade,
+                    c.Nome,
                     c.Referencia,
                     c.Observacoes,
                     c.Estado,
@@ -144,6 +146,7 @@ public class ClienteService
                 .Select(c => new GetCliente(
                     c.Id,
                     c.IdEntidade,
+                    c.Nome,
                     c.Referencia,
                     c.Observacoes,
                     c.Estado,
@@ -180,6 +183,7 @@ public class ClienteService
                 .Select(c => new GetCliente(
                     c.Id,
                     c.IdEntidade,
+                    c.Nome,
                     c.Referencia,
                     c.Observacoes,
                     c.Estado,
@@ -218,6 +222,7 @@ public class ClienteService
                 .Select(c => new GetCliente(
                     c.Id,
                     c.IdEntidade,
+                    c.Nome,
                     c.Referencia,
                     c.Observacoes,
                     c.Estado,
@@ -261,6 +266,7 @@ public class ClienteService
                 Observacoes = dto.Observacoes,
                 Estado = dto.Estado,
                 NProcesso = dto.NProcesso,
+                Nome = dto.Nome,
                 DataDeInicio = DateTime.UtcNow,
                 DataActualizacao = DateTime.UtcNow,
                 CliCampo1 = dto.CliCampo1,
@@ -315,6 +321,7 @@ public class ClienteService
             cliente.Observacoes = dto.Observacoes;
             cliente.Estado = dto.Estado;
             cliente.NProcesso = dto.NProcesso;
+            cliente.Nome = dto.Nome;
             cliente.DataActualizacao = DateTime.UtcNow;
             cliente.CliCampo1 = dto.CliCampo1;
             cliente.CliCampo2 = dto.CliCampo2;

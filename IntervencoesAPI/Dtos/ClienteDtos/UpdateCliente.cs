@@ -34,4 +34,8 @@ public record class UpdateCliente
     [Required]
     [MaxLength(100)]
 	string CliCampo4
+    ,
+
+    [MaxLength(255)]
+    string Nome = ""
 );

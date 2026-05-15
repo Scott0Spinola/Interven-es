@@ -14,10 +14,11 @@ namespace IntervencoesAPI.Models
 
         public string NProcesso { get; set; } = string.Empty;
 
+        public string Nome { get; set; } = string.Empty;
+
         public DateTime DataDeInicio { get; set; }
 
         public DateTime DataActualizacao { get; set; }
-
         public int CliCampo1 { get; set; }
 
         public int CliCampo2 { get; set; }

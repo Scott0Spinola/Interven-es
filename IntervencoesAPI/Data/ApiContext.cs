@@ -44,6 +44,10 @@ public class IntervencoesAPIContext(DbContextOptions<IntervencoesAPIContext> opt
             .WithMany(e => e.Clientes)
             .HasForeignKey(c => c.IdEntidade);
 
+        modelBuilder.Entity<Cliente>()
+            .Property(c => c.Nome)
+            .HasColumnName("nome");
+
         modelBuilder.Entity<ProcessoProjecto>()
             .HasOne(p => p.Cliente)
             .WithMany(c => c.ProcessoProjectos)
