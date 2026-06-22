@@ -435,6 +435,18 @@
         <member name="M:IntervencoesAPI.Data.Migrations.DecimalPrecision.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
         </member>
+        <member name="T:IntervencoesAPI.Data.Migrations.AddClienteNome">
+            <inheritdoc />
+        </member>
+        <member name="M:IntervencoesAPI.Data.Migrations.AddClienteNome.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:IntervencoesAPI.Data.Migrations.AddClienteNome.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:IntervencoesAPI.Data.Migrations.AddClienteNome.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
         <member name="M:IntervencoesAPI.Services.ClienteService.#ctor(IntervencoesAPI.Data.IntervencoesAPIContext,Microsoft.Extensions.Logging.ILogger{IntervencoesAPI.Services.ClienteService})">
             <summary>
             Initializes a new instance of <see cref="T:IntervencoesAPI.Services.ClienteService"/>.
